@@ -18,7 +18,7 @@ c1-configuration:
     test: http://testesb.zldcgroup.com/com.primeton.esb.zldc.app.corporation.v1company
     production: http://esb.zldcgroup.com/com.primeton.esb.zldc.app.corporation.v1company
   toC1:
-    test: http://172.16.8.185:8080//C1-Planning/mdAction!addDimMember.action
+    test: http://172.16.8.185:8080/C1-Planning/mdAction!addDimMember.action
     production: http://172.16.8.185:8080/C1-Planning/mdAction!addDimMember.action
   toTBase:
     test: http://172.16.8.185:8080/C1-Planning/mdAction!sychDims.action
@@ -56,4 +56,4 @@ TrueOrFalseToC1: true
 TrueOrfalseToTbase: true
 
 #同步到C1的维度名称
-org: 组织测试1
+org: 组织
