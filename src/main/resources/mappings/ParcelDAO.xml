@@ -1,0 +1,1298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yuanian.masterdata.dao.ParcelDAO">
+  <resultMap id="BaseResultMap" type="com.yuanian.masterdata.entity.Parcel">
+    <result column="PARCELVERSIONID" jdbcType="OTHER" property="parcelversionid" />
+    <result column="PROJECTID" jdbcType="VARCHAR" property="projectid" />
+    <result column="PROJECTCODE" jdbcType="VARCHAR" property="projectcode" />
+    <result column="PARCELCODE" jdbcType="VARCHAR" property="parcelcode" />
+    <result column="PARCELID" jdbcType="VARCHAR" property="parcelid" />
+    <result column="PARCELNAME" jdbcType="OTHER" property="parcelname" />
+    <result column="FCOMPANYCODE" jdbcType="VARCHAR" property="fcompanycode" />
+    <result column="FCOMPANYNAME" jdbcType="OTHER" property="fcompanyname" />
+    <result column="VERSION" jdbcType="DECIMAL" property="version" />
+    <result column="PARCELGENERALIZENAME" jdbcType="OTHER" property="parcelgeneralizename" />
+    <result column="CONTRACTCODE" jdbcType="VARCHAR" property="contractcode" />
+    <result column="CONTRACTAMOUNT" jdbcType="DECIMAL" property="contractamount" />
+    <result column="PARCELSTATUS" jdbcType="VARCHAR" property="parcelstatus" />
+    <result column="PARCELPROPERTY" jdbcType="VARCHAR" property="parcelproperty" />
+    <result column="PARCELGAINDATE" jdbcType="OTHER" property="parcelgaindate" />
+    <result column="PARCELTRANSFERDATE" jdbcType="OTHER" property="parceltransferdate" />
+    <result column="PARCELSELLTYPE" jdbcType="VARCHAR" property="parcelselltype" />
+    <result column="PARCELSELLMAN" jdbcType="OTHER" property="parcelsellman" />
+    <result column="ADDRESS" jdbcType="OTHER" property="address" />
+    <result column="DATASTAGE" jdbcType="VARCHAR" property="datastage" />
+    <result column="TOTALUSEAREA" jdbcType="DECIMAL" property="totalusearea" />
+    <result column="BUILDINGAREA" jdbcType="DECIMAL" property="buildingarea" />
+    <result column="EXPROPRIATEDAREA" jdbcType="DECIMAL" property="expropriatedarea" />
+    <result column="EXPROPRIATEDGREENAREA" jdbcType="DECIMAL" property="expropriatedgreenarea" />
+    <result column="EXPROPRIATEDROADAREA" jdbcType="DECIMAL" property="expropriatedroadarea" />
+    <result column="EXPROPRIATEDOTHERAREA" jdbcType="DECIMAL" property="expropriatedotherarea" />
+    <result column="BUILDINGHOLDAREA" jdbcType="DECIMAL" property="buildingholdarea" />
+    <result column="TOTALROADAREA" jdbcType="DECIMAL" property="totalroadarea" />
+    <result column="TOTALGREENAREA" jdbcType="DECIMAL" property="totalgreenarea" />
+    <result column="DEMONSTRATIONAREA" jdbcType="DECIMAL" property="demonstrationarea" />
+    <result column="TOTALCAPACITYAREA" jdbcType="DECIMAL" property="totalcapacityarea" />
+    <result column="UPCAPACITYAREA" jdbcType="DECIMAL" property="upcapacityarea" />
+    <result column="DOWNCAPACITYAREA" jdbcType="DECIMAL" property="downcapacityarea" />
+    <result column="UPNONCAPACITYAREA" jdbcType="DECIMAL" property="upnoncapacityarea" />
+    <result column="DOWNNONCAPACITYAREA" jdbcType="DECIMAL" property="downnoncapacityarea" />
+    <result column="TOTALBUILDINGAREA" jdbcType="DECIMAL" property="totalbuildingarea" />
+    <result column="UPBUILDINGAREA" jdbcType="DECIMAL" property="upbuildingarea" />
+    <result column="DOWNBUILDINGAREA" jdbcType="DECIMAL" property="downbuildingarea" />
+    <result column="DOWNGARAGEAREA" jdbcType="DECIMAL" property="downgaragearea" />
+    <result column="STILTFLOORAREA" jdbcType="DECIMAL" property="stiltfloorarea" />
+    <result column="TOWERDOWNAREA" jdbcType="DECIMAL" property="towerdownarea" />
+    <result column="STOREROOMNUM" jdbcType="DECIMAL" property="storeroomnum" />
+    <result column="STOREROOMAREA" jdbcType="DECIMAL" property="storeroomarea" />
+    <result column="TOTALSELLAREA" jdbcType="DECIMAL" property="totalsellarea" />
+    <result column="UPSELFSELLAREA" jdbcType="DECIMAL" property="upselfsellarea" />
+    <result column="UPAVAILABLESELLAREA" jdbcType="DECIMAL" property="upavailablesellarea" />
+    <result column="UPGOVERNMENTAREA" jdbcType="DECIMAL" property="upgovernmentarea" />
+    <result column="DOWNSELFSELLAREA" jdbcType="DECIMAL" property="downselfsellarea" />
+    <result column="DOWNOTHERSELLAREA" jdbcType="DECIMAL" property="downothersellarea" />
+    <result column="TOTALPRESENTAREA" jdbcType="DECIMAL" property="totalpresentarea" />
+    <result column="UPPRESENTAREA" jdbcType="DECIMAL" property="uppresentarea" />
+    <result column="DOWNPRESENTAREA" jdbcType="DECIMAL" property="downpresentarea" />
+    <result column="ADDITIONALAREA" jdbcType="DECIMAL" property="additionalarea" />
+    <result column="BUILDINGMAXHEIGHT" jdbcType="VARCHAR" property="buildingmaxheight" />
+    <result column="PLANRATIO" jdbcType="VARCHAR" property="planratio" />
+    <result column="PLANDENSITY" jdbcType="VARCHAR" property="plandensity" />
+    <result column="BUILDINGMINHEIGHT" jdbcType="VARCHAR" property="buildingminheight" />
+    <result column="REALRATIO" jdbcType="DECIMAL" property="realratio" />
+    <result column="REALDENSITY" jdbcType="DECIMAL" property="realdensity" />
+    <result column="AVAILABLETHAN" jdbcType="DECIMAL" property="availablethan" />
+    <result column="TOTALSTALLNUM" jdbcType="DECIMAL" property="totalstallnum" />
+    <result column="UPSTALLNUM" jdbcType="DECIMAL" property="upstallnum" />
+    <result column="UPGROUNDSTALLNUM" jdbcType="DECIMAL" property="upgroundstallnum" />
+    <result column="SEMIUNDERGROUNDSTALLNUM" jdbcType="DECIMAL" property="semiundergroundstallnum" />
+    <result column="STALLNUMINBUILDING" jdbcType="DECIMAL" property="stallnuminbuilding" />
+    <result column="DOWNAUTOSTALLNUM" jdbcType="DECIMAL" property="downautostallnum" />
+    <result column="DOWNDEFENCENUM" jdbcType="DECIMAL" property="downdefencenum" />
+    <result column="DOWNDEFENCEMACHINENUM" jdbcType="DECIMAL" property="downdefencemachinenum" />
+    <result column="DOWNDEFENCENONMACHINENUM" jdbcType="DECIMAL" property="downdefencenonmachinenum" />
+    <result column="DOWNNONDEFENCENUM" jdbcType="DECIMAL" property="downnondefencenum" />
+    <result column="DOWNNONDEFENCEMACHINENUM" jdbcType="DECIMAL" property="downnondefencemachinenum" />
+    <result column="DOWNNONDEFENCENONMACHINENUM" jdbcType="DECIMAL" property="downnondefencenonmachinenum" />
+    <result column="SEMIDOWNNODEFENCEMACHINENUM" jdbcType="DECIMAL" property="semidownnodefencemachinenum" />
+    <result column="DOWNNONAUTOSTALLNUM" jdbcType="DECIMAL" property="downnonautostallnum" />
+    <result column="PLANGREENRADIO" jdbcType="VARCHAR" property="plangreenradio" />
+    <result column="GREENRADIO" jdbcType="DECIMAL" property="greenradio" />
+    <result column="STALLAREA" jdbcType="DECIMAL" property="stallarea" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="HOUSETYPENUM" jdbcType="DECIMAL" property="housetypenum" />
+    <result column="SELLSYSTEMCODE" jdbcType="VARCHAR" property="sellsystemcode" />
+    <result column="COSTSYSTEMCODE" jdbcType="VARCHAR" property="costsystemcode" />
+    <result column="PURCHASESYSTEMCODE" jdbcType="VARCHAR" property="purchasesystemcode" />
+    <result column="FINANCIALSYSTEMCODE" jdbcType="VARCHAR" property="financialsystemcode" />
+    <result column="CREATEUSER" jdbcType="VARCHAR" property="createuser" />
+    <result column="CREATEDATE" jdbcType="OTHER" property="createdate" />
+    <result column="MODIFYUSER" jdbcType="VARCHAR" property="modifyuser" />
+    <result column="MODIFYDATE" jdbcType="OTHER" property="modifydate" />
+    <result column="F1" jdbcType="OTHER" property="f1" />
+    <result column="F2" jdbcType="OTHER" property="f2" />
+    <result column="F3" jdbcType="OTHER" property="f3" />
+    <result column="FCOMPANYID" jdbcType="OTHER" property="fcompanyid" />
+    <result column="PROJECTVERSIONID" jdbcType="OTHER" property="projectversionid" />
+    <result column="REMARK" jdbcType="OTHER" property="remark" />
+    <result column="NOSELLSTALLNUM" jdbcType="DECIMAL" property="nosellstallnum" />
+    <result column="DOWNDEFENCESELLNUM" jdbcType="DECIMAL" property="downdefencesellnum" />
+    <result column="DOWNNONDEFENCESELLNUM" jdbcType="DECIMAL" property="downnondefencesellnum" />
+    <result column="PARCELTYPE" jdbcType="OTHER" property="parceltype" />
+    <result column="FCOMPANYCODECHANGE" jdbcType="VARCHAR" property="fcompanycodechange" />
+    <result column="FCOMPANYIDCHANGE" jdbcType="OTHER" property="fcompanyidchange" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    PARCELVERSIONID, PROJECTID, PROJECTCODE, PARCELCODE, PARCELID, PARCELNAME, FCOMPANYCODE, 
+    FCOMPANYNAME, VERSION, PARCELGENERALIZENAME, CONTRACTCODE, CONTRACTAMOUNT, PARCELSTATUS, 
+    PARCELPROPERTY, PARCELGAINDATE, PARCELTRANSFERDATE, PARCELSELLTYPE, PARCELSELLMAN, 
+    ADDRESS, DATASTAGE, TOTALUSEAREA, BUILDINGAREA, EXPROPRIATEDAREA, EXPROPRIATEDGREENAREA, 
+    EXPROPRIATEDROADAREA, EXPROPRIATEDOTHERAREA, BUILDINGHOLDAREA, TOTALROADAREA, TOTALGREENAREA, 
+    DEMONSTRATIONAREA, TOTALCAPACITYAREA, UPCAPACITYAREA, DOWNCAPACITYAREA, UPNONCAPACITYAREA, 
+    DOWNNONCAPACITYAREA, TOTALBUILDINGAREA, UPBUILDINGAREA, DOWNBUILDINGAREA, DOWNGARAGEAREA, 
+    STILTFLOORAREA, TOWERDOWNAREA, STOREROOMNUM, STOREROOMAREA, TOTALSELLAREA, UPSELFSELLAREA, 
+    UPAVAILABLESELLAREA, UPGOVERNMENTAREA, DOWNSELFSELLAREA, DOWNOTHERSELLAREA, TOTALPRESENTAREA, 
+    UPPRESENTAREA, DOWNPRESENTAREA, ADDITIONALAREA, BUILDINGMAXHEIGHT, PLANRATIO, PLANDENSITY, 
+    BUILDINGMINHEIGHT, REALRATIO, REALDENSITY, AVAILABLETHAN, TOTALSTALLNUM, UPSTALLNUM, 
+    UPGROUNDSTALLNUM, SEMIUNDERGROUNDSTALLNUM, STALLNUMINBUILDING, DOWNAUTOSTALLNUM, 
+    DOWNDEFENCENUM, DOWNDEFENCEMACHINENUM, DOWNDEFENCENONMACHINENUM, DOWNNONDEFENCENUM, 
+    DOWNNONDEFENCEMACHINENUM, DOWNNONDEFENCENONMACHINENUM, SEMIDOWNNODEFENCEMACHINENUM, 
+    DOWNNONAUTOSTALLNUM, PLANGREENRADIO, GREENRADIO, STALLAREA, STATUS, HOUSETYPENUM, 
+    SELLSYSTEMCODE, COSTSYSTEMCODE, PURCHASESYSTEMCODE, FINANCIALSYSTEMCODE, CREATEUSER, 
+    CREATEDATE, MODIFYUSER, MODIFYDATE, F1, F2, F3, FCOMPANYID, PROJECTVERSIONID, REMARK, 
+    NOSELLSTALLNUM, DOWNDEFENCESELLNUM, DOWNNONDEFENCESELLNUM, PARCELTYPE, FCOMPANYCODECHANGE, 
+    FCOMPANYIDCHANGE, UPDATE_TIME
+  </sql>
+  <select id="selectByExample" parameterType="com.yuanian.masterdata.entity.ParcelExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from T_MDS_PARCEL
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <insert id="insert" parameterType="com.yuanian.masterdata.entity.Parcel">
+    insert into T_MDS_PARCEL (PARCELVERSIONID, PROJECTID, PROJECTCODE, 
+      PARCELCODE, PARCELID, PARCELNAME, 
+      FCOMPANYCODE, FCOMPANYNAME, VERSION, 
+      PARCELGENERALIZENAME, CONTRACTCODE, CONTRACTAMOUNT, 
+      PARCELSTATUS, PARCELPROPERTY, PARCELGAINDATE, 
+      PARCELTRANSFERDATE, PARCELSELLTYPE, PARCELSELLMAN, 
+      ADDRESS, DATASTAGE, TOTALUSEAREA, 
+      BUILDINGAREA, EXPROPRIATEDAREA, EXPROPRIATEDGREENAREA, 
+      EXPROPRIATEDROADAREA, EXPROPRIATEDOTHERAREA, 
+      BUILDINGHOLDAREA, TOTALROADAREA, TOTALGREENAREA, 
+      DEMONSTRATIONAREA, TOTALCAPACITYAREA, UPCAPACITYAREA, 
+      DOWNCAPACITYAREA, UPNONCAPACITYAREA, DOWNNONCAPACITYAREA, 
+      TOTALBUILDINGAREA, UPBUILDINGAREA, DOWNBUILDINGAREA, 
+      DOWNGARAGEAREA, STILTFLOORAREA, TOWERDOWNAREA, 
+      STOREROOMNUM, STOREROOMAREA, TOTALSELLAREA, 
+      UPSELFSELLAREA, UPAVAILABLESELLAREA, UPGOVERNMENTAREA, 
+      DOWNSELFSELLAREA, DOWNOTHERSELLAREA, TOTALPRESENTAREA, 
+      UPPRESENTAREA, DOWNPRESENTAREA, ADDITIONALAREA, 
+      BUILDINGMAXHEIGHT, PLANRATIO, PLANDENSITY, 
+      BUILDINGMINHEIGHT, REALRATIO, REALDENSITY, 
+      AVAILABLETHAN, TOTALSTALLNUM, UPSTALLNUM, 
+      UPGROUNDSTALLNUM, SEMIUNDERGROUNDSTALLNUM, 
+      STALLNUMINBUILDING, DOWNAUTOSTALLNUM, DOWNDEFENCENUM, 
+      DOWNDEFENCEMACHINENUM, DOWNDEFENCENONMACHINENUM, 
+      DOWNNONDEFENCENUM, DOWNNONDEFENCEMACHINENUM, 
+      DOWNNONDEFENCENONMACHINENUM, SEMIDOWNNODEFENCEMACHINENUM, 
+      DOWNNONAUTOSTALLNUM, PLANGREENRADIO, GREENRADIO, 
+      STALLAREA, STATUS, HOUSETYPENUM, 
+      SELLSYSTEMCODE, COSTSYSTEMCODE, PURCHASESYSTEMCODE, 
+      FINANCIALSYSTEMCODE, CREATEUSER, CREATEDATE, 
+      MODIFYUSER, MODIFYDATE, F1, 
+      F2, F3, FCOMPANYID, PROJECTVERSIONID, 
+      REMARK, NOSELLSTALLNUM, DOWNDEFENCESELLNUM, 
+      DOWNNONDEFENCESELLNUM, PARCELTYPE, FCOMPANYCODECHANGE, 
+      FCOMPANYIDCHANGE, UPDATE_TIME)
+    values (#{parcelversionid,jdbcType=OTHER}, #{projectid,jdbcType=VARCHAR}, #{projectcode,jdbcType=VARCHAR}, 
+      #{parcelcode,jdbcType=VARCHAR}, #{parcelid,jdbcType=VARCHAR}, #{parcelname,jdbcType=OTHER}, 
+      #{fcompanycode,jdbcType=VARCHAR}, #{fcompanyname,jdbcType=OTHER}, #{version,jdbcType=DECIMAL}, 
+      #{parcelgeneralizename,jdbcType=OTHER}, #{contractcode,jdbcType=VARCHAR}, #{contractamount,jdbcType=DECIMAL}, 
+      #{parcelstatus,jdbcType=VARCHAR}, #{parcelproperty,jdbcType=VARCHAR}, #{parcelgaindate,jdbcType=OTHER}, 
+      #{parceltransferdate,jdbcType=OTHER}, #{parcelselltype,jdbcType=VARCHAR}, #{parcelsellman,jdbcType=OTHER}, 
+      #{address,jdbcType=OTHER}, #{datastage,jdbcType=VARCHAR}, #{totalusearea,jdbcType=DECIMAL}, 
+      #{buildingarea,jdbcType=DECIMAL}, #{expropriatedarea,jdbcType=DECIMAL}, #{expropriatedgreenarea,jdbcType=DECIMAL}, 
+      #{expropriatedroadarea,jdbcType=DECIMAL}, #{expropriatedotherarea,jdbcType=DECIMAL}, 
+      #{buildingholdarea,jdbcType=DECIMAL}, #{totalroadarea,jdbcType=DECIMAL}, #{totalgreenarea,jdbcType=DECIMAL}, 
+      #{demonstrationarea,jdbcType=DECIMAL}, #{totalcapacityarea,jdbcType=DECIMAL}, #{upcapacityarea,jdbcType=DECIMAL}, 
+      #{downcapacityarea,jdbcType=DECIMAL}, #{upnoncapacityarea,jdbcType=DECIMAL}, #{downnoncapacityarea,jdbcType=DECIMAL}, 
+      #{totalbuildingarea,jdbcType=DECIMAL}, #{upbuildingarea,jdbcType=DECIMAL}, #{downbuildingarea,jdbcType=DECIMAL}, 
+      #{downgaragearea,jdbcType=DECIMAL}, #{stiltfloorarea,jdbcType=DECIMAL}, #{towerdownarea,jdbcType=DECIMAL}, 
+      #{storeroomnum,jdbcType=DECIMAL}, #{storeroomarea,jdbcType=DECIMAL}, #{totalsellarea,jdbcType=DECIMAL}, 
+      #{upselfsellarea,jdbcType=DECIMAL}, #{upavailablesellarea,jdbcType=DECIMAL}, #{upgovernmentarea,jdbcType=DECIMAL}, 
+      #{downselfsellarea,jdbcType=DECIMAL}, #{downothersellarea,jdbcType=DECIMAL}, #{totalpresentarea,jdbcType=DECIMAL}, 
+      #{uppresentarea,jdbcType=DECIMAL}, #{downpresentarea,jdbcType=DECIMAL}, #{additionalarea,jdbcType=DECIMAL}, 
+      #{buildingmaxheight,jdbcType=VARCHAR}, #{planratio,jdbcType=VARCHAR}, #{plandensity,jdbcType=VARCHAR}, 
+      #{buildingminheight,jdbcType=VARCHAR}, #{realratio,jdbcType=DECIMAL}, #{realdensity,jdbcType=DECIMAL}, 
+      #{availablethan,jdbcType=DECIMAL}, #{totalstallnum,jdbcType=DECIMAL}, #{upstallnum,jdbcType=DECIMAL}, 
+      #{upgroundstallnum,jdbcType=DECIMAL}, #{semiundergroundstallnum,jdbcType=DECIMAL}, 
+      #{stallnuminbuilding,jdbcType=DECIMAL}, #{downautostallnum,jdbcType=DECIMAL}, #{downdefencenum,jdbcType=DECIMAL}, 
+      #{downdefencemachinenum,jdbcType=DECIMAL}, #{downdefencenonmachinenum,jdbcType=DECIMAL}, 
+      #{downnondefencenum,jdbcType=DECIMAL}, #{downnondefencemachinenum,jdbcType=DECIMAL}, 
+      #{downnondefencenonmachinenum,jdbcType=DECIMAL}, #{semidownnodefencemachinenum,jdbcType=DECIMAL}, 
+      #{downnonautostallnum,jdbcType=DECIMAL}, #{plangreenradio,jdbcType=VARCHAR}, #{greenradio,jdbcType=DECIMAL}, 
+      #{stallarea,jdbcType=DECIMAL}, #{status,jdbcType=VARCHAR}, #{housetypenum,jdbcType=DECIMAL}, 
+      #{sellsystemcode,jdbcType=VARCHAR}, #{costsystemcode,jdbcType=VARCHAR}, #{purchasesystemcode,jdbcType=VARCHAR}, 
+      #{financialsystemcode,jdbcType=VARCHAR}, #{createuser,jdbcType=VARCHAR}, #{createdate,jdbcType=OTHER}, 
+      #{modifyuser,jdbcType=VARCHAR}, #{modifydate,jdbcType=OTHER}, #{f1,jdbcType=OTHER}, 
+      #{f2,jdbcType=OTHER}, #{f3,jdbcType=OTHER}, #{fcompanyid,jdbcType=OTHER}, #{projectversionid,jdbcType=OTHER}, 
+      #{remark,jdbcType=OTHER}, #{nosellstallnum,jdbcType=DECIMAL}, #{downdefencesellnum,jdbcType=DECIMAL}, 
+      #{downnondefencesellnum,jdbcType=DECIMAL}, #{parceltype,jdbcType=OTHER}, #{fcompanycodechange,jdbcType=VARCHAR}, 
+      #{fcompanyidchange,jdbcType=OTHER}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yuanian.masterdata.entity.Parcel">
+    insert into T_MDS_PARCEL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="parcelversionid != null">
+        PARCELVERSIONID,
+      </if>
+      <if test="projectid != null">
+        PROJECTID,
+      </if>
+      <if test="projectcode != null">
+        PROJECTCODE,
+      </if>
+      <if test="parcelcode != null">
+        PARCELCODE,
+      </if>
+      <if test="parcelid != null">
+        PARCELID,
+      </if>
+      <if test="parcelname != null">
+        PARCELNAME,
+      </if>
+      <if test="fcompanycode != null">
+        FCOMPANYCODE,
+      </if>
+      <if test="fcompanyname != null">
+        FCOMPANYNAME,
+      </if>
+      <if test="version != null">
+        VERSION,
+      </if>
+      <if test="parcelgeneralizename != null">
+        PARCELGENERALIZENAME,
+      </if>
+      <if test="contractcode != null">
+        CONTRACTCODE,
+      </if>
+      <if test="contractamount != null">
+        CONTRACTAMOUNT,
+      </if>
+      <if test="parcelstatus != null">
+        PARCELSTATUS,
+      </if>
+      <if test="parcelproperty != null">
+        PARCELPROPERTY,
+      </if>
+      <if test="parcelgaindate != null">
+        PARCELGAINDATE,
+      </if>
+      <if test="parceltransferdate != null">
+        PARCELTRANSFERDATE,
+      </if>
+      <if test="parcelselltype != null">
+        PARCELSELLTYPE,
+      </if>
+      <if test="parcelsellman != null">
+        PARCELSELLMAN,
+      </if>
+      <if test="address != null">
+        ADDRESS,
+      </if>
+      <if test="datastage != null">
+        DATASTAGE,
+      </if>
+      <if test="totalusearea != null">
+        TOTALUSEAREA,
+      </if>
+      <if test="buildingarea != null">
+        BUILDINGAREA,
+      </if>
+      <if test="expropriatedarea != null">
+        EXPROPRIATEDAREA,
+      </if>
+      <if test="expropriatedgreenarea != null">
+        EXPROPRIATEDGREENAREA,
+      </if>
+      <if test="expropriatedroadarea != null">
+        EXPROPRIATEDROADAREA,
+      </if>
+      <if test="expropriatedotherarea != null">
+        EXPROPRIATEDOTHERAREA,
+      </if>
+      <if test="buildingholdarea != null">
+        BUILDINGHOLDAREA,
+      </if>
+      <if test="totalroadarea != null">
+        TOTALROADAREA,
+      </if>
+      <if test="totalgreenarea != null">
+        TOTALGREENAREA,
+      </if>
+      <if test="demonstrationarea != null">
+        DEMONSTRATIONAREA,
+      </if>
+      <if test="totalcapacityarea != null">
+        TOTALCAPACITYAREA,
+      </if>
+      <if test="upcapacityarea != null">
+        UPCAPACITYAREA,
+      </if>
+      <if test="downcapacityarea != null">
+        DOWNCAPACITYAREA,
+      </if>
+      <if test="upnoncapacityarea != null">
+        UPNONCAPACITYAREA,
+      </if>
+      <if test="downnoncapacityarea != null">
+        DOWNNONCAPACITYAREA,
+      </if>
+      <if test="totalbuildingarea != null">
+        TOTALBUILDINGAREA,
+      </if>
+      <if test="upbuildingarea != null">
+        UPBUILDINGAREA,
+      </if>
+      <if test="downbuildingarea != null">
+        DOWNBUILDINGAREA,
+      </if>
+      <if test="downgaragearea != null">
+        DOWNGARAGEAREA,
+      </if>
+      <if test="stiltfloorarea != null">
+        STILTFLOORAREA,
+      </if>
+      <if test="towerdownarea != null">
+        TOWERDOWNAREA,
+      </if>
+      <if test="storeroomnum != null">
+        STOREROOMNUM,
+      </if>
+      <if test="storeroomarea != null">
+        STOREROOMAREA,
+      </if>
+      <if test="totalsellarea != null">
+        TOTALSELLAREA,
+      </if>
+      <if test="upselfsellarea != null">
+        UPSELFSELLAREA,
+      </if>
+      <if test="upavailablesellarea != null">
+        UPAVAILABLESELLAREA,
+      </if>
+      <if test="upgovernmentarea != null">
+        UPGOVERNMENTAREA,
+      </if>
+      <if test="downselfsellarea != null">
+        DOWNSELFSELLAREA,
+      </if>
+      <if test="downothersellarea != null">
+        DOWNOTHERSELLAREA,
+      </if>
+      <if test="totalpresentarea != null">
+        TOTALPRESENTAREA,
+      </if>
+      <if test="uppresentarea != null">
+        UPPRESENTAREA,
+      </if>
+      <if test="downpresentarea != null">
+        DOWNPRESENTAREA,
+      </if>
+      <if test="additionalarea != null">
+        ADDITIONALAREA,
+      </if>
+      <if test="buildingmaxheight != null">
+        BUILDINGMAXHEIGHT,
+      </if>
+      <if test="planratio != null">
+        PLANRATIO,
+      </if>
+      <if test="plandensity != null">
+        PLANDENSITY,
+      </if>
+      <if test="buildingminheight != null">
+        BUILDINGMINHEIGHT,
+      </if>
+      <if test="realratio != null">
+        REALRATIO,
+      </if>
+      <if test="realdensity != null">
+        REALDENSITY,
+      </if>
+      <if test="availablethan != null">
+        AVAILABLETHAN,
+      </if>
+      <if test="totalstallnum != null">
+        TOTALSTALLNUM,
+      </if>
+      <if test="upstallnum != null">
+        UPSTALLNUM,
+      </if>
+      <if test="upgroundstallnum != null">
+        UPGROUNDSTALLNUM,
+      </if>
+      <if test="semiundergroundstallnum != null">
+        SEMIUNDERGROUNDSTALLNUM,
+      </if>
+      <if test="stallnuminbuilding != null">
+        STALLNUMINBUILDING,
+      </if>
+      <if test="downautostallnum != null">
+        DOWNAUTOSTALLNUM,
+      </if>
+      <if test="downdefencenum != null">
+        DOWNDEFENCENUM,
+      </if>
+      <if test="downdefencemachinenum != null">
+        DOWNDEFENCEMACHINENUM,
+      </if>
+      <if test="downdefencenonmachinenum != null">
+        DOWNDEFENCENONMACHINENUM,
+      </if>
+      <if test="downnondefencenum != null">
+        DOWNNONDEFENCENUM,
+      </if>
+      <if test="downnondefencemachinenum != null">
+        DOWNNONDEFENCEMACHINENUM,
+      </if>
+      <if test="downnondefencenonmachinenum != null">
+        DOWNNONDEFENCENONMACHINENUM,
+      </if>
+      <if test="semidownnodefencemachinenum != null">
+        SEMIDOWNNODEFENCEMACHINENUM,
+      </if>
+      <if test="downnonautostallnum != null">
+        DOWNNONAUTOSTALLNUM,
+      </if>
+      <if test="plangreenradio != null">
+        PLANGREENRADIO,
+      </if>
+      <if test="greenradio != null">
+        GREENRADIO,
+      </if>
+      <if test="stallarea != null">
+        STALLAREA,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="housetypenum != null">
+        HOUSETYPENUM,
+      </if>
+      <if test="sellsystemcode != null">
+        SELLSYSTEMCODE,
+      </if>
+      <if test="costsystemcode != null">
+        COSTSYSTEMCODE,
+      </if>
+      <if test="purchasesystemcode != null">
+        PURCHASESYSTEMCODE,
+      </if>
+      <if test="financialsystemcode != null">
+        FINANCIALSYSTEMCODE,
+      </if>
+      <if test="createuser != null">
+        CREATEUSER,
+      </if>
+      <if test="createdate != null">
+        CREATEDATE,
+      </if>
+      <if test="modifyuser != null">
+        MODIFYUSER,
+      </if>
+      <if test="modifydate != null">
+        MODIFYDATE,
+      </if>
+      <if test="f1 != null">
+        F1,
+      </if>
+      <if test="f2 != null">
+        F2,
+      </if>
+      <if test="f3 != null">
+        F3,
+      </if>
+      <if test="fcompanyid != null">
+        FCOMPANYID,
+      </if>
+      <if test="projectversionid != null">
+        PROJECTVERSIONID,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="nosellstallnum != null">
+        NOSELLSTALLNUM,
+      </if>
+      <if test="downdefencesellnum != null">
+        DOWNDEFENCESELLNUM,
+      </if>
+      <if test="downnondefencesellnum != null">
+        DOWNNONDEFENCESELLNUM,
+      </if>
+      <if test="parceltype != null">
+        PARCELTYPE,
+      </if>
+      <if test="fcompanycodechange != null">
+        FCOMPANYCODECHANGE,
+      </if>
+      <if test="fcompanyidchange != null">
+        FCOMPANYIDCHANGE,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="parcelversionid != null">
+        #{parcelversionid,jdbcType=OTHER},
+      </if>
+      <if test="projectid != null">
+        #{projectid,jdbcType=VARCHAR},
+      </if>
+      <if test="projectcode != null">
+        #{projectcode,jdbcType=VARCHAR},
+      </if>
+      <if test="parcelcode != null">
+        #{parcelcode,jdbcType=VARCHAR},
+      </if>
+      <if test="parcelid != null">
+        #{parcelid,jdbcType=VARCHAR},
+      </if>
+      <if test="parcelname != null">
+        #{parcelname,jdbcType=OTHER},
+      </if>
+      <if test="fcompanycode != null">
+        #{fcompanycode,jdbcType=VARCHAR},
+      </if>
+      <if test="fcompanyname != null">
+        #{fcompanyname,jdbcType=OTHER},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=DECIMAL},
+      </if>
+      <if test="parcelgeneralizename != null">
+        #{parcelgeneralizename,jdbcType=OTHER},
+      </if>
+      <if test="contractcode != null">
+        #{contractcode,jdbcType=VARCHAR},
+      </if>
+      <if test="contractamount != null">
+        #{contractamount,jdbcType=DECIMAL},
+      </if>
+      <if test="parcelstatus != null">
+        #{parcelstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="parcelproperty != null">
+        #{parcelproperty,jdbcType=VARCHAR},
+      </if>
+      <if test="parcelgaindate != null">
+        #{parcelgaindate,jdbcType=OTHER},
+      </if>
+      <if test="parceltransferdate != null">
+        #{parceltransferdate,jdbcType=OTHER},
+      </if>
+      <if test="parcelselltype != null">
+        #{parcelselltype,jdbcType=VARCHAR},
+      </if>
+      <if test="parcelsellman != null">
+        #{parcelsellman,jdbcType=OTHER},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=OTHER},
+      </if>
+      <if test="datastage != null">
+        #{datastage,jdbcType=VARCHAR},
+      </if>
+      <if test="totalusearea != null">
+        #{totalusearea,jdbcType=DECIMAL},
+      </if>
+      <if test="buildingarea != null">
+        #{buildingarea,jdbcType=DECIMAL},
+      </if>
+      <if test="expropriatedarea != null">
+        #{expropriatedarea,jdbcType=DECIMAL},
+      </if>
+      <if test="expropriatedgreenarea != null">
+        #{expropriatedgreenarea,jdbcType=DECIMAL},
+      </if>
+      <if test="expropriatedroadarea != null">
+        #{expropriatedroadarea,jdbcType=DECIMAL},
+      </if>
+      <if test="expropriatedotherarea != null">
+        #{expropriatedotherarea,jdbcType=DECIMAL},
+      </if>
+      <if test="buildingholdarea != null">
+        #{buildingholdarea,jdbcType=DECIMAL},
+      </if>
+      <if test="totalroadarea != null">
+        #{totalroadarea,jdbcType=DECIMAL},
+      </if>
+      <if test="totalgreenarea != null">
+        #{totalgreenarea,jdbcType=DECIMAL},
+      </if>
+      <if test="demonstrationarea != null">
+        #{demonstrationarea,jdbcType=DECIMAL},
+      </if>
+      <if test="totalcapacityarea != null">
+        #{totalcapacityarea,jdbcType=DECIMAL},
+      </if>
+      <if test="upcapacityarea != null">
+        #{upcapacityarea,jdbcType=DECIMAL},
+      </if>
+      <if test="downcapacityarea != null">
+        #{downcapacityarea,jdbcType=DECIMAL},
+      </if>
+      <if test="upnoncapacityarea != null">
+        #{upnoncapacityarea,jdbcType=DECIMAL},
+      </if>
+      <if test="downnoncapacityarea != null">
+        #{downnoncapacityarea,jdbcType=DECIMAL},
+      </if>
+      <if test="totalbuildingarea != null">
+        #{totalbuildingarea,jdbcType=DECIMAL},
+      </if>
+      <if test="upbuildingarea != null">
+        #{upbuildingarea,jdbcType=DECIMAL},
+      </if>
+      <if test="downbuildingarea != null">
+        #{downbuildingarea,jdbcType=DECIMAL},
+      </if>
+      <if test="downgaragearea != null">
+        #{downgaragearea,jdbcType=DECIMAL},
+      </if>
+      <if test="stiltfloorarea != null">
+        #{stiltfloorarea,jdbcType=DECIMAL},
+      </if>
+      <if test="towerdownarea != null">
+        #{towerdownarea,jdbcType=DECIMAL},
+      </if>
+      <if test="storeroomnum != null">
+        #{storeroomnum,jdbcType=DECIMAL},
+      </if>
+      <if test="storeroomarea != null">
+        #{storeroomarea,jdbcType=DECIMAL},
+      </if>
+      <if test="totalsellarea != null">
+        #{totalsellarea,jdbcType=DECIMAL},
+      </if>
+      <if test="upselfsellarea != null">
+        #{upselfsellarea,jdbcType=DECIMAL},
+      </if>
+      <if test="upavailablesellarea != null">
+        #{upavailablesellarea,jdbcType=DECIMAL},
+      </if>
+      <if test="upgovernmentarea != null">
+        #{upgovernmentarea,jdbcType=DECIMAL},
+      </if>
+      <if test="downselfsellarea != null">
+        #{downselfsellarea,jdbcType=DECIMAL},
+      </if>
+      <if test="downothersellarea != null">
+        #{downothersellarea,jdbcType=DECIMAL},
+      </if>
+      <if test="totalpresentarea != null">
+        #{totalpresentarea,jdbcType=DECIMAL},
+      </if>
+      <if test="uppresentarea != null">
+        #{uppresentarea,jdbcType=DECIMAL},
+      </if>
+      <if test="downpresentarea != null">
+        #{downpresentarea,jdbcType=DECIMAL},
+      </if>
+      <if test="additionalarea != null">
+        #{additionalarea,jdbcType=DECIMAL},
+      </if>
+      <if test="buildingmaxheight != null">
+        #{buildingmaxheight,jdbcType=VARCHAR},
+      </if>
+      <if test="planratio != null">
+        #{planratio,jdbcType=VARCHAR},
+      </if>
+      <if test="plandensity != null">
+        #{plandensity,jdbcType=VARCHAR},
+      </if>
+      <if test="buildingminheight != null">
+        #{buildingminheight,jdbcType=VARCHAR},
+      </if>
+      <if test="realratio != null">
+        #{realratio,jdbcType=DECIMAL},
+      </if>
+      <if test="realdensity != null">
+        #{realdensity,jdbcType=DECIMAL},
+      </if>
+      <if test="availablethan != null">
+        #{availablethan,jdbcType=DECIMAL},
+      </if>
+      <if test="totalstallnum != null">
+        #{totalstallnum,jdbcType=DECIMAL},
+      </if>
+      <if test="upstallnum != null">
+        #{upstallnum,jdbcType=DECIMAL},
+      </if>
+      <if test="upgroundstallnum != null">
+        #{upgroundstallnum,jdbcType=DECIMAL},
+      </if>
+      <if test="semiundergroundstallnum != null">
+        #{semiundergroundstallnum,jdbcType=DECIMAL},
+      </if>
+      <if test="stallnuminbuilding != null">
+        #{stallnuminbuilding,jdbcType=DECIMAL},
+      </if>
+      <if test="downautostallnum != null">
+        #{downautostallnum,jdbcType=DECIMAL},
+      </if>
+      <if test="downdefencenum != null">
+        #{downdefencenum,jdbcType=DECIMAL},
+      </if>
+      <if test="downdefencemachinenum != null">
+        #{downdefencemachinenum,jdbcType=DECIMAL},
+      </if>
+      <if test="downdefencenonmachinenum != null">
+        #{downdefencenonmachinenum,jdbcType=DECIMAL},
+      </if>
+      <if test="downnondefencenum != null">
+        #{downnondefencenum,jdbcType=DECIMAL},
+      </if>
+      <if test="downnondefencemachinenum != null">
+        #{downnondefencemachinenum,jdbcType=DECIMAL},
+      </if>
+      <if test="downnondefencenonmachinenum != null">
+        #{downnondefencenonmachinenum,jdbcType=DECIMAL},
+      </if>
+      <if test="semidownnodefencemachinenum != null">
+        #{semidownnodefencemachinenum,jdbcType=DECIMAL},
+      </if>
+      <if test="downnonautostallnum != null">
+        #{downnonautostallnum,jdbcType=DECIMAL},
+      </if>
+      <if test="plangreenradio != null">
+        #{plangreenradio,jdbcType=VARCHAR},
+      </if>
+      <if test="greenradio != null">
+        #{greenradio,jdbcType=DECIMAL},
+      </if>
+      <if test="stallarea != null">
+        #{stallarea,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="housetypenum != null">
+        #{housetypenum,jdbcType=DECIMAL},
+      </if>
+      <if test="sellsystemcode != null">
+        #{sellsystemcode,jdbcType=VARCHAR},
+      </if>
+      <if test="costsystemcode != null">
+        #{costsystemcode,jdbcType=VARCHAR},
+      </if>
+      <if test="purchasesystemcode != null">
+        #{purchasesystemcode,jdbcType=VARCHAR},
+      </if>
+      <if test="financialsystemcode != null">
+        #{financialsystemcode,jdbcType=VARCHAR},
+      </if>
+      <if test="createuser != null">
+        #{createuser,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=OTHER},
+      </if>
+      <if test="modifyuser != null">
+        #{modifyuser,jdbcType=VARCHAR},
+      </if>
+      <if test="modifydate != null">
+        #{modifydate,jdbcType=OTHER},
+      </if>
+      <if test="f1 != null">
+        #{f1,jdbcType=OTHER},
+      </if>
+      <if test="f2 != null">
+        #{f2,jdbcType=OTHER},
+      </if>
+      <if test="f3 != null">
+        #{f3,jdbcType=OTHER},
+      </if>
+      <if test="fcompanyid != null">
+        #{fcompanyid,jdbcType=OTHER},
+      </if>
+      <if test="projectversionid != null">
+        #{projectversionid,jdbcType=OTHER},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=OTHER},
+      </if>
+      <if test="nosellstallnum != null">
+        #{nosellstallnum,jdbcType=DECIMAL},
+      </if>
+      <if test="downdefencesellnum != null">
+        #{downdefencesellnum,jdbcType=DECIMAL},
+      </if>
+      <if test="downnondefencesellnum != null">
+        #{downnondefencesellnum,jdbcType=DECIMAL},
+      </if>
+      <if test="parceltype != null">
+        #{parceltype,jdbcType=OTHER},
+      </if>
+      <if test="fcompanycodechange != null">
+        #{fcompanycodechange,jdbcType=VARCHAR},
+      </if>
+      <if test="fcompanyidchange != null">
+        #{fcompanyidchange,jdbcType=OTHER},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByExampleSelective" parameterType="map">
+    update T_MDS_PARCEL
+    <set>
+      UPDATE_TIME = SYSDATE,
+      <if test="record.parcelversionid != null">
+        PARCELVERSIONID = #{record.parcelversionid,jdbcType=OTHER},
+      </if>
+      <if test="record.projectid != null">
+        PROJECTID = #{record.projectid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.projectcode != null">
+        PROJECTCODE = #{record.projectcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.parcelcode != null">
+        PARCELCODE = #{record.parcelcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.parcelid != null">
+        PARCELID = #{record.parcelid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.parcelname != null">
+        PARCELNAME = #{record.parcelname,jdbcType=OTHER},
+      </if>
+      <if test="record.fcompanycode != null">
+        FCOMPANYCODE = #{record.fcompanycode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fcompanyname != null">
+        FCOMPANYNAME = #{record.fcompanyname,jdbcType=OTHER},
+      </if>
+      <if test="record.version != null">
+        VERSION = #{record.version,jdbcType=DECIMAL},
+      </if>
+      <if test="record.parcelgeneralizename != null">
+        PARCELGENERALIZENAME = #{record.parcelgeneralizename,jdbcType=OTHER},
+      </if>
+      <if test="record.contractcode != null">
+        CONTRACTCODE = #{record.contractcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contractamount != null">
+        CONTRACTAMOUNT = #{record.contractamount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.parcelstatus != null">
+        PARCELSTATUS = #{record.parcelstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.parcelproperty != null">
+        PARCELPROPERTY = #{record.parcelproperty,jdbcType=VARCHAR},
+      </if>
+      <if test="record.parcelgaindate != null">
+        PARCELGAINDATE = #{record.parcelgaindate,jdbcType=OTHER},
+      </if>
+      <if test="record.parceltransferdate != null">
+        PARCELTRANSFERDATE = #{record.parceltransferdate,jdbcType=OTHER},
+      </if>
+      <if test="record.parcelselltype != null">
+        PARCELSELLTYPE = #{record.parcelselltype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.parcelsellman != null">
+        PARCELSELLMAN = #{record.parcelsellman,jdbcType=OTHER},
+      </if>
+      <if test="record.address != null">
+        ADDRESS = #{record.address,jdbcType=OTHER},
+      </if>
+      <if test="record.datastage != null">
+        DATASTAGE = #{record.datastage,jdbcType=VARCHAR},
+      </if>
+      <if test="record.totalusearea != null">
+        TOTALUSEAREA = #{record.totalusearea,jdbcType=DECIMAL},
+      </if>
+      <if test="record.buildingarea != null">
+        BUILDINGAREA = #{record.buildingarea,jdbcType=DECIMAL},
+      </if>
+      <if test="record.expropriatedarea != null">
+        EXPROPRIATEDAREA = #{record.expropriatedarea,jdbcType=DECIMAL},
+      </if>
+      <if test="record.expropriatedgreenarea != null">
+        EXPROPRIATEDGREENAREA = #{record.expropriatedgreenarea,jdbcType=DECIMAL},
+      </if>
+      <if test="record.expropriatedroadarea != null">
+        EXPROPRIATEDROADAREA = #{record.expropriatedroadarea,jdbcType=DECIMAL},
+      </if>
+      <if test="record.expropriatedotherarea != null">
+        EXPROPRIATEDOTHERAREA = #{record.expropriatedotherarea,jdbcType=DECIMAL},
+      </if>
+      <if test="record.buildingholdarea != null">
+        BUILDINGHOLDAREA = #{record.buildingholdarea,jdbcType=DECIMAL},
+      </if>
+      <if test="record.totalroadarea != null">
+        TOTALROADAREA = #{record.totalroadarea,jdbcType=DECIMAL},
+      </if>
+      <if test="record.totalgreenarea != null">
+        TOTALGREENAREA = #{record.totalgreenarea,jdbcType=DECIMAL},
+      </if>
+      <if test="record.demonstrationarea != null">
+        DEMONSTRATIONAREA = #{record.demonstrationarea,jdbcType=DECIMAL},
+      </if>
+      <if test="record.totalcapacityarea != null">
+        TOTALCAPACITYAREA = #{record.totalcapacityarea,jdbcType=DECIMAL},
+      </if>
+      <if test="record.upcapacityarea != null">
+        UPCAPACITYAREA = #{record.upcapacityarea,jdbcType=DECIMAL},
+      </if>
+      <if test="record.downcapacityarea != null">
+        DOWNCAPACITYAREA = #{record.downcapacityarea,jdbcType=DECIMAL},
+      </if>
+      <if test="record.upnoncapacityarea != null">
+        UPNONCAPACITYAREA = #{record.upnoncapacityarea,jdbcType=DECIMAL},
+      </if>
+      <if test="record.downnoncapacityarea != null">
+        DOWNNONCAPACITYAREA = #{record.downnoncapacityarea,jdbcType=DECIMAL},
+      </if>
+      <if test="record.totalbuildingarea != null">
+        TOTALBUILDINGAREA = #{record.totalbuildingarea,jdbcType=DECIMAL},
+      </if>
+      <if test="record.upbuildingarea != null">
+        UPBUILDINGAREA = #{record.upbuildingarea,jdbcType=DECIMAL},
+      </if>
+      <if test="record.downbuildingarea != null">
+        DOWNBUILDINGAREA = #{record.downbuildingarea,jdbcType=DECIMAL},
+      </if>
+      <if test="record.downgaragearea != null">
+        DOWNGARAGEAREA = #{record.downgaragearea,jdbcType=DECIMAL},
+      </if>
+      <if test="record.stiltfloorarea != null">
+        STILTFLOORAREA = #{record.stiltfloorarea,jdbcType=DECIMAL},
+      </if>
+      <if test="record.towerdownarea != null">
+        TOWERDOWNAREA = #{record.towerdownarea,jdbcType=DECIMAL},
+      </if>
+      <if test="record.storeroomnum != null">
+        STOREROOMNUM = #{record.storeroomnum,jdbcType=DECIMAL},
+      </if>
+      <if test="record.storeroomarea != null">
+        STOREROOMAREA = #{record.storeroomarea,jdbcType=DECIMAL},
+      </if>
+      <if test="record.totalsellarea != null">
+        TOTALSELLAREA = #{record.totalsellarea,jdbcType=DECIMAL},
+      </if>
+      <if test="record.upselfsellarea != null">
+        UPSELFSELLAREA = #{record.upselfsellarea,jdbcType=DECIMAL},
+      </if>
+      <if test="record.upavailablesellarea != null">
+        UPAVAILABLESELLAREA = #{record.upavailablesellarea,jdbcType=DECIMAL},
+      </if>
+      <if test="record.upgovernmentarea != null">
+        UPGOVERNMENTAREA = #{record.upgovernmentarea,jdbcType=DECIMAL},
+      </if>
+      <if test="record.downselfsellarea != null">
+        DOWNSELFSELLAREA = #{record.downselfsellarea,jdbcType=DECIMAL},
+      </if>
+      <if test="record.downothersellarea != null">
+        DOWNOTHERSELLAREA = #{record.downothersellarea,jdbcType=DECIMAL},
+      </if>
+      <if test="record.totalpresentarea != null">
+        TOTALPRESENTAREA = #{record.totalpresentarea,jdbcType=DECIMAL},
+      </if>
+      <if test="record.uppresentarea != null">
+        UPPRESENTAREA = #{record.uppresentarea,jdbcType=DECIMAL},
+      </if>
+      <if test="record.downpresentarea != null">
+        DOWNPRESENTAREA = #{record.downpresentarea,jdbcType=DECIMAL},
+      </if>
+      <if test="record.additionalarea != null">
+        ADDITIONALAREA = #{record.additionalarea,jdbcType=DECIMAL},
+      </if>
+      <if test="record.buildingmaxheight != null">
+        BUILDINGMAXHEIGHT = #{record.buildingmaxheight,jdbcType=VARCHAR},
+      </if>
+      <if test="record.planratio != null">
+        PLANRATIO = #{record.planratio,jdbcType=VARCHAR},
+      </if>
+      <if test="record.plandensity != null">
+        PLANDENSITY = #{record.plandensity,jdbcType=VARCHAR},
+      </if>
+      <if test="record.buildingminheight != null">
+        BUILDINGMINHEIGHT = #{record.buildingminheight,jdbcType=VARCHAR},
+      </if>
+      <if test="record.realratio != null">
+        REALRATIO = #{record.realratio,jdbcType=DECIMAL},
+      </if>
+      <if test="record.realdensity != null">
+        REALDENSITY = #{record.realdensity,jdbcType=DECIMAL},
+      </if>
+      <if test="record.availablethan != null">
+        AVAILABLETHAN = #{record.availablethan,jdbcType=DECIMAL},
+      </if>
+      <if test="record.totalstallnum != null">
+        TOTALSTALLNUM = #{record.totalstallnum,jdbcType=DECIMAL},
+      </if>
+      <if test="record.upstallnum != null">
+        UPSTALLNUM = #{record.upstallnum,jdbcType=DECIMAL},
+      </if>
+      <if test="record.upgroundstallnum != null">
+        UPGROUNDSTALLNUM = #{record.upgroundstallnum,jdbcType=DECIMAL},
+      </if>
+      <if test="record.semiundergroundstallnum != null">
+        SEMIUNDERGROUNDSTALLNUM = #{record.semiundergroundstallnum,jdbcType=DECIMAL},
+      </if>
+      <if test="record.stallnuminbuilding != null">
+        STALLNUMINBUILDING = #{record.stallnuminbuilding,jdbcType=DECIMAL},
+      </if>
+      <if test="record.downautostallnum != null">
+        DOWNAUTOSTALLNUM = #{record.downautostallnum,jdbcType=DECIMAL},
+      </if>
+      <if test="record.downdefencenum != null">
+        DOWNDEFENCENUM = #{record.downdefencenum,jdbcType=DECIMAL},
+      </if>
+      <if test="record.downdefencemachinenum != null">
+        DOWNDEFENCEMACHINENUM = #{record.downdefencemachinenum,jdbcType=DECIMAL},
+      </if>
+      <if test="record.downdefencenonmachinenum != null">
+        DOWNDEFENCENONMACHINENUM = #{record.downdefencenonmachinenum,jdbcType=DECIMAL},
+      </if>
+      <if test="record.downnondefencenum != null">
+        DOWNNONDEFENCENUM = #{record.downnondefencenum,jdbcType=DECIMAL},
+      </if>
+      <if test="record.downnondefencemachinenum != null">
+        DOWNNONDEFENCEMACHINENUM = #{record.downnondefencemachinenum,jdbcType=DECIMAL},
+      </if>
+      <if test="record.downnondefencenonmachinenum != null">
+        DOWNNONDEFENCENONMACHINENUM = #{record.downnondefencenonmachinenum,jdbcType=DECIMAL},
+      </if>
+      <if test="record.semidownnodefencemachinenum != null">
+        SEMIDOWNNODEFENCEMACHINENUM = #{record.semidownnodefencemachinenum,jdbcType=DECIMAL},
+      </if>
+      <if test="record.downnonautostallnum != null">
+        DOWNNONAUTOSTALLNUM = #{record.downnonautostallnum,jdbcType=DECIMAL},
+      </if>
+      <if test="record.plangreenradio != null">
+        PLANGREENRADIO = #{record.plangreenradio,jdbcType=VARCHAR},
+      </if>
+      <if test="record.greenradio != null">
+        GREENRADIO = #{record.greenradio,jdbcType=DECIMAL},
+      </if>
+      <if test="record.stallarea != null">
+        STALLAREA = #{record.stallarea,jdbcType=DECIMAL},
+      </if>
+      <if test="record.status != null">
+        STATUS = #{record.status,jdbcType=VARCHAR},
+      </if>
+      <if test="record.housetypenum != null">
+        HOUSETYPENUM = #{record.housetypenum,jdbcType=DECIMAL},
+      </if>
+      <if test="record.sellsystemcode != null">
+        SELLSYSTEMCODE = #{record.sellsystemcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.costsystemcode != null">
+        COSTSYSTEMCODE = #{record.costsystemcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.purchasesystemcode != null">
+        PURCHASESYSTEMCODE = #{record.purchasesystemcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.financialsystemcode != null">
+        FINANCIALSYSTEMCODE = #{record.financialsystemcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createuser != null">
+        CREATEUSER = #{record.createuser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createdate != null">
+        CREATEDATE = #{record.createdate,jdbcType=OTHER},
+      </if>
+      <if test="record.modifyuser != null">
+        MODIFYUSER = #{record.modifyuser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.modifydate != null">
+        MODIFYDATE = #{record.modifydate,jdbcType=OTHER},
+      </if>
+      <if test="record.f1 != null">
+        F1 = #{record.f1,jdbcType=OTHER},
+      </if>
+      <if test="record.f2 != null">
+        F2 = #{record.f2,jdbcType=OTHER},
+      </if>
+      <if test="record.f3 != null">
+        F3 = #{record.f3,jdbcType=OTHER},
+      </if>
+      <if test="record.fcompanyid != null">
+        FCOMPANYID = #{record.fcompanyid,jdbcType=OTHER},
+      </if>
+      <if test="record.projectversionid != null">
+        PROJECTVERSIONID = #{record.projectversionid,jdbcType=OTHER},
+      </if>
+      <if test="record.remark != null">
+        REMARK = #{record.remark,jdbcType=OTHER},
+      </if>
+      <if test="record.nosellstallnum != null">
+        NOSELLSTALLNUM = #{record.nosellstallnum,jdbcType=DECIMAL},
+      </if>
+      <if test="record.downdefencesellnum != null">
+        DOWNDEFENCESELLNUM = #{record.downdefencesellnum,jdbcType=DECIMAL},
+      </if>
+      <if test="record.downnondefencesellnum != null">
+        DOWNNONDEFENCESELLNUM = #{record.downnondefencesellnum,jdbcType=DECIMAL},
+      </if>
+      <if test="record.parceltype != null">
+        PARCELTYPE = #{record.parceltype,jdbcType=OTHER},
+      </if>
+      <if test="record.fcompanycodechange != null">
+        FCOMPANYCODECHANGE = #{record.fcompanycodechange,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fcompanyidchange != null">
+        FCOMPANYIDCHANGE = #{record.fcompanyidchange,jdbcType=OTHER},
+      </if>
+      <if test="record.updateTime != null">
+        UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update T_MDS_PARCEL
+    set PARCELVERSIONID = #{record.parcelversionid,jdbcType=OTHER},
+      PROJECTID = #{record.projectid,jdbcType=VARCHAR},
+      PROJECTCODE = #{record.projectcode,jdbcType=VARCHAR},
+      PARCELCODE = #{record.parcelcode,jdbcType=VARCHAR},
+      PARCELID = #{record.parcelid,jdbcType=VARCHAR},
+      PARCELNAME = #{record.parcelname,jdbcType=OTHER},
+      FCOMPANYCODE = #{record.fcompanycode,jdbcType=VARCHAR},
+      FCOMPANYNAME = #{record.fcompanyname,jdbcType=OTHER},
+      VERSION = #{record.version,jdbcType=DECIMAL},
+      PARCELGENERALIZENAME = #{record.parcelgeneralizename,jdbcType=OTHER},
+      CONTRACTCODE = #{record.contractcode,jdbcType=VARCHAR},
+      CONTRACTAMOUNT = #{record.contractamount,jdbcType=DECIMAL},
+      PARCELSTATUS = #{record.parcelstatus,jdbcType=VARCHAR},
+      PARCELPROPERTY = #{record.parcelproperty,jdbcType=VARCHAR},
+      PARCELGAINDATE = #{record.parcelgaindate,jdbcType=OTHER},
+      PARCELTRANSFERDATE = #{record.parceltransferdate,jdbcType=OTHER},
+      PARCELSELLTYPE = #{record.parcelselltype,jdbcType=VARCHAR},
+      PARCELSELLMAN = #{record.parcelsellman,jdbcType=OTHER},
+      ADDRESS = #{record.address,jdbcType=OTHER},
+      DATASTAGE = #{record.datastage,jdbcType=VARCHAR},
+      TOTALUSEAREA = #{record.totalusearea,jdbcType=DECIMAL},
+      BUILDINGAREA = #{record.buildingarea,jdbcType=DECIMAL},
+      EXPROPRIATEDAREA = #{record.expropriatedarea,jdbcType=DECIMAL},
+      EXPROPRIATEDGREENAREA = #{record.expropriatedgreenarea,jdbcType=DECIMAL},
+      EXPROPRIATEDROADAREA = #{record.expropriatedroadarea,jdbcType=DECIMAL},
+      EXPROPRIATEDOTHERAREA = #{record.expropriatedotherarea,jdbcType=DECIMAL},
+      BUILDINGHOLDAREA = #{record.buildingholdarea,jdbcType=DECIMAL},
+      TOTALROADAREA = #{record.totalroadarea,jdbcType=DECIMAL},
+      TOTALGREENAREA = #{record.totalgreenarea,jdbcType=DECIMAL},
+      DEMONSTRATIONAREA = #{record.demonstrationarea,jdbcType=DECIMAL},
+      TOTALCAPACITYAREA = #{record.totalcapacityarea,jdbcType=DECIMAL},
+      UPCAPACITYAREA = #{record.upcapacityarea,jdbcType=DECIMAL},
+      DOWNCAPACITYAREA = #{record.downcapacityarea,jdbcType=DECIMAL},
+      UPNONCAPACITYAREA = #{record.upnoncapacityarea,jdbcType=DECIMAL},
+      DOWNNONCAPACITYAREA = #{record.downnoncapacityarea,jdbcType=DECIMAL},
+      TOTALBUILDINGAREA = #{record.totalbuildingarea,jdbcType=DECIMAL},
+      UPBUILDINGAREA = #{record.upbuildingarea,jdbcType=DECIMAL},
+      DOWNBUILDINGAREA = #{record.downbuildingarea,jdbcType=DECIMAL},
+      DOWNGARAGEAREA = #{record.downgaragearea,jdbcType=DECIMAL},
+      STILTFLOORAREA = #{record.stiltfloorarea,jdbcType=DECIMAL},
+      TOWERDOWNAREA = #{record.towerdownarea,jdbcType=DECIMAL},
+      STOREROOMNUM = #{record.storeroomnum,jdbcType=DECIMAL},
+      STOREROOMAREA = #{record.storeroomarea,jdbcType=DECIMAL},
+      TOTALSELLAREA = #{record.totalsellarea,jdbcType=DECIMAL},
+      UPSELFSELLAREA = #{record.upselfsellarea,jdbcType=DECIMAL},
+      UPAVAILABLESELLAREA = #{record.upavailablesellarea,jdbcType=DECIMAL},
+      UPGOVERNMENTAREA = #{record.upgovernmentarea,jdbcType=DECIMAL},
+      DOWNSELFSELLAREA = #{record.downselfsellarea,jdbcType=DECIMAL},
+      DOWNOTHERSELLAREA = #{record.downothersellarea,jdbcType=DECIMAL},
+      TOTALPRESENTAREA = #{record.totalpresentarea,jdbcType=DECIMAL},
+      UPPRESENTAREA = #{record.uppresentarea,jdbcType=DECIMAL},
+      DOWNPRESENTAREA = #{record.downpresentarea,jdbcType=DECIMAL},
+      ADDITIONALAREA = #{record.additionalarea,jdbcType=DECIMAL},
+      BUILDINGMAXHEIGHT = #{record.buildingmaxheight,jdbcType=VARCHAR},
+      PLANRATIO = #{record.planratio,jdbcType=VARCHAR},
+      PLANDENSITY = #{record.plandensity,jdbcType=VARCHAR},
+      BUILDINGMINHEIGHT = #{record.buildingminheight,jdbcType=VARCHAR},
+      REALRATIO = #{record.realratio,jdbcType=DECIMAL},
+      REALDENSITY = #{record.realdensity,jdbcType=DECIMAL},
+      AVAILABLETHAN = #{record.availablethan,jdbcType=DECIMAL},
+      TOTALSTALLNUM = #{record.totalstallnum,jdbcType=DECIMAL},
+      UPSTALLNUM = #{record.upstallnum,jdbcType=DECIMAL},
+      UPGROUNDSTALLNUM = #{record.upgroundstallnum,jdbcType=DECIMAL},
+      SEMIUNDERGROUNDSTALLNUM = #{record.semiundergroundstallnum,jdbcType=DECIMAL},
+      STALLNUMINBUILDING = #{record.stallnuminbuilding,jdbcType=DECIMAL},
+      DOWNAUTOSTALLNUM = #{record.downautostallnum,jdbcType=DECIMAL},
+      DOWNDEFENCENUM = #{record.downdefencenum,jdbcType=DECIMAL},
+      DOWNDEFENCEMACHINENUM = #{record.downdefencemachinenum,jdbcType=DECIMAL},
+      DOWNDEFENCENONMACHINENUM = #{record.downdefencenonmachinenum,jdbcType=DECIMAL},
+      DOWNNONDEFENCENUM = #{record.downnondefencenum,jdbcType=DECIMAL},
+      DOWNNONDEFENCEMACHINENUM = #{record.downnondefencemachinenum,jdbcType=DECIMAL},
+      DOWNNONDEFENCENONMACHINENUM = #{record.downnondefencenonmachinenum,jdbcType=DECIMAL},
+      SEMIDOWNNODEFENCEMACHINENUM = #{record.semidownnodefencemachinenum,jdbcType=DECIMAL},
+      DOWNNONAUTOSTALLNUM = #{record.downnonautostallnum,jdbcType=DECIMAL},
+      PLANGREENRADIO = #{record.plangreenradio,jdbcType=VARCHAR},
+      GREENRADIO = #{record.greenradio,jdbcType=DECIMAL},
+      STALLAREA = #{record.stallarea,jdbcType=DECIMAL},
+      STATUS = #{record.status,jdbcType=VARCHAR},
+      HOUSETYPENUM = #{record.housetypenum,jdbcType=DECIMAL},
+      SELLSYSTEMCODE = #{record.sellsystemcode,jdbcType=VARCHAR},
+      COSTSYSTEMCODE = #{record.costsystemcode,jdbcType=VARCHAR},
+      PURCHASESYSTEMCODE = #{record.purchasesystemcode,jdbcType=VARCHAR},
+      FINANCIALSYSTEMCODE = #{record.financialsystemcode,jdbcType=VARCHAR},
+      CREATEUSER = #{record.createuser,jdbcType=VARCHAR},
+      CREATEDATE = #{record.createdate,jdbcType=OTHER},
+      MODIFYUSER = #{record.modifyuser,jdbcType=VARCHAR},
+      MODIFYDATE = #{record.modifydate,jdbcType=OTHER},
+      F1 = #{record.f1,jdbcType=OTHER},
+      F2 = #{record.f2,jdbcType=OTHER},
+      F3 = #{record.f3,jdbcType=OTHER},
+      FCOMPANYID = #{record.fcompanyid,jdbcType=OTHER},
+      PROJECTVERSIONID = #{record.projectversionid,jdbcType=OTHER},
+      REMARK = #{record.remark,jdbcType=OTHER},
+      NOSELLSTALLNUM = #{record.nosellstallnum,jdbcType=DECIMAL},
+      DOWNDEFENCESELLNUM = #{record.downdefencesellnum,jdbcType=DECIMAL},
+      DOWNNONDEFENCESELLNUM = #{record.downnondefencesellnum,jdbcType=DECIMAL},
+      PARCELTYPE = #{record.parceltype,jdbcType=OTHER},
+      FCOMPANYCODECHANGE = #{record.fcompanycodechange,jdbcType=VARCHAR},
+      FCOMPANYIDCHANGE = #{record.fcompanyidchange,jdbcType=OTHER},
+      UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+
+    <delete id="deleteAll">
+    DELETE FROM T_MDS_PARCEL
+  </delete>
+</mapper>

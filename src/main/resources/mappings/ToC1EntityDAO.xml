@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yuanian.masterdata.dao.ToC1EntityDAO">
+  <resultMap id="BaseResultMap" type="com.yuanian.masterdata.entity.ToC1Entity">
+    <result column="FENTITY_CODE" jdbcType="OTHER" property="fentityCode" />
+    <result column="FENTITY_NAME" jdbcType="OTHER" property="fentityName" />
+    <result column="FPARENT_CODE" jdbcType="OTHER" property="fparentCode" />
+    <result column="FPARENT_NAME" jdbcType="OTHER" property="fparentName" />
+    <result column="FENTITY_LEVEL" jdbcType="DECIMAL" property="fentityLevel" />
+    <result column="FENTITY_ALIALNAME1" jdbcType="OTHER" property="fentityAlialname1" />
+    <result column="FORDERNO" jdbcType="DECIMAL" property="forderno" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <select id="selectNum" resultType="java.lang.Integer">
+    SELECT COUNT(1) AS NUM FROM T_TO_C1_ENTITY
+  </select>
+
+  <select id="selectPage" resultType="java.util.Map">
+    SELECT TAB.FENTITY_CODE AS FENTITYCODE,
+           TAB.FENTITY_NAME AS FENTITYNAME,
+           TAB.FPARENT_NAME AS FPARENTNAME
+    FROM
+      (SELECT TABLE_ALIAS.FENTITY_CODE,
+              TABLE_ALIAS.FENTITY_NAME,
+              TABLE_ALIAS.FPARENT_NAME,
+              TABLE_ALIAS.FORDERNO,ROWNUM AS RN
+      FROM
+              (SELECT EN.*
+              FROM
+                   T_TO_C1_ENTITY EN
+              ORDER BY EN.FORDERNO ASC )
+              TABLE_ALIAS
+      WHERE ROWNUM&lt;=${endIndex})
+      TAB
+    WHERE
+      TAB.RN&gt;=${startIndex}
+  </select>
+
+    <select id="chargeData"  statementType="CALLABLE" >
+        {call P_TO_C1_ENTITY}
+    </select>
+
+</mapper>

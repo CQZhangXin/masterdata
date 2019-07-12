@@ -1,0 +1,59 @@
+server:
+  port: 9090
+
+##主数据四个接口的测试生产环境的地址
+c1-configuration:
+  istest:
+  isproduction: true
+  mdsProject:
+    test: http://testesb.zldcgroup.com/com.primeton.esb.zldc.app.mds.mdsProject
+    production: http://esb.zldcgroup.com/com.primeton.esb.zldc.app.mds.mdsProject
+  mdsParcel:
+    test: http://testesb.zldcgroup.com/com.primeton.esb.zldc.app.mds.mdsParcel
+    production: http://esb.zldcgroup.com/com.primeton.esb.zldc.app.mds.mdsParcel
+  mdsIncorporatedCompany:
+    test: http://testesb.zldcgroup.com/com.primeton.esb.zldc.app.mds.mdsIncorporatedCompany
+    production: http://esb.zldcgroup.com/com.primeton.esb.zldc.app.mds.mdsIncorporatedCompany
+  ncCompany:
+    test: http://testesb.zldcgroup.com/com.primeton.esb.zldc.app.corporation.v1company
+    production: http://esb.zldcgroup.com/com.primeton.esb.zldc.app.corporation.v1company
+  toC1:
+    test: http://172.16.8.185:8080//C1-Planning/mdAction!addDimMember.action
+    production: http://172.16.8.185:8080/C1-Planning/mdAction!addDimMember.action
+  toTBase:
+    test: http://172.16.8.185:8080/C1-Planning/mdAction!sychDims.action
+    production: http://172.16.8.185:8080/C1-Planning/mdAction!sychDims.action
+##数据源
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@172.16.8.188:1521:sfjk
+    username: c1middle
+    password: c1middle
+
+mybatis:
+  mapper-locations: classpath:mappings/*.xml
+  configuration:
+    cache-enabled: false
+    local-cache-scope: statement
+
+##ESB传递的参数token
+ESBToken: 8965C3E2-3C41-460A-937E-162FE2ECEBBC
+
+##是否开启法人公司的同步接口
+TrueOrFalseGetIncorporatedCompany: false
+##是否开启工程同步接口
+TrueOrFalseGetMDSProject: true
+##是否开启地块同步接口
+TrueOrFalseGetParcel: true
+##时候开启NC法人公司同步接口
+TrueOrFalseGetNcCompany: true
+##时候转化数据（调用存储过程转化数据）
+TrueOrFalseChargeData: true
+##是否同步C1的二维库
+TrueOrFalseToC1: true
+##是否同步到C1多维库
+TrueOrfalseToTbase: true
+
+#同步到C1的维度名称
+org: 组织测试1

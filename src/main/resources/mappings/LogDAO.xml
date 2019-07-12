@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yuanian.masterdata.dao.LogDAO">
+  <resultMap id="BaseResultMap" type="com.yuanian.masterdata.entity.Log">
+    <result column="INTERFACENAME" jdbcType="OTHER" property="interfacename" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.yuanian.masterdata.entity.Log">
+    <result column="LOGMSG" jdbcType="CLOB" property="logmsg" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    LOGMSG
+  </sql>
+  <insert id="insert" parameterType="com.yuanian.masterdata.entity.Log">
+    insert into T_LOG (MSGDATE, INTERFACENAME, LOGMSG
+      )
+    values (#{msgdate,jdbcType=TIMESTAMP}, #{interfacename,jdbcType=OTHER}, #{logmsg,jdbcType=CLOB}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yuanian.masterdata.entity.Log">
+    insert into T_LOG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+
+      <if test="interfacename != null">
+        INTERFACENAME,
+      </if>
+      <if test="logmsg != null">
+        LOGMSG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+
+      <if test="interfacename != null">
+        #{interfacename,jdbcType=OTHER},
+      </if>
+      <if test="logmsg != null">
+        #{logmsg,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

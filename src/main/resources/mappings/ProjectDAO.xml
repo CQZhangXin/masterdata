@@ -1,0 +1,2129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yuanian.masterdata.dao.ProjectDAO">
+  <resultMap id="BaseResultMap" type="com.yuanian.masterdata.entity.Project">
+    <result column="PROJECTVERSIONID" jdbcType="VARCHAR" property="projectversionid" />
+    <result column="PROJECTID" jdbcType="VARCHAR" property="projectid" />
+    <result column="PROJECTCODE" jdbcType="OTHER" property="projectcode" />
+    <result column="PROJECTNAME" jdbcType="OTHER" property="projectname" />
+    <result column="ISHISTORY" jdbcType="OTHER" property="ishistory" />
+    <result column="ISNEWVERSION" jdbcType="OTHER" property="isnewversion" />
+    <result column="PROJECTVERSION" jdbcType="VARCHAR" property="projectversion" />
+    <result column="COMPANYID" jdbcType="OTHER" property="companyid" />
+    <result column="COMPANYCODE" jdbcType="OTHER" property="companycode" />
+    <result column="COMPANYNAME" jdbcType="OTHER" property="companyname" />
+    <result column="PROJECTSHORTNAME" jdbcType="OTHER" property="projectshortname" />
+    <result column="PROJECTOFFICIALNAME" jdbcType="OTHER" property="projectofficialname" />
+    <result column="PROJECTGENERALIZENAME" jdbcType="OTHER" property="projectgeneralizename" />
+    <result column="CITYID" jdbcType="OTHER" property="cityid" />
+    <result column="CITYCODE" jdbcType="OTHER" property="citycode" />
+    <result column="CITYNAME" jdbcType="OTHER" property="cityname" />
+    <result column="ADDRESS" jdbcType="OTHER" property="address" />
+    <result column="PRINCIPLEMAN" jdbcType="OTHER" property="principleman" />
+    <result column="PRINCIPLENAME" jdbcType="OTHER" property="principlename" />
+    <result column="BUSINESSTYPE" jdbcType="OTHER" property="businesstype" />
+    <result column="ZLPERCENT" jdbcType="OTHER" property="zlpercent" />
+    <result column="OTHERPERCENT" jdbcType="OTHER" property="otherpercent" />
+    <result column="PROJECTGAINDATE" jdbcType="OTHER" property="projectgaindate" />
+    <result column="PARCELPROPERTY" jdbcType="OTHER" property="parcelproperty" />
+    <result column="CURRENTSTAGE" jdbcType="OTHER" property="currentstage" />
+    <result column="DATASTAGE" jdbcType="OTHER" property="datastage" />
+    <result column="TOTALUSEAREA" jdbcType="OTHER" property="totalusearea" />
+    <result column="BUILDINGAREA" jdbcType="OTHER" property="buildingarea" />
+    <result column="EXPROPRIATEDAREA" jdbcType="OTHER" property="expropriatedarea" />
+    <result column="EXPROPRIATEDGREENAREA" jdbcType="OTHER" property="expropriatedgreenarea" />
+    <result column="EXPROPRIATEDROADAREA" jdbcType="OTHER" property="expropriatedroadarea" />
+    <result column="EXPROPRIATEDOTHERAREA" jdbcType="OTHER" property="expropriatedotherarea" />
+    <result column="TOTALHOLDAREA" jdbcType="OTHER" property="totalholdarea" />
+    <result column="BUILDINGHOLDAREA" jdbcType="OTHER" property="buildingholdarea" />
+    <result column="DEMONSTRATIONAREA" jdbcType="OTHER" property="demonstrationarea" />
+    <result column="TOTALROADAREA" jdbcType="OTHER" property="totalroadarea" />
+    <result column="BITUMINOUSROAD" jdbcType="OTHER" property="bituminousroad" />
+    <result column="CEMENTROAD" jdbcType="OTHER" property="cementroad" />
+    <result column="HARDROAD" jdbcType="OTHER" property="hardroad" />
+    <result column="HARDPLAZA" jdbcType="OTHER" property="hardplaza" />
+    <result column="HARDSIDEWALK" jdbcType="OTHER" property="hardsidewalk" />
+    <result column="TOTALGREENAREA" jdbcType="OTHER" property="totalgreenarea" />
+    <result column="PUBLICGREENAREA" jdbcType="OTHER" property="publicgreenarea" />
+    <result column="AMONGGREENAREA" jdbcType="OTHER" property="amonggreenarea" />
+    <result column="PRIVATEGREENAREA" jdbcType="OTHER" property="privategreenarea" />
+    <result column="WATERSCAPEAREA" jdbcType="OTHER" property="waterscapearea" />
+    <result column="TOTALCAPACITYAREA" jdbcType="OTHER" property="totalcapacityarea" />
+    <result column="UPCAPACITYAREA" jdbcType="OTHER" property="upcapacityarea" />
+    <result column="DOWNCAPACITYAREA" jdbcType="OTHER" property="downcapacityarea" />
+    <result column="TOTALPUBLICAREA" jdbcType="OTHER" property="totalpublicarea" />
+    <result column="UPNONCAPACITYAREA" jdbcType="OTHER" property="upnoncapacityarea" />
+    <result column="DOWNNONCAPACITYAREA" jdbcType="OTHER" property="downnoncapacityarea" />
+    <result column="TOTALBUILDINGAREA" jdbcType="OTHER" property="totalbuildingarea" />
+    <result column="UPBUILDINGAREA" jdbcType="OTHER" property="upbuildingarea" />
+    <result column="DOWNBUILDINGAREA" jdbcType="OTHER" property="downbuildingarea" />
+    <result column="DOWNGARAGEAREA" jdbcType="OTHER" property="downgaragearea" />
+    <result column="STILTFLOORAREA" jdbcType="OTHER" property="stiltfloorarea" />
+    <result column="TOWERDOWNAREA" jdbcType="OTHER" property="towerdownarea" />
+    <result column="STOREROOMNUM" jdbcType="OTHER" property="storeroomnum" />
+    <result column="STOREROOMAREA" jdbcType="OTHER" property="storeroomarea" />
+    <result column="TOTALSELLAREA" jdbcType="OTHER" property="totalsellarea" />
+    <result column="UPSELFSELLAREA" jdbcType="OTHER" property="upselfsellarea" />
+    <result column="UPAVAILABLESELLAREA" jdbcType="OTHER" property="upavailablesellarea" />
+    <result column="UPGOVERNMENTAREA" jdbcType="OTHER" property="upgovernmentarea" />
+    <result column="DOWNSELFSELLAREA" jdbcType="OTHER" property="downselfsellarea" />
+    <result column="DOWNOTHERSELLAREA" jdbcType="OTHER" property="downothersellarea" />
+    <result column="DOWNGOVERNMENTAREA" jdbcType="OTHER" property="downgovernmentarea" />
+    <result column="TOTALPRESENTAREA" jdbcType="OTHER" property="totalpresentarea" />
+    <result column="UPPRESENTAREA" jdbcType="OTHER" property="uppresentarea" />
+    <result column="DOWNPRESENTAREA" jdbcType="OTHER" property="downpresentarea" />
+    <result column="ADDITIONALAREA" jdbcType="OTHER" property="additionalarea" />
+    <result column="BUILDINGMAXHEIGHT" jdbcType="OTHER" property="buildingmaxheight" />
+    <result column="PLANRATIO" jdbcType="OTHER" property="planratio" />
+    <result column="PLANDENSITY" jdbcType="OTHER" property="plandensity" />
+    <result column="BUILDINGMINHEIGHT" jdbcType="OTHER" property="buildingminheight" />
+    <result column="REALRATIO" jdbcType="OTHER" property="realratio" />
+    <result column="REALDENSITY" jdbcType="OTHER" property="realdensity" />
+    <result column="AVAILABLETHAN" jdbcType="OTHER" property="availablethan" />
+    <result column="PLOTRATIO" jdbcType="OTHER" property="plotratio" />
+    <result column="BUILDINGDENSITY" jdbcType="OTHER" property="buildingdensity" />
+    <result column="TOTALSTALLNUM" jdbcType="OTHER" property="totalstallnum" />
+    <result column="UPSTALLNUM" jdbcType="OTHER" property="upstallnum" />
+    <result column="UPGROUNDSTALLNUM" jdbcType="OTHER" property="upgroundstallnum" />
+    <result column="SEMIUNDERGROUNDSTALLNUM" jdbcType="OTHER" property="semiundergroundstallnum" />
+    <result column="STALLNUMINBUILDING" jdbcType="OTHER" property="stallnuminbuilding" />
+    <result column="DOWNAUTOSTALLNUM" jdbcType="OTHER" property="downautostallnum" />
+    <result column="DOWNSTALLNUM" jdbcType="OTHER" property="downstallnum" />
+    <result column="DOWNDEFENCENUM" jdbcType="OTHER" property="downdefencenum" />
+    <result column="DOWNDEFENCEMACHINENUM" jdbcType="OTHER" property="downdefencemachinenum" />
+    <result column="DOWNDEFENCENONMACHINENUM" jdbcType="OTHER" property="downdefencenonmachinenum" />
+    <result column="DOWNNONDEFENCENUM" jdbcType="OTHER" property="downnondefencenum" />
+    <result column="DOWNNONDEFENCEMACHINENUM" jdbcType="OTHER" property="downnondefencemachinenum" />
+    <result column="DOWNNONDEFENCENONMACHINENUM" jdbcType="OTHER" property="downnondefencenonmachinenum" />
+    <result column="DOWNNONAUTOSTALLNUM" jdbcType="OTHER" property="downnonautostallnum" />
+    <result column="SEMIDOWNNODEFENCEMACHINENUM" jdbcType="OTHER" property="semidownnodefencemachinenum" />
+    <result column="PLANGREENRADIO" jdbcType="OTHER" property="plangreenradio" />
+    <result column="GREENRADIO" jdbcType="OTHER" property="greenradio" />
+    <result column="HOUSETYPENUM" jdbcType="OTHER" property="housetypenum" />
+    <result column="APPROVESTATUS" jdbcType="OTHER" property="approvestatus" />
+    <result column="STATUS" jdbcType="OTHER" property="status" />
+    <result column="SELLSYSTEMCODE" jdbcType="OTHER" property="sellsystemcode" />
+    <result column="COSTSYSTEMCODE" jdbcType="OTHER" property="costsystemcode" />
+    <result column="PURCHASESYSTEMCODE" jdbcType="OTHER" property="purchasesystemcode" />
+    <result column="FINANCIALSYSTEMCODE" jdbcType="OTHER" property="financialsystemcode" />
+    <result column="CREATEUSER" jdbcType="OTHER" property="createuser" />
+    <result column="CREATEDATE" jdbcType="OTHER" property="createdate" />
+    <result column="MODIFYUSER" jdbcType="OTHER" property="modifyuser" />
+    <result column="MODIFYDATE" jdbcType="OTHER" property="modifydate" />
+    <result column="F1" jdbcType="OTHER" property="f1" />
+    <result column="F2" jdbcType="OTHER" property="f2" />
+    <result column="F3" jdbcType="OTHER" property="f3" />
+    <result column="STALLAREA" jdbcType="OTHER" property="stallarea" />
+    <result column="REMARK" jdbcType="OTHER" property="remark" />
+    <result column="INSTANCEID" jdbcType="OTHER" property="instanceid" />
+    <result column="NOSELLSTALLNUM" jdbcType="OTHER" property="nosellstallnum" />
+    <result column="IMAGEPATH" jdbcType="OTHER" property="imagepath" />
+    <result column="FTPSERVERIP" jdbcType="OTHER" property="ftpserverip" />
+    <result column="FTPREMOTEPATH" jdbcType="OTHER" property="ftpremotepath" />
+    <result column="FTPUSERID" jdbcType="OTHER" property="ftpuserid" />
+    <result column="FTPPASSWORD" jdbcType="OTHER" property="ftppassword" />
+    <result column="STARTWORKINGDATE" jdbcType="OTHER" property="startworkingdate" />
+    <result column="PRESALEDATE" jdbcType="OTHER" property="presaledate" />
+    <result column="OPENDATE" jdbcType="OTHER" property="opendate" />
+    <result column="CAPPINGDATE" jdbcType="OTHER" property="cappingdate" />
+    <result column="COMPLETEDATE" jdbcType="OTHER" property="completedate" />
+    <result column="HANDINGDATE" jdbcType="OTHER" property="handingdate" />
+    <result column="STARTWORKINGDATEPLANSTART" jdbcType="OTHER" property="startworkingdateplanstart" />
+    <result column="STARTWORKINGDATEPLANEND" jdbcType="OTHER" property="startworkingdateplanend" />
+    <result column="PRESALEDATEPLANSTART" jdbcType="OTHER" property="presaledateplanstart" />
+    <result column="PRESALEDATEPLANEND" jdbcType="OTHER" property="presaledateplanend" />
+    <result column="OPENDATEPLANSTART" jdbcType="OTHER" property="opendateplanstart" />
+    <result column="OPENDATEPLANEND" jdbcType="OTHER" property="opendateplanend" />
+    <result column="CAPPINGDATEPLANSTART" jdbcType="OTHER" property="cappingdateplanstart" />
+    <result column="CAPPINGDATEPLANEND" jdbcType="OTHER" property="cappingdateplanend" />
+    <result column="COMPLETEDATEPLANSTART" jdbcType="OTHER" property="completedateplanstart" />
+    <result column="COMPLETEDATEPLANEND" jdbcType="OTHER" property="completedateplanend" />
+    <result column="HANDINGDATEPLANSTART" jdbcType="OTHER" property="handingdateplanstart" />
+    <result column="HANDINGDATEPLANEND" jdbcType="OTHER" property="handingdateplanend" />
+    <result column="GAINDATE" jdbcType="OTHER" property="gaindate" />
+    <result column="GAINPLANSTARTDATE" jdbcType="OTHER" property="gainplanstartdate" />
+    <result column="GAINPLANENDDATE" jdbcType="OTHER" property="gainplanenddate" />
+    <result column="DOWNDEFENCESELLNUM" jdbcType="OTHER" property="downdefencesellnum" />
+    <result column="DOWNNONDEFENCESELLNUM" jdbcType="OTHER" property="downnondefencesellnum" />
+    <result column="APPROVEDATE" jdbcType="OTHER" property="approvedate" />
+    <result column="PLATE" jdbcType="OTHER" property="plate" />
+    <result column="MARKETTYPE" jdbcType="OTHER" property="markettype" />
+    <result column="ISDIFFICULTPROJECT" jdbcType="OTHER" property="isdifficultproject" />
+    <result column="ONEHANDSIGNLANDCONTRACTDATE" jdbcType="OTHER" property="onehandsignlandcontractdate" />
+    <result column="SECONDHANDOWNERSHIPCHANGEDATE" jdbcType="OTHER" property="secondhandownershipchangedate" />
+    <result column="CONSTRUCTIONLICENCEDATE" jdbcType="OTHER" property="constructionlicencedate" />
+    <result column="APPROVETYPE" jdbcType="OTHER" property="approvetype" />
+    <result column="ADJUSTREMARK" jdbcType="OTHER" property="adjustremark" />
+    <result column="PHASEADJUSTREMARK" jdbcType="OTHER" property="phaseadjustremark" />
+    <result column="INSTANCEIDHZSX" jdbcType="OTHER" property="instanceidhzsx" />
+    <result column="APPROVEDATEHZSX" jdbcType="OTHER" property="approvedatehzsx" />
+    <result column="APPROVESTATUSHZSX" jdbcType="OTHER" property="approvestatushzsx" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="REGIONCODE" jdbcType="OTHER" property="regioncode" />
+    <result column="REGIONNAME" jdbcType="OTHER" property="regionname" />
+    <result column="BUSINESSCODE" jdbcType="OTHER" property="businesscode" />
+    <result column="BUSINESSUNIT" jdbcType="OTHER" property="businessunit" />
+    <result column="LARGEAREANAME" jdbcType="OTHER" property="largeareaname" />
+    <result column="PUBLISHDATE" jdbcType="OTHER" property="publishdate" />
+    <result column="APPROVALPARAMETERS" jdbcType="OTHER" property="approvalparameters" />
+    <result column="BUILDINGMAXHEIGHTTYPES" jdbcType="OTHER" property="buildingmaxheighttypes" />
+    <result column="BUILDINGMINHEIGHTTYPES" jdbcType="OTHER" property="buildingminheighttypes" />
+    <result column="BUILDINGMAXSJ" jdbcType="OTHER" property="buildingmaxsj" />
+    <result column="BUILDINGMINSJ" jdbcType="OTHER" property="buildingminsj" />
+    <result column="BUILDINGMAXSJDW" jdbcType="OTHER" property="buildingmaxsjdw" />
+    <result column="BUILDINGMINSJDW" jdbcType="OTHER" property="buildingminsjdw" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    PROJECTVERSIONID, PROJECTID, PROJECTCODE, PROJECTNAME, ISHISTORY, ISNEWVERSION, PROJECTVERSION, 
+    COMPANYID, COMPANYCODE, COMPANYNAME, PROJECTSHORTNAME, PROJECTOFFICIALNAME, PROJECTGENERALIZENAME, 
+    CITYID, CITYCODE, CITYNAME, ADDRESS, PRINCIPLEMAN, PRINCIPLENAME, BUSINESSTYPE, ZLPERCENT, 
+    OTHERPERCENT, PROJECTGAINDATE, PARCELPROPERTY, CURRENTSTAGE, DATASTAGE, TOTALUSEAREA, 
+    BUILDINGAREA, EXPROPRIATEDAREA, EXPROPRIATEDGREENAREA, EXPROPRIATEDROADAREA, EXPROPRIATEDOTHERAREA, 
+    TOTALHOLDAREA, BUILDINGHOLDAREA, DEMONSTRATIONAREA, TOTALROADAREA, BITUMINOUSROAD, 
+    CEMENTROAD, HARDROAD, HARDPLAZA, HARDSIDEWALK, TOTALGREENAREA, PUBLICGREENAREA, AMONGGREENAREA, 
+    PRIVATEGREENAREA, WATERSCAPEAREA, TOTALCAPACITYAREA, UPCAPACITYAREA, DOWNCAPACITYAREA, 
+    TOTALPUBLICAREA, UPNONCAPACITYAREA, DOWNNONCAPACITYAREA, TOTALBUILDINGAREA, UPBUILDINGAREA, 
+    DOWNBUILDINGAREA, DOWNGARAGEAREA, STILTFLOORAREA, TOWERDOWNAREA, STOREROOMNUM, STOREROOMAREA, 
+    TOTALSELLAREA, UPSELFSELLAREA, UPAVAILABLESELLAREA, UPGOVERNMENTAREA, DOWNSELFSELLAREA, 
+    DOWNOTHERSELLAREA, DOWNGOVERNMENTAREA, TOTALPRESENTAREA, UPPRESENTAREA, DOWNPRESENTAREA, 
+    ADDITIONALAREA, BUILDINGMAXHEIGHT, PLANRATIO, PLANDENSITY, BUILDINGMINHEIGHT, REALRATIO, 
+    REALDENSITY, AVAILABLETHAN, PLOTRATIO, BUILDINGDENSITY, TOTALSTALLNUM, UPSTALLNUM, 
+    UPGROUNDSTALLNUM, SEMIUNDERGROUNDSTALLNUM, STALLNUMINBUILDING, DOWNAUTOSTALLNUM, 
+    DOWNSTALLNUM, DOWNDEFENCENUM, DOWNDEFENCEMACHINENUM, DOWNDEFENCENONMACHINENUM, DOWNNONDEFENCENUM, 
+    DOWNNONDEFENCEMACHINENUM, DOWNNONDEFENCENONMACHINENUM, DOWNNONAUTOSTALLNUM, SEMIDOWNNODEFENCEMACHINENUM, 
+    PLANGREENRADIO, GREENRADIO, HOUSETYPENUM, APPROVESTATUS, STATUS, SELLSYSTEMCODE, 
+    COSTSYSTEMCODE, PURCHASESYSTEMCODE, FINANCIALSYSTEMCODE, CREATEUSER, CREATEDATE, 
+    MODIFYUSER, MODIFYDATE, F1, F2, F3, STALLAREA, REMARK, INSTANCEID, NOSELLSTALLNUM, 
+    IMAGEPATH, FTPSERVERIP, FTPREMOTEPATH, FTPUSERID, FTPPASSWORD, STARTWORKINGDATE, 
+    PRESALEDATE, OPENDATE, CAPPINGDATE, COMPLETEDATE, HANDINGDATE, STARTWORKINGDATEPLANSTART, 
+    STARTWORKINGDATEPLANEND, PRESALEDATEPLANSTART, PRESALEDATEPLANEND, OPENDATEPLANSTART, 
+    OPENDATEPLANEND, CAPPINGDATEPLANSTART, CAPPINGDATEPLANEND, COMPLETEDATEPLANSTART, 
+    COMPLETEDATEPLANEND, HANDINGDATEPLANSTART, HANDINGDATEPLANEND, GAINDATE, GAINPLANSTARTDATE, 
+    GAINPLANENDDATE, DOWNDEFENCESELLNUM, DOWNNONDEFENCESELLNUM, APPROVEDATE, PLATE, MARKETTYPE, 
+    ISDIFFICULTPROJECT, ONEHANDSIGNLANDCONTRACTDATE, SECONDHANDOWNERSHIPCHANGEDATE, CONSTRUCTIONLICENCEDATE, 
+    APPROVETYPE, ADJUSTREMARK, PHASEADJUSTREMARK, INSTANCEIDHZSX, APPROVEDATEHZSX, APPROVESTATUSHZSX, 
+    UPDATE_TIME, REGIONCODE, REGIONNAME, BUSINESSCODE, BUSINESSUNIT, LARGEAREANAME, PUBLISHDATE, 
+    APPROVALPARAMETERS, BUILDINGMAXHEIGHTTYPES, BUILDINGMINHEIGHTTYPES, BUILDINGMAXSJ, 
+    BUILDINGMINSJ, BUILDINGMAXSJDW, BUILDINGMINSJDW
+  </sql>
+  <select id="selectByExample" parameterType="com.yuanian.masterdata.entity.ProjectExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from T_MDS_PROJECT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <insert id="insert" parameterType="com.yuanian.masterdata.entity.Project">
+    insert into T_MDS_PROJECT (PROJECTVERSIONID, PROJECTID, PROJECTCODE, 
+      PROJECTNAME, ISHISTORY, ISNEWVERSION, 
+      PROJECTVERSION, COMPANYID, COMPANYCODE, 
+      COMPANYNAME, PROJECTSHORTNAME, PROJECTOFFICIALNAME, 
+      PROJECTGENERALIZENAME, CITYID, CITYCODE, 
+      CITYNAME, ADDRESS, PRINCIPLEMAN, 
+      PRINCIPLENAME, BUSINESSTYPE, ZLPERCENT, 
+      OTHERPERCENT, PROJECTGAINDATE, PARCELPROPERTY, 
+      CURRENTSTAGE, DATASTAGE, TOTALUSEAREA, 
+      BUILDINGAREA, EXPROPRIATEDAREA, EXPROPRIATEDGREENAREA, 
+      EXPROPRIATEDROADAREA, EXPROPRIATEDOTHERAREA, 
+      TOTALHOLDAREA, BUILDINGHOLDAREA, DEMONSTRATIONAREA, 
+      TOTALROADAREA, BITUMINOUSROAD, CEMENTROAD, 
+      HARDROAD, HARDPLAZA, HARDSIDEWALK, 
+      TOTALGREENAREA, PUBLICGREENAREA, AMONGGREENAREA, 
+      PRIVATEGREENAREA, WATERSCAPEAREA, TOTALCAPACITYAREA, 
+      UPCAPACITYAREA, DOWNCAPACITYAREA, TOTALPUBLICAREA, 
+      UPNONCAPACITYAREA, DOWNNONCAPACITYAREA, TOTALBUILDINGAREA, 
+      UPBUILDINGAREA, DOWNBUILDINGAREA, DOWNGARAGEAREA, 
+      STILTFLOORAREA, TOWERDOWNAREA, STOREROOMNUM, 
+      STOREROOMAREA, TOTALSELLAREA, UPSELFSELLAREA, 
+      UPAVAILABLESELLAREA, UPGOVERNMENTAREA, DOWNSELFSELLAREA, 
+      DOWNOTHERSELLAREA, DOWNGOVERNMENTAREA, TOTALPRESENTAREA, 
+      UPPRESENTAREA, DOWNPRESENTAREA, ADDITIONALAREA, 
+      BUILDINGMAXHEIGHT, PLANRATIO, PLANDENSITY, 
+      BUILDINGMINHEIGHT, REALRATIO, REALDENSITY, 
+      AVAILABLETHAN, PLOTRATIO, BUILDINGDENSITY, 
+      TOTALSTALLNUM, UPSTALLNUM, UPGROUNDSTALLNUM, 
+      SEMIUNDERGROUNDSTALLNUM, STALLNUMINBUILDING, 
+      DOWNAUTOSTALLNUM, DOWNSTALLNUM, DOWNDEFENCENUM, 
+      DOWNDEFENCEMACHINENUM, DOWNDEFENCENONMACHINENUM, 
+      DOWNNONDEFENCENUM, DOWNNONDEFENCEMACHINENUM, 
+      DOWNNONDEFENCENONMACHINENUM, DOWNNONAUTOSTALLNUM, 
+      SEMIDOWNNODEFENCEMACHINENUM, PLANGREENRADIO, 
+      GREENRADIO, HOUSETYPENUM, APPROVESTATUS, 
+      STATUS, SELLSYSTEMCODE, COSTSYSTEMCODE, 
+      PURCHASESYSTEMCODE, FINANCIALSYSTEMCODE, CREATEUSER, 
+      CREATEDATE, MODIFYUSER, MODIFYDATE, 
+      F1, F2, F3, STALLAREA, 
+      REMARK, INSTANCEID, NOSELLSTALLNUM, 
+      IMAGEPATH, FTPSERVERIP, FTPREMOTEPATH, 
+      FTPUSERID, FTPPASSWORD, STARTWORKINGDATE, 
+      PRESALEDATE, OPENDATE, CAPPINGDATE, 
+      COMPLETEDATE, HANDINGDATE, STARTWORKINGDATEPLANSTART, 
+      STARTWORKINGDATEPLANEND, PRESALEDATEPLANSTART, 
+      PRESALEDATEPLANEND, OPENDATEPLANSTART, OPENDATEPLANEND, 
+      CAPPINGDATEPLANSTART, CAPPINGDATEPLANEND, COMPLETEDATEPLANSTART, 
+      COMPLETEDATEPLANEND, HANDINGDATEPLANSTART, 
+      HANDINGDATEPLANEND, GAINDATE, GAINPLANSTARTDATE, 
+      GAINPLANENDDATE, DOWNDEFENCESELLNUM, DOWNNONDEFENCESELLNUM, 
+      APPROVEDATE, PLATE, MARKETTYPE, 
+      ISDIFFICULTPROJECT, ONEHANDSIGNLANDCONTRACTDATE, 
+      SECONDHANDOWNERSHIPCHANGEDATE, CONSTRUCTIONLICENCEDATE, 
+      APPROVETYPE, ADJUSTREMARK, PHASEADJUSTREMARK, 
+      INSTANCEIDHZSX, APPROVEDATEHZSX, APPROVESTATUSHZSX, 
+      UPDATE_TIME, REGIONCODE, REGIONNAME, 
+      BUSINESSCODE, BUSINESSUNIT, LARGEAREANAME, 
+      PUBLISHDATE, APPROVALPARAMETERS, BUILDINGMAXHEIGHTTYPES, 
+      BUILDINGMINHEIGHTTYPES, BUILDINGMAXSJ, BUILDINGMINSJ, 
+      BUILDINGMAXSJDW, BUILDINGMINSJDW)
+    values (#{projectversionid,jdbcType=VARCHAR}, #{projectid,jdbcType=VARCHAR}, #{projectcode,jdbcType=OTHER}, 
+      #{projectname,jdbcType=OTHER}, #{ishistory,jdbcType=OTHER}, #{isnewversion,jdbcType=OTHER}, 
+      #{projectversion,jdbcType=VARCHAR}, #{companyid,jdbcType=OTHER}, #{companycode,jdbcType=OTHER}, 
+      #{companyname,jdbcType=OTHER}, #{projectshortname,jdbcType=OTHER}, #{projectofficialname,jdbcType=OTHER}, 
+      #{projectgeneralizename,jdbcType=OTHER}, #{cityid,jdbcType=OTHER}, #{citycode,jdbcType=OTHER}, 
+      #{cityname,jdbcType=OTHER}, #{address,jdbcType=OTHER}, #{principleman,jdbcType=OTHER}, 
+      #{principlename,jdbcType=OTHER}, #{businesstype,jdbcType=OTHER}, #{zlpercent,jdbcType=OTHER}, 
+      #{otherpercent,jdbcType=OTHER}, #{projectgaindate,jdbcType=OTHER}, #{parcelproperty,jdbcType=OTHER}, 
+      #{currentstage,jdbcType=OTHER}, #{datastage,jdbcType=OTHER}, #{totalusearea,jdbcType=OTHER}, 
+      #{buildingarea,jdbcType=OTHER}, #{expropriatedarea,jdbcType=OTHER}, #{expropriatedgreenarea,jdbcType=OTHER}, 
+      #{expropriatedroadarea,jdbcType=OTHER}, #{expropriatedotherarea,jdbcType=OTHER}, 
+      #{totalholdarea,jdbcType=OTHER}, #{buildingholdarea,jdbcType=OTHER}, #{demonstrationarea,jdbcType=OTHER}, 
+      #{totalroadarea,jdbcType=OTHER}, #{bituminousroad,jdbcType=OTHER}, #{cementroad,jdbcType=OTHER}, 
+      #{hardroad,jdbcType=OTHER}, #{hardplaza,jdbcType=OTHER}, #{hardsidewalk,jdbcType=OTHER}, 
+      #{totalgreenarea,jdbcType=OTHER}, #{publicgreenarea,jdbcType=OTHER}, #{amonggreenarea,jdbcType=OTHER}, 
+      #{privategreenarea,jdbcType=OTHER}, #{waterscapearea,jdbcType=OTHER}, #{totalcapacityarea,jdbcType=OTHER}, 
+      #{upcapacityarea,jdbcType=OTHER}, #{downcapacityarea,jdbcType=OTHER}, #{totalpublicarea,jdbcType=OTHER}, 
+      #{upnoncapacityarea,jdbcType=OTHER}, #{downnoncapacityarea,jdbcType=OTHER}, #{totalbuildingarea,jdbcType=OTHER}, 
+      #{upbuildingarea,jdbcType=OTHER}, #{downbuildingarea,jdbcType=OTHER}, #{downgaragearea,jdbcType=OTHER}, 
+      #{stiltfloorarea,jdbcType=OTHER}, #{towerdownarea,jdbcType=OTHER}, #{storeroomnum,jdbcType=OTHER}, 
+      #{storeroomarea,jdbcType=OTHER}, #{totalsellarea,jdbcType=OTHER}, #{upselfsellarea,jdbcType=OTHER}, 
+      #{upavailablesellarea,jdbcType=OTHER}, #{upgovernmentarea,jdbcType=OTHER}, #{downselfsellarea,jdbcType=OTHER}, 
+      #{downothersellarea,jdbcType=OTHER}, #{downgovernmentarea,jdbcType=OTHER}, #{totalpresentarea,jdbcType=OTHER}, 
+      #{uppresentarea,jdbcType=OTHER}, #{downpresentarea,jdbcType=OTHER}, #{additionalarea,jdbcType=OTHER}, 
+      #{buildingmaxheight,jdbcType=OTHER}, #{planratio,jdbcType=OTHER}, #{plandensity,jdbcType=OTHER}, 
+      #{buildingminheight,jdbcType=OTHER}, #{realratio,jdbcType=OTHER}, #{realdensity,jdbcType=OTHER}, 
+      #{availablethan,jdbcType=OTHER}, #{plotratio,jdbcType=OTHER}, #{buildingdensity,jdbcType=OTHER}, 
+      #{totalstallnum,jdbcType=OTHER}, #{upstallnum,jdbcType=OTHER}, #{upgroundstallnum,jdbcType=OTHER}, 
+      #{semiundergroundstallnum,jdbcType=OTHER}, #{stallnuminbuilding,jdbcType=OTHER}, 
+      #{downautostallnum,jdbcType=OTHER}, #{downstallnum,jdbcType=OTHER}, #{downdefencenum,jdbcType=OTHER}, 
+      #{downdefencemachinenum,jdbcType=OTHER}, #{downdefencenonmachinenum,jdbcType=OTHER}, 
+      #{downnondefencenum,jdbcType=OTHER}, #{downnondefencemachinenum,jdbcType=OTHER}, 
+      #{downnondefencenonmachinenum,jdbcType=OTHER}, #{downnonautostallnum,jdbcType=OTHER}, 
+      #{semidownnodefencemachinenum,jdbcType=OTHER}, #{plangreenradio,jdbcType=OTHER}, 
+      #{greenradio,jdbcType=OTHER}, #{housetypenum,jdbcType=OTHER}, #{approvestatus,jdbcType=OTHER}, 
+      #{status,jdbcType=OTHER}, #{sellsystemcode,jdbcType=OTHER}, #{costsystemcode,jdbcType=OTHER}, 
+      #{purchasesystemcode,jdbcType=OTHER}, #{financialsystemcode,jdbcType=OTHER}, #{createuser,jdbcType=OTHER}, 
+      #{createdate,jdbcType=OTHER}, #{modifyuser,jdbcType=OTHER}, #{modifydate,jdbcType=OTHER}, 
+      #{f1,jdbcType=OTHER}, #{f2,jdbcType=OTHER}, #{f3,jdbcType=OTHER}, #{stallarea,jdbcType=OTHER}, 
+      #{remark,jdbcType=OTHER}, #{instanceid,jdbcType=OTHER}, #{nosellstallnum,jdbcType=OTHER}, 
+      #{imagepath,jdbcType=OTHER}, #{ftpserverip,jdbcType=OTHER}, #{ftpremotepath,jdbcType=OTHER}, 
+      #{ftpuserid,jdbcType=OTHER}, #{ftppassword,jdbcType=OTHER}, #{startworkingdate,jdbcType=OTHER}, 
+      #{presaledate,jdbcType=OTHER}, #{opendate,jdbcType=OTHER}, #{cappingdate,jdbcType=OTHER}, 
+      #{completedate,jdbcType=OTHER}, #{handingdate,jdbcType=OTHER}, #{startworkingdateplanstart,jdbcType=OTHER}, 
+      #{startworkingdateplanend,jdbcType=OTHER}, #{presaledateplanstart,jdbcType=OTHER}, 
+      #{presaledateplanend,jdbcType=OTHER}, #{opendateplanstart,jdbcType=OTHER}, #{opendateplanend,jdbcType=OTHER}, 
+      #{cappingdateplanstart,jdbcType=OTHER}, #{cappingdateplanend,jdbcType=OTHER}, #{completedateplanstart,jdbcType=OTHER}, 
+      #{completedateplanend,jdbcType=OTHER}, #{handingdateplanstart,jdbcType=OTHER}, 
+      #{handingdateplanend,jdbcType=OTHER}, #{gaindate,jdbcType=OTHER}, #{gainplanstartdate,jdbcType=OTHER}, 
+      #{gainplanenddate,jdbcType=OTHER}, #{downdefencesellnum,jdbcType=OTHER}, #{downnondefencesellnum,jdbcType=OTHER}, 
+      #{approvedate,jdbcType=OTHER}, #{plate,jdbcType=OTHER}, #{markettype,jdbcType=OTHER}, 
+      #{isdifficultproject,jdbcType=OTHER}, #{onehandsignlandcontractdate,jdbcType=OTHER}, 
+      #{secondhandownershipchangedate,jdbcType=OTHER}, #{constructionlicencedate,jdbcType=OTHER}, 
+      #{approvetype,jdbcType=OTHER}, #{adjustremark,jdbcType=OTHER}, #{phaseadjustremark,jdbcType=OTHER}, 
+      #{instanceidhzsx,jdbcType=OTHER}, #{approvedatehzsx,jdbcType=OTHER}, #{approvestatushzsx,jdbcType=OTHER}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{regioncode,jdbcType=OTHER}, #{regionname,jdbcType=OTHER}, 
+      #{businesscode,jdbcType=OTHER}, #{businessunit,jdbcType=OTHER}, #{largeareaname,jdbcType=OTHER}, 
+      #{publishdate,jdbcType=OTHER}, #{approvalparameters,jdbcType=OTHER}, #{buildingmaxheighttypes,jdbcType=OTHER}, 
+      #{buildingminheighttypes,jdbcType=OTHER}, #{buildingmaxsj,jdbcType=OTHER}, #{buildingminsj,jdbcType=OTHER}, 
+      #{buildingmaxsjdw,jdbcType=OTHER}, #{buildingminsjdw,jdbcType=OTHER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yuanian.masterdata.entity.Project">
+    insert into T_MDS_PROJECT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="projectversionid != null">
+        PROJECTVERSIONID,
+      </if>
+      <if test="projectid != null">
+        PROJECTID,
+      </if>
+      <if test="projectcode != null">
+        PROJECTCODE,
+      </if>
+      <if test="projectname != null">
+        PROJECTNAME,
+      </if>
+      <if test="ishistory != null">
+        ISHISTORY,
+      </if>
+      <if test="isnewversion != null">
+        ISNEWVERSION,
+      </if>
+      <if test="projectversion != null">
+        PROJECTVERSION,
+      </if>
+      <if test="companyid != null">
+        COMPANYID,
+      </if>
+      <if test="companycode != null">
+        COMPANYCODE,
+      </if>
+      <if test="companyname != null">
+        COMPANYNAME,
+      </if>
+      <if test="projectshortname != null">
+        PROJECTSHORTNAME,
+      </if>
+      <if test="projectofficialname != null">
+        PROJECTOFFICIALNAME,
+      </if>
+      <if test="projectgeneralizename != null">
+        PROJECTGENERALIZENAME,
+      </if>
+      <if test="cityid != null">
+        CITYID,
+      </if>
+      <if test="citycode != null">
+        CITYCODE,
+      </if>
+      <if test="cityname != null">
+        CITYNAME,
+      </if>
+      <if test="address != null">
+        ADDRESS,
+      </if>
+      <if test="principleman != null">
+        PRINCIPLEMAN,
+      </if>
+      <if test="principlename != null">
+        PRINCIPLENAME,
+      </if>
+      <if test="businesstype != null">
+        BUSINESSTYPE,
+      </if>
+      <if test="zlpercent != null">
+        ZLPERCENT,
+      </if>
+      <if test="otherpercent != null">
+        OTHERPERCENT,
+      </if>
+      <if test="projectgaindate != null">
+        PROJECTGAINDATE,
+      </if>
+      <if test="parcelproperty != null">
+        PARCELPROPERTY,
+      </if>
+      <if test="currentstage != null">
+        CURRENTSTAGE,
+      </if>
+      <if test="datastage != null">
+        DATASTAGE,
+      </if>
+      <if test="totalusearea != null">
+        TOTALUSEAREA,
+      </if>
+      <if test="buildingarea != null">
+        BUILDINGAREA,
+      </if>
+      <if test="expropriatedarea != null">
+        EXPROPRIATEDAREA,
+      </if>
+      <if test="expropriatedgreenarea != null">
+        EXPROPRIATEDGREENAREA,
+      </if>
+      <if test="expropriatedroadarea != null">
+        EXPROPRIATEDROADAREA,
+      </if>
+      <if test="expropriatedotherarea != null">
+        EXPROPRIATEDOTHERAREA,
+      </if>
+      <if test="totalholdarea != null">
+        TOTALHOLDAREA,
+      </if>
+      <if test="buildingholdarea != null">
+        BUILDINGHOLDAREA,
+      </if>
+      <if test="demonstrationarea != null">
+        DEMONSTRATIONAREA,
+      </if>
+      <if test="totalroadarea != null">
+        TOTALROADAREA,
+      </if>
+      <if test="bituminousroad != null">
+        BITUMINOUSROAD,
+      </if>
+      <if test="cementroad != null">
+        CEMENTROAD,
+      </if>
+      <if test="hardroad != null">
+        HARDROAD,
+      </if>
+      <if test="hardplaza != null">
+        HARDPLAZA,
+      </if>
+      <if test="hardsidewalk != null">
+        HARDSIDEWALK,
+      </if>
+      <if test="totalgreenarea != null">
+        TOTALGREENAREA,
+      </if>
+      <if test="publicgreenarea != null">
+        PUBLICGREENAREA,
+      </if>
+      <if test="amonggreenarea != null">
+        AMONGGREENAREA,
+      </if>
+      <if test="privategreenarea != null">
+        PRIVATEGREENAREA,
+      </if>
+      <if test="waterscapearea != null">
+        WATERSCAPEAREA,
+      </if>
+      <if test="totalcapacityarea != null">
+        TOTALCAPACITYAREA,
+      </if>
+      <if test="upcapacityarea != null">
+        UPCAPACITYAREA,
+      </if>
+      <if test="downcapacityarea != null">
+        DOWNCAPACITYAREA,
+      </if>
+      <if test="totalpublicarea != null">
+        TOTALPUBLICAREA,
+      </if>
+      <if test="upnoncapacityarea != null">
+        UPNONCAPACITYAREA,
+      </if>
+      <if test="downnoncapacityarea != null">
+        DOWNNONCAPACITYAREA,
+      </if>
+      <if test="totalbuildingarea != null">
+        TOTALBUILDINGAREA,
+      </if>
+      <if test="upbuildingarea != null">
+        UPBUILDINGAREA,
+      </if>
+      <if test="downbuildingarea != null">
+        DOWNBUILDINGAREA,
+      </if>
+      <if test="downgaragearea != null">
+        DOWNGARAGEAREA,
+      </if>
+      <if test="stiltfloorarea != null">
+        STILTFLOORAREA,
+      </if>
+      <if test="towerdownarea != null">
+        TOWERDOWNAREA,
+      </if>
+      <if test="storeroomnum != null">
+        STOREROOMNUM,
+      </if>
+      <if test="storeroomarea != null">
+        STOREROOMAREA,
+      </if>
+      <if test="totalsellarea != null">
+        TOTALSELLAREA,
+      </if>
+      <if test="upselfsellarea != null">
+        UPSELFSELLAREA,
+      </if>
+      <if test="upavailablesellarea != null">
+        UPAVAILABLESELLAREA,
+      </if>
+      <if test="upgovernmentarea != null">
+        UPGOVERNMENTAREA,
+      </if>
+      <if test="downselfsellarea != null">
+        DOWNSELFSELLAREA,
+      </if>
+      <if test="downothersellarea != null">
+        DOWNOTHERSELLAREA,
+      </if>
+      <if test="downgovernmentarea != null">
+        DOWNGOVERNMENTAREA,
+      </if>
+      <if test="totalpresentarea != null">
+        TOTALPRESENTAREA,
+      </if>
+      <if test="uppresentarea != null">
+        UPPRESENTAREA,
+      </if>
+      <if test="downpresentarea != null">
+        DOWNPRESENTAREA,
+      </if>
+      <if test="additionalarea != null">
+        ADDITIONALAREA,
+      </if>
+      <if test="buildingmaxheight != null">
+        BUILDINGMAXHEIGHT,
+      </if>
+      <if test="planratio != null">
+        PLANRATIO,
+      </if>
+      <if test="plandensity != null">
+        PLANDENSITY,
+      </if>
+      <if test="buildingminheight != null">
+        BUILDINGMINHEIGHT,
+      </if>
+      <if test="realratio != null">
+        REALRATIO,
+      </if>
+      <if test="realdensity != null">
+        REALDENSITY,
+      </if>
+      <if test="availablethan != null">
+        AVAILABLETHAN,
+      </if>
+      <if test="plotratio != null">
+        PLOTRATIO,
+      </if>
+      <if test="buildingdensity != null">
+        BUILDINGDENSITY,
+      </if>
+      <if test="totalstallnum != null">
+        TOTALSTALLNUM,
+      </if>
+      <if test="upstallnum != null">
+        UPSTALLNUM,
+      </if>
+      <if test="upgroundstallnum != null">
+        UPGROUNDSTALLNUM,
+      </if>
+      <if test="semiundergroundstallnum != null">
+        SEMIUNDERGROUNDSTALLNUM,
+      </if>
+      <if test="stallnuminbuilding != null">
+        STALLNUMINBUILDING,
+      </if>
+      <if test="downautostallnum != null">
+        DOWNAUTOSTALLNUM,
+      </if>
+      <if test="downstallnum != null">
+        DOWNSTALLNUM,
+      </if>
+      <if test="downdefencenum != null">
+        DOWNDEFENCENUM,
+      </if>
+      <if test="downdefencemachinenum != null">
+        DOWNDEFENCEMACHINENUM,
+      </if>
+      <if test="downdefencenonmachinenum != null">
+        DOWNDEFENCENONMACHINENUM,
+      </if>
+      <if test="downnondefencenum != null">
+        DOWNNONDEFENCENUM,
+      </if>
+      <if test="downnondefencemachinenum != null">
+        DOWNNONDEFENCEMACHINENUM,
+      </if>
+      <if test="downnondefencenonmachinenum != null">
+        DOWNNONDEFENCENONMACHINENUM,
+      </if>
+      <if test="downnonautostallnum != null">
+        DOWNNONAUTOSTALLNUM,
+      </if>
+      <if test="semidownnodefencemachinenum != null">
+        SEMIDOWNNODEFENCEMACHINENUM,
+      </if>
+      <if test="plangreenradio != null">
+        PLANGREENRADIO,
+      </if>
+      <if test="greenradio != null">
+        GREENRADIO,
+      </if>
+      <if test="housetypenum != null">
+        HOUSETYPENUM,
+      </if>
+      <if test="approvestatus != null">
+        APPROVESTATUS,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="sellsystemcode != null">
+        SELLSYSTEMCODE,
+      </if>
+      <if test="costsystemcode != null">
+        COSTSYSTEMCODE,
+      </if>
+      <if test="purchasesystemcode != null">
+        PURCHASESYSTEMCODE,
+      </if>
+      <if test="financialsystemcode != null">
+        FINANCIALSYSTEMCODE,
+      </if>
+      <if test="createuser != null">
+        CREATEUSER,
+      </if>
+      <if test="createdate != null">
+        CREATEDATE,
+      </if>
+      <if test="modifyuser != null">
+        MODIFYUSER,
+      </if>
+      <if test="modifydate != null">
+        MODIFYDATE,
+      </if>
+      <if test="f1 != null">
+        F1,
+      </if>
+      <if test="f2 != null">
+        F2,
+      </if>
+      <if test="f3 != null">
+        F3,
+      </if>
+      <if test="stallarea != null">
+        STALLAREA,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="instanceid != null">
+        INSTANCEID,
+      </if>
+      <if test="nosellstallnum != null">
+        NOSELLSTALLNUM,
+      </if>
+      <if test="imagepath != null">
+        IMAGEPATH,
+      </if>
+      <if test="ftpserverip != null">
+        FTPSERVERIP,
+      </if>
+      <if test="ftpremotepath != null">
+        FTPREMOTEPATH,
+      </if>
+      <if test="ftpuserid != null">
+        FTPUSERID,
+      </if>
+      <if test="ftppassword != null">
+        FTPPASSWORD,
+      </if>
+      <if test="startworkingdate != null">
+        STARTWORKINGDATE,
+      </if>
+      <if test="presaledate != null">
+        PRESALEDATE,
+      </if>
+      <if test="opendate != null">
+        OPENDATE,
+      </if>
+      <if test="cappingdate != null">
+        CAPPINGDATE,
+      </if>
+      <if test="completedate != null">
+        COMPLETEDATE,
+      </if>
+      <if test="handingdate != null">
+        HANDINGDATE,
+      </if>
+      <if test="startworkingdateplanstart != null">
+        STARTWORKINGDATEPLANSTART,
+      </if>
+      <if test="startworkingdateplanend != null">
+        STARTWORKINGDATEPLANEND,
+      </if>
+      <if test="presaledateplanstart != null">
+        PRESALEDATEPLANSTART,
+      </if>
+      <if test="presaledateplanend != null">
+        PRESALEDATEPLANEND,
+      </if>
+      <if test="opendateplanstart != null">
+        OPENDATEPLANSTART,
+      </if>
+      <if test="opendateplanend != null">
+        OPENDATEPLANEND,
+      </if>
+      <if test="cappingdateplanstart != null">
+        CAPPINGDATEPLANSTART,
+      </if>
+      <if test="cappingdateplanend != null">
+        CAPPINGDATEPLANEND,
+      </if>
+      <if test="completedateplanstart != null">
+        COMPLETEDATEPLANSTART,
+      </if>
+      <if test="completedateplanend != null">
+        COMPLETEDATEPLANEND,
+      </if>
+      <if test="handingdateplanstart != null">
+        HANDINGDATEPLANSTART,
+      </if>
+      <if test="handingdateplanend != null">
+        HANDINGDATEPLANEND,
+      </if>
+      <if test="gaindate != null">
+        GAINDATE,
+      </if>
+      <if test="gainplanstartdate != null">
+        GAINPLANSTARTDATE,
+      </if>
+      <if test="gainplanenddate != null">
+        GAINPLANENDDATE,
+      </if>
+      <if test="downdefencesellnum != null">
+        DOWNDEFENCESELLNUM,
+      </if>
+      <if test="downnondefencesellnum != null">
+        DOWNNONDEFENCESELLNUM,
+      </if>
+      <if test="approvedate != null">
+        APPROVEDATE,
+      </if>
+      <if test="plate != null">
+        PLATE,
+      </if>
+      <if test="markettype != null">
+        MARKETTYPE,
+      </if>
+      <if test="isdifficultproject != null">
+        ISDIFFICULTPROJECT,
+      </if>
+      <if test="onehandsignlandcontractdate != null">
+        ONEHANDSIGNLANDCONTRACTDATE,
+      </if>
+      <if test="secondhandownershipchangedate != null">
+        SECONDHANDOWNERSHIPCHANGEDATE,
+      </if>
+      <if test="constructionlicencedate != null">
+        CONSTRUCTIONLICENCEDATE,
+      </if>
+      <if test="approvetype != null">
+        APPROVETYPE,
+      </if>
+      <if test="adjustremark != null">
+        ADJUSTREMARK,
+      </if>
+      <if test="phaseadjustremark != null">
+        PHASEADJUSTREMARK,
+      </if>
+      <if test="instanceidhzsx != null">
+        INSTANCEIDHZSX,
+      </if>
+      <if test="approvedatehzsx != null">
+        APPROVEDATEHZSX,
+      </if>
+      <if test="approvestatushzsx != null">
+        APPROVESTATUSHZSX,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="regioncode != null">
+        REGIONCODE,
+      </if>
+      <if test="regionname != null">
+        REGIONNAME,
+      </if>
+      <if test="businesscode != null">
+        BUSINESSCODE,
+      </if>
+      <if test="businessunit != null">
+        BUSINESSUNIT,
+      </if>
+      <if test="largeareaname != null">
+        LARGEAREANAME,
+      </if>
+      <if test="publishdate != null">
+        PUBLISHDATE,
+      </if>
+      <if test="approvalparameters != null">
+        APPROVALPARAMETERS,
+      </if>
+      <if test="buildingmaxheighttypes != null">
+        BUILDINGMAXHEIGHTTYPES,
+      </if>
+      <if test="buildingminheighttypes != null">
+        BUILDINGMINHEIGHTTYPES,
+      </if>
+      <if test="buildingmaxsj != null">
+        BUILDINGMAXSJ,
+      </if>
+      <if test="buildingminsj != null">
+        BUILDINGMINSJ,
+      </if>
+      <if test="buildingmaxsjdw != null">
+        BUILDINGMAXSJDW,
+      </if>
+      <if test="buildingminsjdw != null">
+        BUILDINGMINSJDW,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="projectversionid != null">
+        #{projectversionid,jdbcType=VARCHAR},
+      </if>
+      <if test="projectid != null">
+        #{projectid,jdbcType=VARCHAR},
+      </if>
+      <if test="projectcode != null">
+        #{projectcode,jdbcType=OTHER},
+      </if>
+      <if test="projectname != null">
+        #{projectname,jdbcType=OTHER},
+      </if>
+      <if test="ishistory != null">
+        #{ishistory,jdbcType=OTHER},
+      </if>
+      <if test="isnewversion != null">
+        #{isnewversion,jdbcType=OTHER},
+      </if>
+      <if test="projectversion != null">
+        #{projectversion,jdbcType=VARCHAR},
+      </if>
+      <if test="companyid != null">
+        #{companyid,jdbcType=OTHER},
+      </if>
+      <if test="companycode != null">
+        #{companycode,jdbcType=OTHER},
+      </if>
+      <if test="companyname != null">
+        #{companyname,jdbcType=OTHER},
+      </if>
+      <if test="projectshortname != null">
+        #{projectshortname,jdbcType=OTHER},
+      </if>
+      <if test="projectofficialname != null">
+        #{projectofficialname,jdbcType=OTHER},
+      </if>
+      <if test="projectgeneralizename != null">
+        #{projectgeneralizename,jdbcType=OTHER},
+      </if>
+      <if test="cityid != null">
+        #{cityid,jdbcType=OTHER},
+      </if>
+      <if test="citycode != null">
+        #{citycode,jdbcType=OTHER},
+      </if>
+      <if test="cityname != null">
+        #{cityname,jdbcType=OTHER},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=OTHER},
+      </if>
+      <if test="principleman != null">
+        #{principleman,jdbcType=OTHER},
+      </if>
+      <if test="principlename != null">
+        #{principlename,jdbcType=OTHER},
+      </if>
+      <if test="businesstype != null">
+        #{businesstype,jdbcType=OTHER},
+      </if>
+      <if test="zlpercent != null">
+        #{zlpercent,jdbcType=OTHER},
+      </if>
+      <if test="otherpercent != null">
+        #{otherpercent,jdbcType=OTHER},
+      </if>
+      <if test="projectgaindate != null">
+        #{projectgaindate,jdbcType=OTHER},
+      </if>
+      <if test="parcelproperty != null">
+        #{parcelproperty,jdbcType=OTHER},
+      </if>
+      <if test="currentstage != null">
+        #{currentstage,jdbcType=OTHER},
+      </if>
+      <if test="datastage != null">
+        #{datastage,jdbcType=OTHER},
+      </if>
+      <if test="totalusearea != null">
+        #{totalusearea,jdbcType=OTHER},
+      </if>
+      <if test="buildingarea != null">
+        #{buildingarea,jdbcType=OTHER},
+      </if>
+      <if test="expropriatedarea != null">
+        #{expropriatedarea,jdbcType=OTHER},
+      </if>
+      <if test="expropriatedgreenarea != null">
+        #{expropriatedgreenarea,jdbcType=OTHER},
+      </if>
+      <if test="expropriatedroadarea != null">
+        #{expropriatedroadarea,jdbcType=OTHER},
+      </if>
+      <if test="expropriatedotherarea != null">
+        #{expropriatedotherarea,jdbcType=OTHER},
+      </if>
+      <if test="totalholdarea != null">
+        #{totalholdarea,jdbcType=OTHER},
+      </if>
+      <if test="buildingholdarea != null">
+        #{buildingholdarea,jdbcType=OTHER},
+      </if>
+      <if test="demonstrationarea != null">
+        #{demonstrationarea,jdbcType=OTHER},
+      </if>
+      <if test="totalroadarea != null">
+        #{totalroadarea,jdbcType=OTHER},
+      </if>
+      <if test="bituminousroad != null">
+        #{bituminousroad,jdbcType=OTHER},
+      </if>
+      <if test="cementroad != null">
+        #{cementroad,jdbcType=OTHER},
+      </if>
+      <if test="hardroad != null">
+        #{hardroad,jdbcType=OTHER},
+      </if>
+      <if test="hardplaza != null">
+        #{hardplaza,jdbcType=OTHER},
+      </if>
+      <if test="hardsidewalk != null">
+        #{hardsidewalk,jdbcType=OTHER},
+      </if>
+      <if test="totalgreenarea != null">
+        #{totalgreenarea,jdbcType=OTHER},
+      </if>
+      <if test="publicgreenarea != null">
+        #{publicgreenarea,jdbcType=OTHER},
+      </if>
+      <if test="amonggreenarea != null">
+        #{amonggreenarea,jdbcType=OTHER},
+      </if>
+      <if test="privategreenarea != null">
+        #{privategreenarea,jdbcType=OTHER},
+      </if>
+      <if test="waterscapearea != null">
+        #{waterscapearea,jdbcType=OTHER},
+      </if>
+      <if test="totalcapacityarea != null">
+        #{totalcapacityarea,jdbcType=OTHER},
+      </if>
+      <if test="upcapacityarea != null">
+        #{upcapacityarea,jdbcType=OTHER},
+      </if>
+      <if test="downcapacityarea != null">
+        #{downcapacityarea,jdbcType=OTHER},
+      </if>
+      <if test="totalpublicarea != null">
+        #{totalpublicarea,jdbcType=OTHER},
+      </if>
+      <if test="upnoncapacityarea != null">
+        #{upnoncapacityarea,jdbcType=OTHER},
+      </if>
+      <if test="downnoncapacityarea != null">
+        #{downnoncapacityarea,jdbcType=OTHER},
+      </if>
+      <if test="totalbuildingarea != null">
+        #{totalbuildingarea,jdbcType=OTHER},
+      </if>
+      <if test="upbuildingarea != null">
+        #{upbuildingarea,jdbcType=OTHER},
+      </if>
+      <if test="downbuildingarea != null">
+        #{downbuildingarea,jdbcType=OTHER},
+      </if>
+      <if test="downgaragearea != null">
+        #{downgaragearea,jdbcType=OTHER},
+      </if>
+      <if test="stiltfloorarea != null">
+        #{stiltfloorarea,jdbcType=OTHER},
+      </if>
+      <if test="towerdownarea != null">
+        #{towerdownarea,jdbcType=OTHER},
+      </if>
+      <if test="storeroomnum != null">
+        #{storeroomnum,jdbcType=OTHER},
+      </if>
+      <if test="storeroomarea != null">
+        #{storeroomarea,jdbcType=OTHER},
+      </if>
+      <if test="totalsellarea != null">
+        #{totalsellarea,jdbcType=OTHER},
+      </if>
+      <if test="upselfsellarea != null">
+        #{upselfsellarea,jdbcType=OTHER},
+      </if>
+      <if test="upavailablesellarea != null">
+        #{upavailablesellarea,jdbcType=OTHER},
+      </if>
+      <if test="upgovernmentarea != null">
+        #{upgovernmentarea,jdbcType=OTHER},
+      </if>
+      <if test="downselfsellarea != null">
+        #{downselfsellarea,jdbcType=OTHER},
+      </if>
+      <if test="downothersellarea != null">
+        #{downothersellarea,jdbcType=OTHER},
+      </if>
+      <if test="downgovernmentarea != null">
+        #{downgovernmentarea,jdbcType=OTHER},
+      </if>
+      <if test="totalpresentarea != null">
+        #{totalpresentarea,jdbcType=OTHER},
+      </if>
+      <if test="uppresentarea != null">
+        #{uppresentarea,jdbcType=OTHER},
+      </if>
+      <if test="downpresentarea != null">
+        #{downpresentarea,jdbcType=OTHER},
+      </if>
+      <if test="additionalarea != null">
+        #{additionalarea,jdbcType=OTHER},
+      </if>
+      <if test="buildingmaxheight != null">
+        #{buildingmaxheight,jdbcType=OTHER},
+      </if>
+      <if test="planratio != null">
+        #{planratio,jdbcType=OTHER},
+      </if>
+      <if test="plandensity != null">
+        #{plandensity,jdbcType=OTHER},
+      </if>
+      <if test="buildingminheight != null">
+        #{buildingminheight,jdbcType=OTHER},
+      </if>
+      <if test="realratio != null">
+        #{realratio,jdbcType=OTHER},
+      </if>
+      <if test="realdensity != null">
+        #{realdensity,jdbcType=OTHER},
+      </if>
+      <if test="availablethan != null">
+        #{availablethan,jdbcType=OTHER},
+      </if>
+      <if test="plotratio != null">
+        #{plotratio,jdbcType=OTHER},
+      </if>
+      <if test="buildingdensity != null">
+        #{buildingdensity,jdbcType=OTHER},
+      </if>
+      <if test="totalstallnum != null">
+        #{totalstallnum,jdbcType=OTHER},
+      </if>
+      <if test="upstallnum != null">
+        #{upstallnum,jdbcType=OTHER},
+      </if>
+      <if test="upgroundstallnum != null">
+        #{upgroundstallnum,jdbcType=OTHER},
+      </if>
+      <if test="semiundergroundstallnum != null">
+        #{semiundergroundstallnum,jdbcType=OTHER},
+      </if>
+      <if test="stallnuminbuilding != null">
+        #{stallnuminbuilding,jdbcType=OTHER},
+      </if>
+      <if test="downautostallnum != null">
+        #{downautostallnum,jdbcType=OTHER},
+      </if>
+      <if test="downstallnum != null">
+        #{downstallnum,jdbcType=OTHER},
+      </if>
+      <if test="downdefencenum != null">
+        #{downdefencenum,jdbcType=OTHER},
+      </if>
+      <if test="downdefencemachinenum != null">
+        #{downdefencemachinenum,jdbcType=OTHER},
+      </if>
+      <if test="downdefencenonmachinenum != null">
+        #{downdefencenonmachinenum,jdbcType=OTHER},
+      </if>
+      <if test="downnondefencenum != null">
+        #{downnondefencenum,jdbcType=OTHER},
+      </if>
+      <if test="downnondefencemachinenum != null">
+        #{downnondefencemachinenum,jdbcType=OTHER},
+      </if>
+      <if test="downnondefencenonmachinenum != null">
+        #{downnondefencenonmachinenum,jdbcType=OTHER},
+      </if>
+      <if test="downnonautostallnum != null">
+        #{downnonautostallnum,jdbcType=OTHER},
+      </if>
+      <if test="semidownnodefencemachinenum != null">
+        #{semidownnodefencemachinenum,jdbcType=OTHER},
+      </if>
+      <if test="plangreenradio != null">
+        #{plangreenradio,jdbcType=OTHER},
+      </if>
+      <if test="greenradio != null">
+        #{greenradio,jdbcType=OTHER},
+      </if>
+      <if test="housetypenum != null">
+        #{housetypenum,jdbcType=OTHER},
+      </if>
+      <if test="approvestatus != null">
+        #{approvestatus,jdbcType=OTHER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=OTHER},
+      </if>
+      <if test="sellsystemcode != null">
+        #{sellsystemcode,jdbcType=OTHER},
+      </if>
+      <if test="costsystemcode != null">
+        #{costsystemcode,jdbcType=OTHER},
+      </if>
+      <if test="purchasesystemcode != null">
+        #{purchasesystemcode,jdbcType=OTHER},
+      </if>
+      <if test="financialsystemcode != null">
+        #{financialsystemcode,jdbcType=OTHER},
+      </if>
+      <if test="createuser != null">
+        #{createuser,jdbcType=OTHER},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=OTHER},
+      </if>
+      <if test="modifyuser != null">
+        #{modifyuser,jdbcType=OTHER},
+      </if>
+      <if test="modifydate != null">
+        #{modifydate,jdbcType=OTHER},
+      </if>
+      <if test="f1 != null">
+        #{f1,jdbcType=OTHER},
+      </if>
+      <if test="f2 != null">
+        #{f2,jdbcType=OTHER},
+      </if>
+      <if test="f3 != null">
+        #{f3,jdbcType=OTHER},
+      </if>
+      <if test="stallarea != null">
+        #{stallarea,jdbcType=OTHER},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=OTHER},
+      </if>
+      <if test="instanceid != null">
+        #{instanceid,jdbcType=OTHER},
+      </if>
+      <if test="nosellstallnum != null">
+        #{nosellstallnum,jdbcType=OTHER},
+      </if>
+      <if test="imagepath != null">
+        #{imagepath,jdbcType=OTHER},
+      </if>
+      <if test="ftpserverip != null">
+        #{ftpserverip,jdbcType=OTHER},
+      </if>
+      <if test="ftpremotepath != null">
+        #{ftpremotepath,jdbcType=OTHER},
+      </if>
+      <if test="ftpuserid != null">
+        #{ftpuserid,jdbcType=OTHER},
+      </if>
+      <if test="ftppassword != null">
+        #{ftppassword,jdbcType=OTHER},
+      </if>
+      <if test="startworkingdate != null">
+        #{startworkingdate,jdbcType=OTHER},
+      </if>
+      <if test="presaledate != null">
+        #{presaledate,jdbcType=OTHER},
+      </if>
+      <if test="opendate != null">
+        #{opendate,jdbcType=OTHER},
+      </if>
+      <if test="cappingdate != null">
+        #{cappingdate,jdbcType=OTHER},
+      </if>
+      <if test="completedate != null">
+        #{completedate,jdbcType=OTHER},
+      </if>
+      <if test="handingdate != null">
+        #{handingdate,jdbcType=OTHER},
+      </if>
+      <if test="startworkingdateplanstart != null">
+        #{startworkingdateplanstart,jdbcType=OTHER},
+      </if>
+      <if test="startworkingdateplanend != null">
+        #{startworkingdateplanend,jdbcType=OTHER},
+      </if>
+      <if test="presaledateplanstart != null">
+        #{presaledateplanstart,jdbcType=OTHER},
+      </if>
+      <if test="presaledateplanend != null">
+        #{presaledateplanend,jdbcType=OTHER},
+      </if>
+      <if test="opendateplanstart != null">
+        #{opendateplanstart,jdbcType=OTHER},
+      </if>
+      <if test="opendateplanend != null">
+        #{opendateplanend,jdbcType=OTHER},
+      </if>
+      <if test="cappingdateplanstart != null">
+        #{cappingdateplanstart,jdbcType=OTHER},
+      </if>
+      <if test="cappingdateplanend != null">
+        #{cappingdateplanend,jdbcType=OTHER},
+      </if>
+      <if test="completedateplanstart != null">
+        #{completedateplanstart,jdbcType=OTHER},
+      </if>
+      <if test="completedateplanend != null">
+        #{completedateplanend,jdbcType=OTHER},
+      </if>
+      <if test="handingdateplanstart != null">
+        #{handingdateplanstart,jdbcType=OTHER},
+      </if>
+      <if test="handingdateplanend != null">
+        #{handingdateplanend,jdbcType=OTHER},
+      </if>
+      <if test="gaindate != null">
+        #{gaindate,jdbcType=OTHER},
+      </if>
+      <if test="gainplanstartdate != null">
+        #{gainplanstartdate,jdbcType=OTHER},
+      </if>
+      <if test="gainplanenddate != null">
+        #{gainplanenddate,jdbcType=OTHER},
+      </if>
+      <if test="downdefencesellnum != null">
+        #{downdefencesellnum,jdbcType=OTHER},
+      </if>
+      <if test="downnondefencesellnum != null">
+        #{downnondefencesellnum,jdbcType=OTHER},
+      </if>
+      <if test="approvedate != null">
+        #{approvedate,jdbcType=OTHER},
+      </if>
+      <if test="plate != null">
+        #{plate,jdbcType=OTHER},
+      </if>
+      <if test="markettype != null">
+        #{markettype,jdbcType=OTHER},
+      </if>
+      <if test="isdifficultproject != null">
+        #{isdifficultproject,jdbcType=OTHER},
+      </if>
+      <if test="onehandsignlandcontractdate != null">
+        #{onehandsignlandcontractdate,jdbcType=OTHER},
+      </if>
+      <if test="secondhandownershipchangedate != null">
+        #{secondhandownershipchangedate,jdbcType=OTHER},
+      </if>
+      <if test="constructionlicencedate != null">
+        #{constructionlicencedate,jdbcType=OTHER},
+      </if>
+      <if test="approvetype != null">
+        #{approvetype,jdbcType=OTHER},
+      </if>
+      <if test="adjustremark != null">
+        #{adjustremark,jdbcType=OTHER},
+      </if>
+      <if test="phaseadjustremark != null">
+        #{phaseadjustremark,jdbcType=OTHER},
+      </if>
+      <if test="instanceidhzsx != null">
+        #{instanceidhzsx,jdbcType=OTHER},
+      </if>
+      <if test="approvedatehzsx != null">
+        #{approvedatehzsx,jdbcType=OTHER},
+      </if>
+      <if test="approvestatushzsx != null">
+        #{approvestatushzsx,jdbcType=OTHER},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="regioncode != null">
+        #{regioncode,jdbcType=OTHER},
+      </if>
+      <if test="regionname != null">
+        #{regionname,jdbcType=OTHER},
+      </if>
+      <if test="businesscode != null">
+        #{businesscode,jdbcType=OTHER},
+      </if>
+      <if test="businessunit != null">
+        #{businessunit,jdbcType=OTHER},
+      </if>
+      <if test="largeareaname != null">
+        #{largeareaname,jdbcType=OTHER},
+      </if>
+      <if test="publishdate != null">
+        #{publishdate,jdbcType=OTHER},
+      </if>
+      <if test="approvalparameters != null">
+        #{approvalparameters,jdbcType=OTHER},
+      </if>
+      <if test="buildingmaxheighttypes != null">
+        #{buildingmaxheighttypes,jdbcType=OTHER},
+      </if>
+      <if test="buildingminheighttypes != null">
+        #{buildingminheighttypes,jdbcType=OTHER},
+      </if>
+      <if test="buildingmaxsj != null">
+        #{buildingmaxsj,jdbcType=OTHER},
+      </if>
+      <if test="buildingminsj != null">
+        #{buildingminsj,jdbcType=OTHER},
+      </if>
+      <if test="buildingmaxsjdw != null">
+        #{buildingmaxsjdw,jdbcType=OTHER},
+      </if>
+      <if test="buildingminsjdw != null">
+        #{buildingminsjdw,jdbcType=OTHER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByExampleSelective" parameterType="map">
+    update T_MDS_PROJECT
+    <set>
+      UPDATE_TIME = SYSDATE,
+      <if test="record.projectversionid != null">
+        PROJECTVERSIONID = #{record.projectversionid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.projectid != null">
+        PROJECTID = #{record.projectid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.projectcode != null">
+        PROJECTCODE = #{record.projectcode,jdbcType=OTHER},
+      </if>
+      <if test="record.projectname != null">
+        PROJECTNAME = #{record.projectname,jdbcType=OTHER},
+      </if>
+      <if test="record.ishistory != null">
+        ISHISTORY = #{record.ishistory,jdbcType=OTHER},
+      </if>
+      <if test="record.isnewversion != null">
+        ISNEWVERSION = #{record.isnewversion,jdbcType=OTHER},
+      </if>
+      <if test="record.projectversion != null">
+        PROJECTVERSION = #{record.projectversion,jdbcType=VARCHAR},
+      </if>
+      <if test="record.companyid != null">
+        COMPANYID = #{record.companyid,jdbcType=OTHER},
+      </if>
+      <if test="record.companycode != null">
+        COMPANYCODE = #{record.companycode,jdbcType=OTHER},
+      </if>
+      <if test="record.companyname != null">
+        COMPANYNAME = #{record.companyname,jdbcType=OTHER},
+      </if>
+      <if test="record.projectshortname != null">
+        PROJECTSHORTNAME = #{record.projectshortname,jdbcType=OTHER},
+      </if>
+      <if test="record.projectofficialname != null">
+        PROJECTOFFICIALNAME = #{record.projectofficialname,jdbcType=OTHER},
+      </if>
+      <if test="record.projectgeneralizename != null">
+        PROJECTGENERALIZENAME = #{record.projectgeneralizename,jdbcType=OTHER},
+      </if>
+      <if test="record.cityid != null">
+        CITYID = #{record.cityid,jdbcType=OTHER},
+      </if>
+      <if test="record.citycode != null">
+        CITYCODE = #{record.citycode,jdbcType=OTHER},
+      </if>
+      <if test="record.cityname != null">
+        CITYNAME = #{record.cityname,jdbcType=OTHER},
+      </if>
+      <if test="record.address != null">
+        ADDRESS = #{record.address,jdbcType=OTHER},
+      </if>
+      <if test="record.principleman != null">
+        PRINCIPLEMAN = #{record.principleman,jdbcType=OTHER},
+      </if>
+      <if test="record.principlename != null">
+        PRINCIPLENAME = #{record.principlename,jdbcType=OTHER},
+      </if>
+      <if test="record.businesstype != null">
+        BUSINESSTYPE = #{record.businesstype,jdbcType=OTHER},
+      </if>
+      <if test="record.zlpercent != null">
+        ZLPERCENT = #{record.zlpercent,jdbcType=OTHER},
+      </if>
+      <if test="record.otherpercent != null">
+        OTHERPERCENT = #{record.otherpercent,jdbcType=OTHER},
+      </if>
+      <if test="record.projectgaindate != null">
+        PROJECTGAINDATE = #{record.projectgaindate,jdbcType=OTHER},
+      </if>
+      <if test="record.parcelproperty != null">
+        PARCELPROPERTY = #{record.parcelproperty,jdbcType=OTHER},
+      </if>
+      <if test="record.currentstage != null">
+        CURRENTSTAGE = #{record.currentstage,jdbcType=OTHER},
+      </if>
+      <if test="record.datastage != null">
+        DATASTAGE = #{record.datastage,jdbcType=OTHER},
+      </if>
+      <if test="record.totalusearea != null">
+        TOTALUSEAREA = #{record.totalusearea,jdbcType=OTHER},
+      </if>
+      <if test="record.buildingarea != null">
+        BUILDINGAREA = #{record.buildingarea,jdbcType=OTHER},
+      </if>
+      <if test="record.expropriatedarea != null">
+        EXPROPRIATEDAREA = #{record.expropriatedarea,jdbcType=OTHER},
+      </if>
+      <if test="record.expropriatedgreenarea != null">
+        EXPROPRIATEDGREENAREA = #{record.expropriatedgreenarea,jdbcType=OTHER},
+      </if>
+      <if test="record.expropriatedroadarea != null">
+        EXPROPRIATEDROADAREA = #{record.expropriatedroadarea,jdbcType=OTHER},
+      </if>
+      <if test="record.expropriatedotherarea != null">
+        EXPROPRIATEDOTHERAREA = #{record.expropriatedotherarea,jdbcType=OTHER},
+      </if>
+      <if test="record.totalholdarea != null">
+        TOTALHOLDAREA = #{record.totalholdarea,jdbcType=OTHER},
+      </if>
+      <if test="record.buildingholdarea != null">
+        BUILDINGHOLDAREA = #{record.buildingholdarea,jdbcType=OTHER},
+      </if>
+      <if test="record.demonstrationarea != null">
+        DEMONSTRATIONAREA = #{record.demonstrationarea,jdbcType=OTHER},
+      </if>
+      <if test="record.totalroadarea != null">
+        TOTALROADAREA = #{record.totalroadarea,jdbcType=OTHER},
+      </if>
+      <if test="record.bituminousroad != null">
+        BITUMINOUSROAD = #{record.bituminousroad,jdbcType=OTHER},
+      </if>
+      <if test="record.cementroad != null">
+        CEMENTROAD = #{record.cementroad,jdbcType=OTHER},
+      </if>
+      <if test="record.hardroad != null">
+        HARDROAD = #{record.hardroad,jdbcType=OTHER},
+      </if>
+      <if test="record.hardplaza != null">
+        HARDPLAZA = #{record.hardplaza,jdbcType=OTHER},
+      </if>
+      <if test="record.hardsidewalk != null">
+        HARDSIDEWALK = #{record.hardsidewalk,jdbcType=OTHER},
+      </if>
+      <if test="record.totalgreenarea != null">
+        TOTALGREENAREA = #{record.totalgreenarea,jdbcType=OTHER},
+      </if>
+      <if test="record.publicgreenarea != null">
+        PUBLICGREENAREA = #{record.publicgreenarea,jdbcType=OTHER},
+      </if>
+      <if test="record.amonggreenarea != null">
+        AMONGGREENAREA = #{record.amonggreenarea,jdbcType=OTHER},
+      </if>
+      <if test="record.privategreenarea != null">
+        PRIVATEGREENAREA = #{record.privategreenarea,jdbcType=OTHER},
+      </if>
+      <if test="record.waterscapearea != null">
+        WATERSCAPEAREA = #{record.waterscapearea,jdbcType=OTHER},
+      </if>
+      <if test="record.totalcapacityarea != null">
+        TOTALCAPACITYAREA = #{record.totalcapacityarea,jdbcType=OTHER},
+      </if>
+      <if test="record.upcapacityarea != null">
+        UPCAPACITYAREA = #{record.upcapacityarea,jdbcType=OTHER},
+      </if>
+      <if test="record.downcapacityarea != null">
+        DOWNCAPACITYAREA = #{record.downcapacityarea,jdbcType=OTHER},
+      </if>
+      <if test="record.totalpublicarea != null">
+        TOTALPUBLICAREA = #{record.totalpublicarea,jdbcType=OTHER},
+      </if>
+      <if test="record.upnoncapacityarea != null">
+        UPNONCAPACITYAREA = #{record.upnoncapacityarea,jdbcType=OTHER},
+      </if>
+      <if test="record.downnoncapacityarea != null">
+        DOWNNONCAPACITYAREA = #{record.downnoncapacityarea,jdbcType=OTHER},
+      </if>
+      <if test="record.totalbuildingarea != null">
+        TOTALBUILDINGAREA = #{record.totalbuildingarea,jdbcType=OTHER},
+      </if>
+      <if test="record.upbuildingarea != null">
+        UPBUILDINGAREA = #{record.upbuildingarea,jdbcType=OTHER},
+      </if>
+      <if test="record.downbuildingarea != null">
+        DOWNBUILDINGAREA = #{record.downbuildingarea,jdbcType=OTHER},
+      </if>
+      <if test="record.downgaragearea != null">
+        DOWNGARAGEAREA = #{record.downgaragearea,jdbcType=OTHER},
+      </if>
+      <if test="record.stiltfloorarea != null">
+        STILTFLOORAREA = #{record.stiltfloorarea,jdbcType=OTHER},
+      </if>
+      <if test="record.towerdownarea != null">
+        TOWERDOWNAREA = #{record.towerdownarea,jdbcType=OTHER},
+      </if>
+      <if test="record.storeroomnum != null">
+        STOREROOMNUM = #{record.storeroomnum,jdbcType=OTHER},
+      </if>
+      <if test="record.storeroomarea != null">
+        STOREROOMAREA = #{record.storeroomarea,jdbcType=OTHER},
+      </if>
+      <if test="record.totalsellarea != null">
+        TOTALSELLAREA = #{record.totalsellarea,jdbcType=OTHER},
+      </if>
+      <if test="record.upselfsellarea != null">
+        UPSELFSELLAREA = #{record.upselfsellarea,jdbcType=OTHER},
+      </if>
+      <if test="record.upavailablesellarea != null">
+        UPAVAILABLESELLAREA = #{record.upavailablesellarea,jdbcType=OTHER},
+      </if>
+      <if test="record.upgovernmentarea != null">
+        UPGOVERNMENTAREA = #{record.upgovernmentarea,jdbcType=OTHER},
+      </if>
+      <if test="record.downselfsellarea != null">
+        DOWNSELFSELLAREA = #{record.downselfsellarea,jdbcType=OTHER},
+      </if>
+      <if test="record.downothersellarea != null">
+        DOWNOTHERSELLAREA = #{record.downothersellarea,jdbcType=OTHER},
+      </if>
+      <if test="record.downgovernmentarea != null">
+        DOWNGOVERNMENTAREA = #{record.downgovernmentarea,jdbcType=OTHER},
+      </if>
+      <if test="record.totalpresentarea != null">
+        TOTALPRESENTAREA = #{record.totalpresentarea,jdbcType=OTHER},
+      </if>
+      <if test="record.uppresentarea != null">
+        UPPRESENTAREA = #{record.uppresentarea,jdbcType=OTHER},
+      </if>
+      <if test="record.downpresentarea != null">
+        DOWNPRESENTAREA = #{record.downpresentarea,jdbcType=OTHER},
+      </if>
+      <if test="record.additionalarea != null">
+        ADDITIONALAREA = #{record.additionalarea,jdbcType=OTHER},
+      </if>
+      <if test="record.buildingmaxheight != null">
+        BUILDINGMAXHEIGHT = #{record.buildingmaxheight,jdbcType=OTHER},
+      </if>
+      <if test="record.planratio != null">
+        PLANRATIO = #{record.planratio,jdbcType=OTHER},
+      </if>
+      <if test="record.plandensity != null">
+        PLANDENSITY = #{record.plandensity,jdbcType=OTHER},
+      </if>
+      <if test="record.buildingminheight != null">
+        BUILDINGMINHEIGHT = #{record.buildingminheight,jdbcType=OTHER},
+      </if>
+      <if test="record.realratio != null">
+        REALRATIO = #{record.realratio,jdbcType=OTHER},
+      </if>
+      <if test="record.realdensity != null">
+        REALDENSITY = #{record.realdensity,jdbcType=OTHER},
+      </if>
+      <if test="record.availablethan != null">
+        AVAILABLETHAN = #{record.availablethan,jdbcType=OTHER},
+      </if>
+      <if test="record.plotratio != null">
+        PLOTRATIO = #{record.plotratio,jdbcType=OTHER},
+      </if>
+      <if test="record.buildingdensity != null">
+        BUILDINGDENSITY = #{record.buildingdensity,jdbcType=OTHER},
+      </if>
+      <if test="record.totalstallnum != null">
+        TOTALSTALLNUM = #{record.totalstallnum,jdbcType=OTHER},
+      </if>
+      <if test="record.upstallnum != null">
+        UPSTALLNUM = #{record.upstallnum,jdbcType=OTHER},
+      </if>
+      <if test="record.upgroundstallnum != null">
+        UPGROUNDSTALLNUM = #{record.upgroundstallnum,jdbcType=OTHER},
+      </if>
+      <if test="record.semiundergroundstallnum != null">
+        SEMIUNDERGROUNDSTALLNUM = #{record.semiundergroundstallnum,jdbcType=OTHER},
+      </if>
+      <if test="record.stallnuminbuilding != null">
+        STALLNUMINBUILDING = #{record.stallnuminbuilding,jdbcType=OTHER},
+      </if>
+      <if test="record.downautostallnum != null">
+        DOWNAUTOSTALLNUM = #{record.downautostallnum,jdbcType=OTHER},
+      </if>
+      <if test="record.downstallnum != null">
+        DOWNSTALLNUM = #{record.downstallnum,jdbcType=OTHER},
+      </if>
+      <if test="record.downdefencenum != null">
+        DOWNDEFENCENUM = #{record.downdefencenum,jdbcType=OTHER},
+      </if>
+      <if test="record.downdefencemachinenum != null">
+        DOWNDEFENCEMACHINENUM = #{record.downdefencemachinenum,jdbcType=OTHER},
+      </if>
+      <if test="record.downdefencenonmachinenum != null">
+        DOWNDEFENCENONMACHINENUM = #{record.downdefencenonmachinenum,jdbcType=OTHER},
+      </if>
+      <if test="record.downnondefencenum != null">
+        DOWNNONDEFENCENUM = #{record.downnondefencenum,jdbcType=OTHER},
+      </if>
+      <if test="record.downnondefencemachinenum != null">
+        DOWNNONDEFENCEMACHINENUM = #{record.downnondefencemachinenum,jdbcType=OTHER},
+      </if>
+      <if test="record.downnondefencenonmachinenum != null">
+        DOWNNONDEFENCENONMACHINENUM = #{record.downnondefencenonmachinenum,jdbcType=OTHER},
+      </if>
+      <if test="record.downnonautostallnum != null">
+        DOWNNONAUTOSTALLNUM = #{record.downnonautostallnum,jdbcType=OTHER},
+      </if>
+      <if test="record.semidownnodefencemachinenum != null">
+        SEMIDOWNNODEFENCEMACHINENUM = #{record.semidownnodefencemachinenum,jdbcType=OTHER},
+      </if>
+      <if test="record.plangreenradio != null">
+        PLANGREENRADIO = #{record.plangreenradio,jdbcType=OTHER},
+      </if>
+      <if test="record.greenradio != null">
+        GREENRADIO = #{record.greenradio,jdbcType=OTHER},
+      </if>
+      <if test="record.housetypenum != null">
+        HOUSETYPENUM = #{record.housetypenum,jdbcType=OTHER},
+      </if>
+      <if test="record.approvestatus != null">
+        APPROVESTATUS = #{record.approvestatus,jdbcType=OTHER},
+      </if>
+      <if test="record.status != null">
+        STATUS = #{record.status,jdbcType=OTHER},
+      </if>
+      <if test="record.sellsystemcode != null">
+        SELLSYSTEMCODE = #{record.sellsystemcode,jdbcType=OTHER},
+      </if>
+      <if test="record.costsystemcode != null">
+        COSTSYSTEMCODE = #{record.costsystemcode,jdbcType=OTHER},
+      </if>
+      <if test="record.purchasesystemcode != null">
+        PURCHASESYSTEMCODE = #{record.purchasesystemcode,jdbcType=OTHER},
+      </if>
+      <if test="record.financialsystemcode != null">
+        FINANCIALSYSTEMCODE = #{record.financialsystemcode,jdbcType=OTHER},
+      </if>
+      <if test="record.createuser != null">
+        CREATEUSER = #{record.createuser,jdbcType=OTHER},
+      </if>
+      <if test="record.createdate != null">
+        CREATEDATE = #{record.createdate,jdbcType=OTHER},
+      </if>
+      <if test="record.modifyuser != null">
+        MODIFYUSER = #{record.modifyuser,jdbcType=OTHER},
+      </if>
+      <if test="record.modifydate != null">
+        MODIFYDATE = #{record.modifydate,jdbcType=OTHER},
+      </if>
+      <if test="record.f1 != null">
+        F1 = #{record.f1,jdbcType=OTHER},
+      </if>
+      <if test="record.f2 != null">
+        F2 = #{record.f2,jdbcType=OTHER},
+      </if>
+      <if test="record.f3 != null">
+        F3 = #{record.f3,jdbcType=OTHER},
+      </if>
+      <if test="record.stallarea != null">
+        STALLAREA = #{record.stallarea,jdbcType=OTHER},
+      </if>
+      <if test="record.remark != null">
+        REMARK = #{record.remark,jdbcType=OTHER},
+      </if>
+      <if test="record.instanceid != null">
+        INSTANCEID = #{record.instanceid,jdbcType=OTHER},
+      </if>
+      <if test="record.nosellstallnum != null">
+        NOSELLSTALLNUM = #{record.nosellstallnum,jdbcType=OTHER},
+      </if>
+      <if test="record.imagepath != null">
+        IMAGEPATH = #{record.imagepath,jdbcType=OTHER},
+      </if>
+      <if test="record.ftpserverip != null">
+        FTPSERVERIP = #{record.ftpserverip,jdbcType=OTHER},
+      </if>
+      <if test="record.ftpremotepath != null">
+        FTPREMOTEPATH = #{record.ftpremotepath,jdbcType=OTHER},
+      </if>
+      <if test="record.ftpuserid != null">
+        FTPUSERID = #{record.ftpuserid,jdbcType=OTHER},
+      </if>
+      <if test="record.ftppassword != null">
+        FTPPASSWORD = #{record.ftppassword,jdbcType=OTHER},
+      </if>
+      <if test="record.startworkingdate != null">
+        STARTWORKINGDATE = #{record.startworkingdate,jdbcType=OTHER},
+      </if>
+      <if test="record.presaledate != null">
+        PRESALEDATE = #{record.presaledate,jdbcType=OTHER},
+      </if>
+      <if test="record.opendate != null">
+        OPENDATE = #{record.opendate,jdbcType=OTHER},
+      </if>
+      <if test="record.cappingdate != null">
+        CAPPINGDATE = #{record.cappingdate,jdbcType=OTHER},
+      </if>
+      <if test="record.completedate != null">
+        COMPLETEDATE = #{record.completedate,jdbcType=OTHER},
+      </if>
+      <if test="record.handingdate != null">
+        HANDINGDATE = #{record.handingdate,jdbcType=OTHER},
+      </if>
+      <if test="record.startworkingdateplanstart != null">
+        STARTWORKINGDATEPLANSTART = #{record.startworkingdateplanstart,jdbcType=OTHER},
+      </if>
+      <if test="record.startworkingdateplanend != null">
+        STARTWORKINGDATEPLANEND = #{record.startworkingdateplanend,jdbcType=OTHER},
+      </if>
+      <if test="record.presaledateplanstart != null">
+        PRESALEDATEPLANSTART = #{record.presaledateplanstart,jdbcType=OTHER},
+      </if>
+      <if test="record.presaledateplanend != null">
+        PRESALEDATEPLANEND = #{record.presaledateplanend,jdbcType=OTHER},
+      </if>
+      <if test="record.opendateplanstart != null">
+        OPENDATEPLANSTART = #{record.opendateplanstart,jdbcType=OTHER},
+      </if>
+      <if test="record.opendateplanend != null">
+        OPENDATEPLANEND = #{record.opendateplanend,jdbcType=OTHER},
+      </if>
+      <if test="record.cappingdateplanstart != null">
+        CAPPINGDATEPLANSTART = #{record.cappingdateplanstart,jdbcType=OTHER},
+      </if>
+      <if test="record.cappingdateplanend != null">
+        CAPPINGDATEPLANEND = #{record.cappingdateplanend,jdbcType=OTHER},
+      </if>
+      <if test="record.completedateplanstart != null">
+        COMPLETEDATEPLANSTART = #{record.completedateplanstart,jdbcType=OTHER},
+      </if>
+      <if test="record.completedateplanend != null">
+        COMPLETEDATEPLANEND = #{record.completedateplanend,jdbcType=OTHER},
+      </if>
+      <if test="record.handingdateplanstart != null">
+        HANDINGDATEPLANSTART = #{record.handingdateplanstart,jdbcType=OTHER},
+      </if>
+      <if test="record.handingdateplanend != null">
+        HANDINGDATEPLANEND = #{record.handingdateplanend,jdbcType=OTHER},
+      </if>
+      <if test="record.gaindate != null">
+        GAINDATE = #{record.gaindate,jdbcType=OTHER},
+      </if>
+      <if test="record.gainplanstartdate != null">
+        GAINPLANSTARTDATE = #{record.gainplanstartdate,jdbcType=OTHER},
+      </if>
+      <if test="record.gainplanenddate != null">
+        GAINPLANENDDATE = #{record.gainplanenddate,jdbcType=OTHER},
+      </if>
+      <if test="record.downdefencesellnum != null">
+        DOWNDEFENCESELLNUM = #{record.downdefencesellnum,jdbcType=OTHER},
+      </if>
+      <if test="record.downnondefencesellnum != null">
+        DOWNNONDEFENCESELLNUM = #{record.downnondefencesellnum,jdbcType=OTHER},
+      </if>
+      <if test="record.approvedate != null">
+        APPROVEDATE = #{record.approvedate,jdbcType=OTHER},
+      </if>
+      <if test="record.plate != null">
+        PLATE = #{record.plate,jdbcType=OTHER},
+      </if>
+      <if test="record.markettype != null">
+        MARKETTYPE = #{record.markettype,jdbcType=OTHER},
+      </if>
+      <if test="record.isdifficultproject != null">
+        ISDIFFICULTPROJECT = #{record.isdifficultproject,jdbcType=OTHER},
+      </if>
+      <if test="record.onehandsignlandcontractdate != null">
+        ONEHANDSIGNLANDCONTRACTDATE = #{record.onehandsignlandcontractdate,jdbcType=OTHER},
+      </if>
+      <if test="record.secondhandownershipchangedate != null">
+        SECONDHANDOWNERSHIPCHANGEDATE = #{record.secondhandownershipchangedate,jdbcType=OTHER},
+      </if>
+      <if test="record.constructionlicencedate != null">
+        CONSTRUCTIONLICENCEDATE = #{record.constructionlicencedate,jdbcType=OTHER},
+      </if>
+      <if test="record.approvetype != null">
+        APPROVETYPE = #{record.approvetype,jdbcType=OTHER},
+      </if>
+      <if test="record.adjustremark != null">
+        ADJUSTREMARK = #{record.adjustremark,jdbcType=OTHER},
+      </if>
+      <if test="record.phaseadjustremark != null">
+        PHASEADJUSTREMARK = #{record.phaseadjustremark,jdbcType=OTHER},
+      </if>
+      <if test="record.instanceidhzsx != null">
+        INSTANCEIDHZSX = #{record.instanceidhzsx,jdbcType=OTHER},
+      </if>
+      <if test="record.approvedatehzsx != null">
+        APPROVEDATEHZSX = #{record.approvedatehzsx,jdbcType=OTHER},
+      </if>
+      <if test="record.approvestatushzsx != null">
+        APPROVESTATUSHZSX = #{record.approvestatushzsx,jdbcType=OTHER},
+      </if>
+      <if test="record.updateTime != null">
+        UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.regioncode != null">
+        REGIONCODE = #{record.regioncode,jdbcType=OTHER},
+      </if>
+      <if test="record.regionname != null">
+        REGIONNAME = #{record.regionname,jdbcType=OTHER},
+      </if>
+      <if test="record.businesscode != null">
+        BUSINESSCODE = #{record.businesscode,jdbcType=OTHER},
+      </if>
+      <if test="record.businessunit != null">
+        BUSINESSUNIT = #{record.businessunit,jdbcType=OTHER},
+      </if>
+      <if test="record.largeareaname != null">
+        LARGEAREANAME = #{record.largeareaname,jdbcType=OTHER},
+      </if>
+      <if test="record.publishdate != null">
+        PUBLISHDATE = #{record.publishdate,jdbcType=OTHER},
+      </if>
+      <if test="record.approvalparameters != null">
+        APPROVALPARAMETERS = #{record.approvalparameters,jdbcType=OTHER},
+      </if>
+      <if test="record.buildingmaxheighttypes != null">
+        BUILDINGMAXHEIGHTTYPES = #{record.buildingmaxheighttypes,jdbcType=OTHER},
+      </if>
+      <if test="record.buildingminheighttypes != null">
+        BUILDINGMINHEIGHTTYPES = #{record.buildingminheighttypes,jdbcType=OTHER},
+      </if>
+      <if test="record.buildingmaxsj != null">
+        BUILDINGMAXSJ = #{record.buildingmaxsj,jdbcType=OTHER},
+      </if>
+      <if test="record.buildingminsj != null">
+        BUILDINGMINSJ = #{record.buildingminsj,jdbcType=OTHER},
+      </if>
+      <if test="record.buildingmaxsjdw != null">
+        BUILDINGMAXSJDW = #{record.buildingmaxsjdw,jdbcType=OTHER},
+      </if>
+      <if test="record.buildingminsjdw != null">
+        BUILDINGMINSJDW = #{record.buildingminsjdw,jdbcType=OTHER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update T_MDS_PROJECT
+    set PROJECTVERSIONID = #{record.projectversionid,jdbcType=VARCHAR},
+      PROJECTID = #{record.projectid,jdbcType=VARCHAR},
+      PROJECTCODE = #{record.projectcode,jdbcType=OTHER},
+      PROJECTNAME = #{record.projectname,jdbcType=OTHER},
+      ISHISTORY = #{record.ishistory,jdbcType=OTHER},
+      ISNEWVERSION = #{record.isnewversion,jdbcType=OTHER},
+      PROJECTVERSION = #{record.projectversion,jdbcType=VARCHAR},
+      COMPANYID = #{record.companyid,jdbcType=OTHER},
+      COMPANYCODE = #{record.companycode,jdbcType=OTHER},
+      COMPANYNAME = #{record.companyname,jdbcType=OTHER},
+      PROJECTSHORTNAME = #{record.projectshortname,jdbcType=OTHER},
+      PROJECTOFFICIALNAME = #{record.projectofficialname,jdbcType=OTHER},
+      PROJECTGENERALIZENAME = #{record.projectgeneralizename,jdbcType=OTHER},
+      CITYID = #{record.cityid,jdbcType=OTHER},
+      CITYCODE = #{record.citycode,jdbcType=OTHER},
+      CITYNAME = #{record.cityname,jdbcType=OTHER},
+      ADDRESS = #{record.address,jdbcType=OTHER},
+      PRINCIPLEMAN = #{record.principleman,jdbcType=OTHER},
+      PRINCIPLENAME = #{record.principlename,jdbcType=OTHER},
+      BUSINESSTYPE = #{record.businesstype,jdbcType=OTHER},
+      ZLPERCENT = #{record.zlpercent,jdbcType=OTHER},
+      OTHERPERCENT = #{record.otherpercent,jdbcType=OTHER},
+      PROJECTGAINDATE = #{record.projectgaindate,jdbcType=OTHER},
+      PARCELPROPERTY = #{record.parcelproperty,jdbcType=OTHER},
+      CURRENTSTAGE = #{record.currentstage,jdbcType=OTHER},
+      DATASTAGE = #{record.datastage,jdbcType=OTHER},
+      TOTALUSEAREA = #{record.totalusearea,jdbcType=OTHER},
+      BUILDINGAREA = #{record.buildingarea,jdbcType=OTHER},
+      EXPROPRIATEDAREA = #{record.expropriatedarea,jdbcType=OTHER},
+      EXPROPRIATEDGREENAREA = #{record.expropriatedgreenarea,jdbcType=OTHER},
+      EXPROPRIATEDROADAREA = #{record.expropriatedroadarea,jdbcType=OTHER},
+      EXPROPRIATEDOTHERAREA = #{record.expropriatedotherarea,jdbcType=OTHER},
+      TOTALHOLDAREA = #{record.totalholdarea,jdbcType=OTHER},
+      BUILDINGHOLDAREA = #{record.buildingholdarea,jdbcType=OTHER},
+      DEMONSTRATIONAREA = #{record.demonstrationarea,jdbcType=OTHER},
+      TOTALROADAREA = #{record.totalroadarea,jdbcType=OTHER},
+      BITUMINOUSROAD = #{record.bituminousroad,jdbcType=OTHER},
+      CEMENTROAD = #{record.cementroad,jdbcType=OTHER},
+      HARDROAD = #{record.hardroad,jdbcType=OTHER},
+      HARDPLAZA = #{record.hardplaza,jdbcType=OTHER},
+      HARDSIDEWALK = #{record.hardsidewalk,jdbcType=OTHER},
+      TOTALGREENAREA = #{record.totalgreenarea,jdbcType=OTHER},
+      PUBLICGREENAREA = #{record.publicgreenarea,jdbcType=OTHER},
+      AMONGGREENAREA = #{record.amonggreenarea,jdbcType=OTHER},
+      PRIVATEGREENAREA = #{record.privategreenarea,jdbcType=OTHER},
+      WATERSCAPEAREA = #{record.waterscapearea,jdbcType=OTHER},
+      TOTALCAPACITYAREA = #{record.totalcapacityarea,jdbcType=OTHER},
+      UPCAPACITYAREA = #{record.upcapacityarea,jdbcType=OTHER},
+      DOWNCAPACITYAREA = #{record.downcapacityarea,jdbcType=OTHER},
+      TOTALPUBLICAREA = #{record.totalpublicarea,jdbcType=OTHER},
+      UPNONCAPACITYAREA = #{record.upnoncapacityarea,jdbcType=OTHER},
+      DOWNNONCAPACITYAREA = #{record.downnoncapacityarea,jdbcType=OTHER},
+      TOTALBUILDINGAREA = #{record.totalbuildingarea,jdbcType=OTHER},
+      UPBUILDINGAREA = #{record.upbuildingarea,jdbcType=OTHER},
+      DOWNBUILDINGAREA = #{record.downbuildingarea,jdbcType=OTHER},
+      DOWNGARAGEAREA = #{record.downgaragearea,jdbcType=OTHER},
+      STILTFLOORAREA = #{record.stiltfloorarea,jdbcType=OTHER},
+      TOWERDOWNAREA = #{record.towerdownarea,jdbcType=OTHER},
+      STOREROOMNUM = #{record.storeroomnum,jdbcType=OTHER},
+      STOREROOMAREA = #{record.storeroomarea,jdbcType=OTHER},
+      TOTALSELLAREA = #{record.totalsellarea,jdbcType=OTHER},
+      UPSELFSELLAREA = #{record.upselfsellarea,jdbcType=OTHER},
+      UPAVAILABLESELLAREA = #{record.upavailablesellarea,jdbcType=OTHER},
+      UPGOVERNMENTAREA = #{record.upgovernmentarea,jdbcType=OTHER},
+      DOWNSELFSELLAREA = #{record.downselfsellarea,jdbcType=OTHER},
+      DOWNOTHERSELLAREA = #{record.downothersellarea,jdbcType=OTHER},
+      DOWNGOVERNMENTAREA = #{record.downgovernmentarea,jdbcType=OTHER},
+      TOTALPRESENTAREA = #{record.totalpresentarea,jdbcType=OTHER},
+      UPPRESENTAREA = #{record.uppresentarea,jdbcType=OTHER},
+      DOWNPRESENTAREA = #{record.downpresentarea,jdbcType=OTHER},
+      ADDITIONALAREA = #{record.additionalarea,jdbcType=OTHER},
+      BUILDINGMAXHEIGHT = #{record.buildingmaxheight,jdbcType=OTHER},
+      PLANRATIO = #{record.planratio,jdbcType=OTHER},
+      PLANDENSITY = #{record.plandensity,jdbcType=OTHER},
+      BUILDINGMINHEIGHT = #{record.buildingminheight,jdbcType=OTHER},
+      REALRATIO = #{record.realratio,jdbcType=OTHER},
+      REALDENSITY = #{record.realdensity,jdbcType=OTHER},
+      AVAILABLETHAN = #{record.availablethan,jdbcType=OTHER},
+      PLOTRATIO = #{record.plotratio,jdbcType=OTHER},
+      BUILDINGDENSITY = #{record.buildingdensity,jdbcType=OTHER},
+      TOTALSTALLNUM = #{record.totalstallnum,jdbcType=OTHER},
+      UPSTALLNUM = #{record.upstallnum,jdbcType=OTHER},
+      UPGROUNDSTALLNUM = #{record.upgroundstallnum,jdbcType=OTHER},
+      SEMIUNDERGROUNDSTALLNUM = #{record.semiundergroundstallnum,jdbcType=OTHER},
+      STALLNUMINBUILDING = #{record.stallnuminbuilding,jdbcType=OTHER},
+      DOWNAUTOSTALLNUM = #{record.downautostallnum,jdbcType=OTHER},
+      DOWNSTALLNUM = #{record.downstallnum,jdbcType=OTHER},
+      DOWNDEFENCENUM = #{record.downdefencenum,jdbcType=OTHER},
+      DOWNDEFENCEMACHINENUM = #{record.downdefencemachinenum,jdbcType=OTHER},
+      DOWNDEFENCENONMACHINENUM = #{record.downdefencenonmachinenum,jdbcType=OTHER},
+      DOWNNONDEFENCENUM = #{record.downnondefencenum,jdbcType=OTHER},
+      DOWNNONDEFENCEMACHINENUM = #{record.downnondefencemachinenum,jdbcType=OTHER},
+      DOWNNONDEFENCENONMACHINENUM = #{record.downnondefencenonmachinenum,jdbcType=OTHER},
+      DOWNNONAUTOSTALLNUM = #{record.downnonautostallnum,jdbcType=OTHER},
+      SEMIDOWNNODEFENCEMACHINENUM = #{record.semidownnodefencemachinenum,jdbcType=OTHER},
+      PLANGREENRADIO = #{record.plangreenradio,jdbcType=OTHER},
+      GREENRADIO = #{record.greenradio,jdbcType=OTHER},
+      HOUSETYPENUM = #{record.housetypenum,jdbcType=OTHER},
+      APPROVESTATUS = #{record.approvestatus,jdbcType=OTHER},
+      STATUS = #{record.status,jdbcType=OTHER},
+      SELLSYSTEMCODE = #{record.sellsystemcode,jdbcType=OTHER},
+      COSTSYSTEMCODE = #{record.costsystemcode,jdbcType=OTHER},
+      PURCHASESYSTEMCODE = #{record.purchasesystemcode,jdbcType=OTHER},
+      FINANCIALSYSTEMCODE = #{record.financialsystemcode,jdbcType=OTHER},
+      CREATEUSER = #{record.createuser,jdbcType=OTHER},
+      CREATEDATE = #{record.createdate,jdbcType=OTHER},
+      MODIFYUSER = #{record.modifyuser,jdbcType=OTHER},
+      MODIFYDATE = #{record.modifydate,jdbcType=OTHER},
+      F1 = #{record.f1,jdbcType=OTHER},
+      F2 = #{record.f2,jdbcType=OTHER},
+      F3 = #{record.f3,jdbcType=OTHER},
+      STALLAREA = #{record.stallarea,jdbcType=OTHER},
+      REMARK = #{record.remark,jdbcType=OTHER},
+      INSTANCEID = #{record.instanceid,jdbcType=OTHER},
+      NOSELLSTALLNUM = #{record.nosellstallnum,jdbcType=OTHER},
+      IMAGEPATH = #{record.imagepath,jdbcType=OTHER},
+      FTPSERVERIP = #{record.ftpserverip,jdbcType=OTHER},
+      FTPREMOTEPATH = #{record.ftpremotepath,jdbcType=OTHER},
+      FTPUSERID = #{record.ftpuserid,jdbcType=OTHER},
+      FTPPASSWORD = #{record.ftppassword,jdbcType=OTHER},
+      STARTWORKINGDATE = #{record.startworkingdate,jdbcType=OTHER},
+      PRESALEDATE = #{record.presaledate,jdbcType=OTHER},
+      OPENDATE = #{record.opendate,jdbcType=OTHER},
+      CAPPINGDATE = #{record.cappingdate,jdbcType=OTHER},
+      COMPLETEDATE = #{record.completedate,jdbcType=OTHER},
+      HANDINGDATE = #{record.handingdate,jdbcType=OTHER},
+      STARTWORKINGDATEPLANSTART = #{record.startworkingdateplanstart,jdbcType=OTHER},
+      STARTWORKINGDATEPLANEND = #{record.startworkingdateplanend,jdbcType=OTHER},
+      PRESALEDATEPLANSTART = #{record.presaledateplanstart,jdbcType=OTHER},
+      PRESALEDATEPLANEND = #{record.presaledateplanend,jdbcType=OTHER},
+      OPENDATEPLANSTART = #{record.opendateplanstart,jdbcType=OTHER},
+      OPENDATEPLANEND = #{record.opendateplanend,jdbcType=OTHER},
+      CAPPINGDATEPLANSTART = #{record.cappingdateplanstart,jdbcType=OTHER},
+      CAPPINGDATEPLANEND = #{record.cappingdateplanend,jdbcType=OTHER},
+      COMPLETEDATEPLANSTART = #{record.completedateplanstart,jdbcType=OTHER},
+      COMPLETEDATEPLANEND = #{record.completedateplanend,jdbcType=OTHER},
+      HANDINGDATEPLANSTART = #{record.handingdateplanstart,jdbcType=OTHER},
+      HANDINGDATEPLANEND = #{record.handingdateplanend,jdbcType=OTHER},
+      GAINDATE = #{record.gaindate,jdbcType=OTHER},
+      GAINPLANSTARTDATE = #{record.gainplanstartdate,jdbcType=OTHER},
+      GAINPLANENDDATE = #{record.gainplanenddate,jdbcType=OTHER},
+      DOWNDEFENCESELLNUM = #{record.downdefencesellnum,jdbcType=OTHER},
+      DOWNNONDEFENCESELLNUM = #{record.downnondefencesellnum,jdbcType=OTHER},
+      APPROVEDATE = #{record.approvedate,jdbcType=OTHER},
+      PLATE = #{record.plate,jdbcType=OTHER},
+      MARKETTYPE = #{record.markettype,jdbcType=OTHER},
+      ISDIFFICULTPROJECT = #{record.isdifficultproject,jdbcType=OTHER},
+      ONEHANDSIGNLANDCONTRACTDATE = #{record.onehandsignlandcontractdate,jdbcType=OTHER},
+      SECONDHANDOWNERSHIPCHANGEDATE = #{record.secondhandownershipchangedate,jdbcType=OTHER},
+      CONSTRUCTIONLICENCEDATE = #{record.constructionlicencedate,jdbcType=OTHER},
+      APPROVETYPE = #{record.approvetype,jdbcType=OTHER},
+      ADJUSTREMARK = #{record.adjustremark,jdbcType=OTHER},
+      PHASEADJUSTREMARK = #{record.phaseadjustremark,jdbcType=OTHER},
+      INSTANCEIDHZSX = #{record.instanceidhzsx,jdbcType=OTHER},
+      APPROVEDATEHZSX = #{record.approvedatehzsx,jdbcType=OTHER},
+      APPROVESTATUSHZSX = #{record.approvestatushzsx,jdbcType=OTHER},
+      UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      REGIONCODE = #{record.regioncode,jdbcType=OTHER},
+      REGIONNAME = #{record.regionname,jdbcType=OTHER},
+      BUSINESSCODE = #{record.businesscode,jdbcType=OTHER},
+      BUSINESSUNIT = #{record.businessunit,jdbcType=OTHER},
+      LARGEAREANAME = #{record.largeareaname,jdbcType=OTHER},
+      PUBLISHDATE = #{record.publishdate,jdbcType=OTHER},
+      APPROVALPARAMETERS = #{record.approvalparameters,jdbcType=OTHER},
+      BUILDINGMAXHEIGHTTYPES = #{record.buildingmaxheighttypes,jdbcType=OTHER},
+      BUILDINGMINHEIGHTTYPES = #{record.buildingminheighttypes,jdbcType=OTHER},
+      BUILDINGMAXSJ = #{record.buildingmaxsj,jdbcType=OTHER},
+      BUILDINGMINSJ = #{record.buildingminsj,jdbcType=OTHER},
+      BUILDINGMAXSJDW = #{record.buildingmaxsjdw,jdbcType=OTHER},
+      BUILDINGMINSJDW = #{record.buildingminsjdw,jdbcType=OTHER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <delete id="deleteAll">
+    DELETE FROM T_MDS_PROJECT
+  </delete>
+</mapper>
