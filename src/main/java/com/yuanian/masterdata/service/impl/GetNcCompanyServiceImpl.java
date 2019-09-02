@@ -55,6 +55,8 @@ public class GetNcCompanyServiceImpl implements GetNcCompanyService {
             if(list==null||list.size()==0){
                 throw new Exception("接口返回的数据为空！");
             }
+            //先清除所有数据然后插入数据  考虑nc接口不会传入已经禁用得数据
+            ncompanyDAO.deleteAll();
             for (JSONObject object:
                     list) {
                 Object pk_org = object.get("PK_ORG");
@@ -64,7 +66,7 @@ public class GetNcCompanyServiceImpl implements GetNcCompanyService {
 
                 List<NcCompany> ncCompanies = ncompanyDAO.selectByExample(ncCompanyExample);
                 if(ncCompanies==null||ncCompanies.size()==0){
-                    ncompanyDAO.insertSelective(JSONObject.toJavaObject(object, NcCompany.class));
+                    ncompanyDAO.insert(JSONObject.toJavaObject(object, NcCompany.class));
                     System.out.println("新增"+object.toJSONString());
                 }else {
                     ncompanyDAO.updateByExample(JSONObject.toJavaObject(object, NcCompany.class),ncCompanyExample);

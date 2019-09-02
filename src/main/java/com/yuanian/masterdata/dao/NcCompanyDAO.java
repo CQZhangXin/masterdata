@@ -25,4 +25,6 @@ public interface NcCompanyDAO {
     int updateByPrimaryKeySelective(NcCompany record);
 
     int updateByPrimaryKey(NcCompany record);
+
+    int deleteAll();
 }

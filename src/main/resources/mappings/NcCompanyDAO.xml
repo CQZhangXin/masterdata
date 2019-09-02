@@ -685,4 +685,9 @@
       UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP}
     where PK_ORG = #{pkOrg,jdbcType=VARCHAR}
   </update>
+
+
+  <delete id="deleteAll">
+    DELETE FROM T_MDS_NCCOMPANY
+  </delete>
 </mapper>
