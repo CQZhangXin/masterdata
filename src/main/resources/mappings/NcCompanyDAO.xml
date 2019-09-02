@@ -2,26 +2,41 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yuanian.masterdata.dao.NcCompanyDAO">
   <resultMap id="BaseResultMap" type="com.yuanian.masterdata.entity.NcCompany">
-    <result column="JDCODE" jdbcType="OTHER" property="jdcode" />
-    <result column="CODE" jdbcType="OTHER" property="code" />
-    <result column="COMPANY_ID" jdbcType="OTHER" property="companyId" />
-    <result column="NAME" jdbcType="OTHER" property="name" />
-    <result column="FATHERCOMPANY_ID" jdbcType="OTHER" property="fathercompanyId" />
-    <result column="ADDRESS" jdbcType="OTHER" property="address" />
-    <result column="COUNTRYZONE" jdbcType="OTHER" property="countryzone" />
-    <result column="ENABLESTATE" jdbcType="DECIMAL" property="enablestate" />
-    <result column="UNIFORM_SOCIAL_CREDIT_CODE" jdbcType="OTHER" property="uniformSocialCreditCode" />
-    <result column="PROVINCE" jdbcType="OTHER" property="province" />
-    <result column="CITY" jdbcType="OTHER" property="city" />
-    <result column="IS_CORPORATION" jdbcType="DECIMAL" property="isCorporation" />
-    <result column="COMPANY_TYPE" jdbcType="DECIMAL" property="companyType" />
-    <result column="MODIFIEDTIME" jdbcType="OTHER" property="modifiedtime" />
-    <result column="MODIFIER" jdbcType="OTHER" property="modifier" />
-    <result column="CREATIONTIME" jdbcType="OTHER" property="creationtime" />
-    <result column="CREATOR" jdbcType="OTHER" property="creator" />
-    <result column="PK_SOURCE" jdbcType="OTHER" property="pkSource" />
-    <result column="SOURCE_SYSTEM" jdbcType="OTHER" property="sourceSystem" />
-    <result column="RECEIVE_TIME" jdbcType="OTHER" property="receiveTime" />
+    <id column="PK_ORG" jdbcType="VARCHAR" property="pkOrg" />
+    <result column="CODE" jdbcType="VARCHAR" property="code" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="SHORTNAME" jdbcType="VARCHAR" property="shortname" />
+    <result column="MNECODE" jdbcType="VARCHAR" property="mnecode" />
+    <result column="UNITCODING" jdbcType="VARCHAR" property="unitcoding" />
+    <result column="UNITNAME" jdbcType="VARCHAR" property="unitname" />
+    <result column="PK_FATHERORG" jdbcType="VARCHAR" property="pkFatherorg" />
+    <result column="PK_CURRTYPE" jdbcType="VARCHAR" property="pkCurrtype" />
+    <result column="MEMO" jdbcType="VARCHAR" property="memo" />
+    <result column="DEF20" jdbcType="VARCHAR" property="def20" />
+    <result column="DEF2" jdbcType="VARCHAR" property="def2" />
+    <result column="DEF3" jdbcType="VARCHAR" property="def3" />
+    <result column="DEF9" jdbcType="VARCHAR" property="def9" />
+    <result column="DEF8" jdbcType="VARCHAR" property="def8" />
+    <result column="DEF6" jdbcType="VARCHAR" property="def6" />
+    <result column="DEF5" jdbcType="VARCHAR" property="def5" />
+    <result column="DEF10" jdbcType="VARCHAR" property="def10" />
+    <result column="DEF7" jdbcType="VARCHAR" property="def7" />
+    <result column="DEF4" jdbcType="VARCHAR" property="def4" />
+    <result column="DEF13" jdbcType="VARCHAR" property="def13" />
+    <result column="DEF14" jdbcType="VARCHAR" property="def14" />
+    <result column="DEF15" jdbcType="VARCHAR" property="def15" />
+    <result column="DEF16" jdbcType="VARCHAR" property="def16" />
+    <result column="DEF17" jdbcType="VARCHAR" property="def17" />
+    <result column="DEF18" jdbcType="VARCHAR" property="def18" />
+    <result column="ENABLESTATE" jdbcType="VARCHAR" property="enablestate" />
+    <result column="LEGALBODYCODE" jdbcType="VARCHAR" property="legalbodycode" />
+    <result column="CREATEDATE" jdbcType="VARCHAR" property="createdate" />
+    <result column="ODEF20" jdbcType="VARCHAR" property="odef20" />
+    <result column="ODEF1" jdbcType="VARCHAR" property="odef1" />
+    <result column="ODEF2" jdbcType="VARCHAR" property="odef2" />
+    <result column="ODEF3" jdbcType="VARCHAR" property="odef3" />
+    <result column="ODEF4" jdbcType="VARCHAR" property="odef4" />
+    <result column="CNAME" jdbcType="VARCHAR" property="cname" />
     <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -83,9 +98,10 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    JDCODE, CODE, COMPANY_ID, NAME, FATHERCOMPANY_ID, ADDRESS, COUNTRYZONE, ENABLESTATE, 
-    UNIFORM_SOCIAL_CREDIT_CODE, PROVINCE, CITY, IS_CORPORATION, COMPANY_TYPE, MODIFIEDTIME, 
-    MODIFIER, CREATIONTIME, CREATOR, PK_SOURCE, SOURCE_SYSTEM, RECEIVE_TIME, UPDATE_TIME
+    PK_ORG, CODE, NAME, SHORTNAME, MNECODE, UNITCODING, UNITNAME, PK_FATHERORG, PK_CURRTYPE, 
+    MEMO, DEF20, DEF2, DEF3, DEF9, DEF8, DEF6, DEF5, DEF10, DEF7, DEF4, DEF13, DEF14, 
+    DEF15, DEF16, DEF17, DEF18, ENABLESTATE, LEGALBODYCODE, CREATEDATE, ODEF20, ODEF1, 
+    ODEF2, ODEF3, ODEF4, CNAME, UPDATE_TIME
   </sql>
   <select id="selectByExample" parameterType="com.yuanian.masterdata.entity.NcCompanyExample" resultMap="BaseResultMap">
     select
@@ -94,7 +110,7 @@
     </if>
     'false' as QUERYID,
     <include refid="Base_Column_List" />
-    from T_NCCOMPANY
+    from T_MDS_NCCOMPANY
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -102,151 +118,259 @@
       order by ${orderByClause}
     </if>
   </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from T_MDS_NCCOMPANY
+    where PK_ORG = #{pkOrg,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from T_MDS_NCCOMPANY
+    where PK_ORG = #{pkOrg,jdbcType=VARCHAR}
+  </delete>
   <insert id="insert" parameterType="com.yuanian.masterdata.entity.NcCompany">
-    insert into T_NCCOMPANY (JDCODE, CODE, COMPANY_ID, 
-      NAME, FATHERCOMPANY_ID, ADDRESS, 
-      COUNTRYZONE, ENABLESTATE, UNIFORM_SOCIAL_CREDIT_CODE, 
-      PROVINCE, CITY, IS_CORPORATION, 
-      COMPANY_TYPE, MODIFIEDTIME, MODIFIER, 
-      CREATIONTIME, CREATOR, PK_SOURCE, 
-      SOURCE_SYSTEM, RECEIVE_TIME, UPDATE_TIME
-      )
-    values (#{jdcode,jdbcType=OTHER}, #{code,jdbcType=OTHER}, #{companyId,jdbcType=OTHER}, 
-      #{name,jdbcType=OTHER}, #{fathercompanyId,jdbcType=OTHER}, #{address,jdbcType=OTHER}, 
-      #{countryzone,jdbcType=OTHER}, #{enablestate,jdbcType=DECIMAL}, #{uniformSocialCreditCode,jdbcType=OTHER}, 
-      #{province,jdbcType=OTHER}, #{city,jdbcType=OTHER}, #{isCorporation,jdbcType=DECIMAL}, 
-      #{companyType,jdbcType=DECIMAL}, #{modifiedtime,jdbcType=OTHER}, #{modifier,jdbcType=OTHER}, 
-      #{creationtime,jdbcType=OTHER}, #{creator,jdbcType=OTHER}, #{pkSource,jdbcType=OTHER}, 
-      #{sourceSystem,jdbcType=OTHER}, #{receiveTime,jdbcType=OTHER}, #{updateTime,jdbcType=TIMESTAMP}
-      )
+    insert into T_MDS_NCCOMPANY (PK_ORG, CODE, NAME, 
+      SHORTNAME, MNECODE, UNITCODING, 
+      UNITNAME, PK_FATHERORG, PK_CURRTYPE, 
+      MEMO, DEF20, DEF2, 
+      DEF3, DEF9, DEF8, DEF6, 
+      DEF5, DEF10, DEF7, 
+      DEF4, DEF13, DEF14, 
+      DEF15, DEF16, DEF17, 
+      DEF18, ENABLESTATE, LEGALBODYCODE, 
+      CREATEDATE, ODEF20, ODEF1, 
+      ODEF2, ODEF3, ODEF4, 
+      CNAME, UPDATE_TIME)
+    values (#{pkOrg,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{shortname,jdbcType=VARCHAR}, #{mnecode,jdbcType=VARCHAR}, #{unitcoding,jdbcType=VARCHAR}, 
+      #{unitname,jdbcType=VARCHAR}, #{pkFatherorg,jdbcType=VARCHAR}, #{pkCurrtype,jdbcType=VARCHAR}, 
+      #{memo,jdbcType=VARCHAR}, #{def20,jdbcType=VARCHAR}, #{def2,jdbcType=VARCHAR}, 
+      #{def3,jdbcType=VARCHAR}, #{def9,jdbcType=VARCHAR}, #{def8,jdbcType=VARCHAR}, #{def6,jdbcType=VARCHAR}, 
+      #{def5,jdbcType=VARCHAR}, #{def10,jdbcType=VARCHAR}, #{def7,jdbcType=VARCHAR}, 
+      #{def4,jdbcType=VARCHAR}, #{def13,jdbcType=VARCHAR}, #{def14,jdbcType=VARCHAR}, 
+      #{def15,jdbcType=VARCHAR}, #{def16,jdbcType=VARCHAR}, #{def17,jdbcType=VARCHAR}, 
+      #{def18,jdbcType=VARCHAR}, #{enablestate,jdbcType=VARCHAR}, #{legalbodycode,jdbcType=VARCHAR}, 
+      #{createdate,jdbcType=VARCHAR}, #{odef20,jdbcType=VARCHAR}, #{odef1,jdbcType=VARCHAR}, 
+      #{odef2,jdbcType=VARCHAR}, #{odef3,jdbcType=VARCHAR}, #{odef4,jdbcType=VARCHAR}, 
+      #{cname,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.yuanian.masterdata.entity.NcCompany">
-    insert into T_NCCOMPANY
+    insert into T_MDS_NCCOMPANY
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="jdcode != null">
-        JDCODE,
+      <if test="pkOrg != null">
+        PK_ORG,
       </if>
       <if test="code != null">
         CODE,
       </if>
-      <if test="companyId != null">
-        COMPANY_ID,
-      </if>
       <if test="name != null">
         NAME,
       </if>
-      <if test="fathercompanyId != null">
-        FATHERCOMPANY_ID,
+      <if test="shortname != null">
+        SHORTNAME,
       </if>
-      <if test="address != null">
-        ADDRESS,
+      <if test="mnecode != null">
+        MNECODE,
       </if>
-      <if test="countryzone != null">
-        COUNTRYZONE,
+      <if test="unitcoding != null">
+        UNITCODING,
+      </if>
+      <if test="unitname != null">
+        UNITNAME,
+      </if>
+      <if test="pkFatherorg != null">
+        PK_FATHERORG,
+      </if>
+      <if test="pkCurrtype != null">
+        PK_CURRTYPE,
+      </if>
+      <if test="memo != null">
+        MEMO,
+      </if>
+      <if test="def20 != null">
+        DEF20,
+      </if>
+      <if test="def2 != null">
+        DEF2,
+      </if>
+      <if test="def3 != null">
+        DEF3,
+      </if>
+      <if test="def9 != null">
+        DEF9,
+      </if>
+      <if test="def8 != null">
+        DEF8,
+      </if>
+      <if test="def6 != null">
+        DEF6,
+      </if>
+      <if test="def5 != null">
+        DEF5,
+      </if>
+      <if test="def10 != null">
+        DEF10,
+      </if>
+      <if test="def7 != null">
+        DEF7,
+      </if>
+      <if test="def4 != null">
+        DEF4,
+      </if>
+      <if test="def13 != null">
+        DEF13,
+      </if>
+      <if test="def14 != null">
+        DEF14,
+      </if>
+      <if test="def15 != null">
+        DEF15,
+      </if>
+      <if test="def16 != null">
+        DEF16,
+      </if>
+      <if test="def17 != null">
+        DEF17,
+      </if>
+      <if test="def18 != null">
+        DEF18,
       </if>
       <if test="enablestate != null">
         ENABLESTATE,
       </if>
-      <if test="uniformSocialCreditCode != null">
-        UNIFORM_SOCIAL_CREDIT_CODE,
+      <if test="legalbodycode != null">
+        LEGALBODYCODE,
       </if>
-      <if test="province != null">
-        PROVINCE,
+      <if test="createdate != null">
+        CREATEDATE,
       </if>
-      <if test="city != null">
-        CITY,
+      <if test="odef20 != null">
+        ODEF20,
       </if>
-      <if test="isCorporation != null">
-        IS_CORPORATION,
+      <if test="odef1 != null">
+        ODEF1,
       </if>
-      <if test="companyType != null">
-        COMPANY_TYPE,
+      <if test="odef2 != null">
+        ODEF2,
       </if>
-      <if test="modifiedtime != null">
-        MODIFIEDTIME,
+      <if test="odef3 != null">
+        ODEF3,
       </if>
-      <if test="modifier != null">
-        MODIFIER,
+      <if test="odef4 != null">
+        ODEF4,
       </if>
-      <if test="creationtime != null">
-        CREATIONTIME,
-      </if>
-      <if test="creator != null">
-        CREATOR,
-      </if>
-      <if test="pkSource != null">
-        PK_SOURCE,
-      </if>
-      <if test="sourceSystem != null">
-        SOURCE_SYSTEM,
-      </if>
-      <if test="receiveTime != null">
-        RECEIVE_TIME,
+      <if test="cname != null">
+        CNAME,
       </if>
       <if test="updateTime != null">
         UPDATE_TIME,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="jdcode != null">
-        #{jdcode,jdbcType=OTHER},
+      <if test="pkOrg != null">
+        #{pkOrg,jdbcType=VARCHAR},
       </if>
       <if test="code != null">
-        #{code,jdbcType=OTHER},
-      </if>
-      <if test="companyId != null">
-        #{companyId,jdbcType=OTHER},
+        #{code,jdbcType=VARCHAR},
       </if>
       <if test="name != null">
-        #{name,jdbcType=OTHER},
+        #{name,jdbcType=VARCHAR},
       </if>
-      <if test="fathercompanyId != null">
-        #{fathercompanyId,jdbcType=OTHER},
+      <if test="shortname != null">
+        #{shortname,jdbcType=VARCHAR},
       </if>
-      <if test="address != null">
-        #{address,jdbcType=OTHER},
+      <if test="mnecode != null">
+        #{mnecode,jdbcType=VARCHAR},
       </if>
-      <if test="countryzone != null">
-        #{countryzone,jdbcType=OTHER},
+      <if test="unitcoding != null">
+        #{unitcoding,jdbcType=VARCHAR},
+      </if>
+      <if test="unitname != null">
+        #{unitname,jdbcType=VARCHAR},
+      </if>
+      <if test="pkFatherorg != null">
+        #{pkFatherorg,jdbcType=VARCHAR},
+      </if>
+      <if test="pkCurrtype != null">
+        #{pkCurrtype,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="def20 != null">
+        #{def20,jdbcType=VARCHAR},
+      </if>
+      <if test="def2 != null">
+        #{def2,jdbcType=VARCHAR},
+      </if>
+      <if test="def3 != null">
+        #{def3,jdbcType=VARCHAR},
+      </if>
+      <if test="def9 != null">
+        #{def9,jdbcType=VARCHAR},
+      </if>
+      <if test="def8 != null">
+        #{def8,jdbcType=VARCHAR},
+      </if>
+      <if test="def6 != null">
+        #{def6,jdbcType=VARCHAR},
+      </if>
+      <if test="def5 != null">
+        #{def5,jdbcType=VARCHAR},
+      </if>
+      <if test="def10 != null">
+        #{def10,jdbcType=VARCHAR},
+      </if>
+      <if test="def7 != null">
+        #{def7,jdbcType=VARCHAR},
+      </if>
+      <if test="def4 != null">
+        #{def4,jdbcType=VARCHAR},
+      </if>
+      <if test="def13 != null">
+        #{def13,jdbcType=VARCHAR},
+      </if>
+      <if test="def14 != null">
+        #{def14,jdbcType=VARCHAR},
+      </if>
+      <if test="def15 != null">
+        #{def15,jdbcType=VARCHAR},
+      </if>
+      <if test="def16 != null">
+        #{def16,jdbcType=VARCHAR},
+      </if>
+      <if test="def17 != null">
+        #{def17,jdbcType=VARCHAR},
+      </if>
+      <if test="def18 != null">
+        #{def18,jdbcType=VARCHAR},
       </if>
       <if test="enablestate != null">
-        #{enablestate,jdbcType=DECIMAL},
+        #{enablestate,jdbcType=VARCHAR},
       </if>
-      <if test="uniformSocialCreditCode != null">
-        #{uniformSocialCreditCode,jdbcType=OTHER},
+      <if test="legalbodycode != null">
+        #{legalbodycode,jdbcType=VARCHAR},
       </if>
-      <if test="province != null">
-        #{province,jdbcType=OTHER},
+      <if test="createdate != null">
+        #{createdate,jdbcType=VARCHAR},
       </if>
-      <if test="city != null">
-        #{city,jdbcType=OTHER},
+      <if test="odef20 != null">
+        #{odef20,jdbcType=VARCHAR},
       </if>
-      <if test="isCorporation != null">
-        #{isCorporation,jdbcType=DECIMAL},
+      <if test="odef1 != null">
+        #{odef1,jdbcType=VARCHAR},
       </if>
-      <if test="companyType != null">
-        #{companyType,jdbcType=DECIMAL},
+      <if test="odef2 != null">
+        #{odef2,jdbcType=VARCHAR},
       </if>
-      <if test="modifiedtime != null">
-        #{modifiedtime,jdbcType=OTHER},
+      <if test="odef3 != null">
+        #{odef3,jdbcType=VARCHAR},
       </if>
-      <if test="modifier != null">
-        #{modifier,jdbcType=OTHER},
+      <if test="odef4 != null">
+        #{odef4,jdbcType=VARCHAR},
       </if>
-      <if test="creationtime != null">
-        #{creationtime,jdbcType=OTHER},
-      </if>
-      <if test="creator != null">
-        #{creator,jdbcType=OTHER},
-      </if>
-      <if test="pkSource != null">
-        #{pkSource,jdbcType=OTHER},
-      </if>
-      <if test="sourceSystem != null">
-        #{sourceSystem,jdbcType=OTHER},
-      </if>
-      <if test="receiveTime != null">
-        #{receiveTime,jdbcType=OTHER},
+      <if test="cname != null">
+        #{cname,jdbcType=VARCHAR},
       </if>
       <if test="updateTime != null">
         #{updateTime,jdbcType=TIMESTAMP},
@@ -254,68 +378,112 @@
     </trim>
   </insert>
   <update id="updateByExampleSelective" parameterType="map">
-    update T_NCCOMPANY
+    update T_MDS_NCCOMPANY
     <set>
-      UPDATE_TIME = SYSDATE,
-      <if test="record.jdcode != null">
-        JDCODE = #{record.jdcode,jdbcType=OTHER},
+      <if test="record.pkOrg != null">
+        PK_ORG = #{record.pkOrg,jdbcType=VARCHAR},
       </if>
       <if test="record.code != null">
-        CODE = #{record.code,jdbcType=OTHER},
-      </if>
-      <if test="record.companyId != null">
-        COMPANY_ID = #{record.companyId,jdbcType=OTHER},
+        CODE = #{record.code,jdbcType=VARCHAR},
       </if>
       <if test="record.name != null">
-        NAME = #{record.name,jdbcType=OTHER},
+        NAME = #{record.name,jdbcType=VARCHAR},
       </if>
-      <if test="record.fathercompanyId != null">
-        FATHERCOMPANY_ID = #{record.fathercompanyId,jdbcType=OTHER},
+      <if test="record.shortname != null">
+        SHORTNAME = #{record.shortname,jdbcType=VARCHAR},
       </if>
-      <if test="record.address != null">
-        ADDRESS = #{record.address,jdbcType=OTHER},
+      <if test="record.mnecode != null">
+        MNECODE = #{record.mnecode,jdbcType=VARCHAR},
       </if>
-      <if test="record.countryzone != null">
-        COUNTRYZONE = #{record.countryzone,jdbcType=OTHER},
+      <if test="record.unitcoding != null">
+        UNITCODING = #{record.unitcoding,jdbcType=VARCHAR},
+      </if>
+      <if test="record.unitname != null">
+        UNITNAME = #{record.unitname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pkFatherorg != null">
+        PK_FATHERORG = #{record.pkFatherorg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pkCurrtype != null">
+        PK_CURRTYPE = #{record.pkCurrtype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.memo != null">
+        MEMO = #{record.memo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.def20 != null">
+        DEF20 = #{record.def20,jdbcType=VARCHAR},
+      </if>
+      <if test="record.def2 != null">
+        DEF2 = #{record.def2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.def3 != null">
+        DEF3 = #{record.def3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.def9 != null">
+        DEF9 = #{record.def9,jdbcType=VARCHAR},
+      </if>
+      <if test="record.def8 != null">
+        DEF8 = #{record.def8,jdbcType=VARCHAR},
+      </if>
+      <if test="record.def6 != null">
+        DEF6 = #{record.def6,jdbcType=VARCHAR},
+      </if>
+      <if test="record.def5 != null">
+        DEF5 = #{record.def5,jdbcType=VARCHAR},
+      </if>
+      <if test="record.def10 != null">
+        DEF10 = #{record.def10,jdbcType=VARCHAR},
+      </if>
+      <if test="record.def7 != null">
+        DEF7 = #{record.def7,jdbcType=VARCHAR},
+      </if>
+      <if test="record.def4 != null">
+        DEF4 = #{record.def4,jdbcType=VARCHAR},
+      </if>
+      <if test="record.def13 != null">
+        DEF13 = #{record.def13,jdbcType=VARCHAR},
+      </if>
+      <if test="record.def14 != null">
+        DEF14 = #{record.def14,jdbcType=VARCHAR},
+      </if>
+      <if test="record.def15 != null">
+        DEF15 = #{record.def15,jdbcType=VARCHAR},
+      </if>
+      <if test="record.def16 != null">
+        DEF16 = #{record.def16,jdbcType=VARCHAR},
+      </if>
+      <if test="record.def17 != null">
+        DEF17 = #{record.def17,jdbcType=VARCHAR},
+      </if>
+      <if test="record.def18 != null">
+        DEF18 = #{record.def18,jdbcType=VARCHAR},
       </if>
       <if test="record.enablestate != null">
-        ENABLESTATE = #{record.enablestate,jdbcType=DECIMAL},
+        ENABLESTATE = #{record.enablestate,jdbcType=VARCHAR},
       </if>
-      <if test="record.uniformSocialCreditCode != null">
-        UNIFORM_SOCIAL_CREDIT_CODE = #{record.uniformSocialCreditCode,jdbcType=OTHER},
+      <if test="record.legalbodycode != null">
+        LEGALBODYCODE = #{record.legalbodycode,jdbcType=VARCHAR},
       </if>
-      <if test="record.province != null">
-        PROVINCE = #{record.province,jdbcType=OTHER},
+      <if test="record.createdate != null">
+        CREATEDATE = #{record.createdate,jdbcType=VARCHAR},
       </if>
-      <if test="record.city != null">
-        CITY = #{record.city,jdbcType=OTHER},
+      <if test="record.odef20 != null">
+        ODEF20 = #{record.odef20,jdbcType=VARCHAR},
       </if>
-      <if test="record.isCorporation != null">
-        IS_CORPORATION = #{record.isCorporation,jdbcType=DECIMAL},
+      <if test="record.odef1 != null">
+        ODEF1 = #{record.odef1,jdbcType=VARCHAR},
       </if>
-      <if test="record.companyType != null">
-        COMPANY_TYPE = #{record.companyType,jdbcType=DECIMAL},
+      <if test="record.odef2 != null">
+        ODEF2 = #{record.odef2,jdbcType=VARCHAR},
       </if>
-      <if test="record.modifiedtime != null">
-        MODIFIEDTIME = #{record.modifiedtime,jdbcType=OTHER},
+      <if test="record.odef3 != null">
+        ODEF3 = #{record.odef3,jdbcType=VARCHAR},
       </if>
-      <if test="record.modifier != null">
-        MODIFIER = #{record.modifier,jdbcType=OTHER},
+      <if test="record.odef4 != null">
+        ODEF4 = #{record.odef4,jdbcType=VARCHAR},
       </if>
-      <if test="record.creationtime != null">
-        CREATIONTIME = #{record.creationtime,jdbcType=OTHER},
-      </if>
-      <if test="record.creator != null">
-        CREATOR = #{record.creator,jdbcType=OTHER},
-      </if>
-      <if test="record.pkSource != null">
-        PK_SOURCE = #{record.pkSource,jdbcType=OTHER},
-      </if>
-      <if test="record.sourceSystem != null">
-        SOURCE_SYSTEM = #{record.sourceSystem,jdbcType=OTHER},
-      </if>
-      <if test="record.receiveTime != null">
-        RECEIVE_TIME = #{record.receiveTime,jdbcType=OTHER},
+      <if test="record.cname != null">
+        CNAME = #{record.cname,jdbcType=VARCHAR},
       </if>
       <if test="record.updateTime != null">
         UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
@@ -326,30 +494,195 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update T_NCCOMPANY
-    set JDCODE = #{record.jdcode,jdbcType=OTHER},
-      CODE = #{record.code,jdbcType=OTHER},
-      COMPANY_ID = #{record.companyId,jdbcType=OTHER},
-      NAME = #{record.name,jdbcType=OTHER},
-      FATHERCOMPANY_ID = #{record.fathercompanyId,jdbcType=OTHER},
-      ADDRESS = #{record.address,jdbcType=OTHER},
-      COUNTRYZONE = #{record.countryzone,jdbcType=OTHER},
-      ENABLESTATE = #{record.enablestate,jdbcType=DECIMAL},
-      UNIFORM_SOCIAL_CREDIT_CODE = #{record.uniformSocialCreditCode,jdbcType=OTHER},
-      PROVINCE = #{record.province,jdbcType=OTHER},
-      CITY = #{record.city,jdbcType=OTHER},
-      IS_CORPORATION = #{record.isCorporation,jdbcType=DECIMAL},
-      COMPANY_TYPE = #{record.companyType,jdbcType=DECIMAL},
-      MODIFIEDTIME = #{record.modifiedtime,jdbcType=OTHER},
-      MODIFIER = #{record.modifier,jdbcType=OTHER},
-      CREATIONTIME = #{record.creationtime,jdbcType=OTHER},
-      CREATOR = #{record.creator,jdbcType=OTHER},
-      PK_SOURCE = #{record.pkSource,jdbcType=OTHER},
-      SOURCE_SYSTEM = #{record.sourceSystem,jdbcType=OTHER},
-      RECEIVE_TIME = #{record.receiveTime,jdbcType=OTHER},
+    update T_MDS_NCCOMPANY
+    set PK_ORG = #{record.pkOrg,jdbcType=VARCHAR},
+      CODE = #{record.code,jdbcType=VARCHAR},
+      NAME = #{record.name,jdbcType=VARCHAR},
+      SHORTNAME = #{record.shortname,jdbcType=VARCHAR},
+      MNECODE = #{record.mnecode,jdbcType=VARCHAR},
+      UNITCODING = #{record.unitcoding,jdbcType=VARCHAR},
+      UNITNAME = #{record.unitname,jdbcType=VARCHAR},
+      PK_FATHERORG = #{record.pkFatherorg,jdbcType=VARCHAR},
+      PK_CURRTYPE = #{record.pkCurrtype,jdbcType=VARCHAR},
+      MEMO = #{record.memo,jdbcType=VARCHAR},
+      DEF20 = #{record.def20,jdbcType=VARCHAR},
+      DEF2 = #{record.def2,jdbcType=VARCHAR},
+      DEF3 = #{record.def3,jdbcType=VARCHAR},
+      DEF9 = #{record.def9,jdbcType=VARCHAR},
+      DEF8 = #{record.def8,jdbcType=VARCHAR},
+      DEF6 = #{record.def6,jdbcType=VARCHAR},
+      DEF5 = #{record.def5,jdbcType=VARCHAR},
+      DEF10 = #{record.def10,jdbcType=VARCHAR},
+      DEF7 = #{record.def7,jdbcType=VARCHAR},
+      DEF4 = #{record.def4,jdbcType=VARCHAR},
+      DEF13 = #{record.def13,jdbcType=VARCHAR},
+      DEF14 = #{record.def14,jdbcType=VARCHAR},
+      DEF15 = #{record.def15,jdbcType=VARCHAR},
+      DEF16 = #{record.def16,jdbcType=VARCHAR},
+      DEF17 = #{record.def17,jdbcType=VARCHAR},
+      DEF18 = #{record.def18,jdbcType=VARCHAR},
+      ENABLESTATE = #{record.enablestate,jdbcType=VARCHAR},
+      LEGALBODYCODE = #{record.legalbodycode,jdbcType=VARCHAR},
+      CREATEDATE = #{record.createdate,jdbcType=VARCHAR},
+      ODEF20 = #{record.odef20,jdbcType=VARCHAR},
+      ODEF1 = #{record.odef1,jdbcType=VARCHAR},
+      ODEF2 = #{record.odef2,jdbcType=VARCHAR},
+      ODEF3 = #{record.odef3,jdbcType=VARCHAR},
+      ODEF4 = #{record.odef4,jdbcType=VARCHAR},
+      CNAME = #{record.cname,jdbcType=VARCHAR},
       UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yuanian.masterdata.entity.NcCompany">
+    update T_MDS_NCCOMPANY
+    <set>
+      <if test="code != null">
+        CODE = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="shortname != null">
+        SHORTNAME = #{shortname,jdbcType=VARCHAR},
+      </if>
+      <if test="mnecode != null">
+        MNECODE = #{mnecode,jdbcType=VARCHAR},
+      </if>
+      <if test="unitcoding != null">
+        UNITCODING = #{unitcoding,jdbcType=VARCHAR},
+      </if>
+      <if test="unitname != null">
+        UNITNAME = #{unitname,jdbcType=VARCHAR},
+      </if>
+      <if test="pkFatherorg != null">
+        PK_FATHERORG = #{pkFatherorg,jdbcType=VARCHAR},
+      </if>
+      <if test="pkCurrtype != null">
+        PK_CURRTYPE = #{pkCurrtype,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        MEMO = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="def20 != null">
+        DEF20 = #{def20,jdbcType=VARCHAR},
+      </if>
+      <if test="def2 != null">
+        DEF2 = #{def2,jdbcType=VARCHAR},
+      </if>
+      <if test="def3 != null">
+        DEF3 = #{def3,jdbcType=VARCHAR},
+      </if>
+      <if test="def9 != null">
+        DEF9 = #{def9,jdbcType=VARCHAR},
+      </if>
+      <if test="def8 != null">
+        DEF8 = #{def8,jdbcType=VARCHAR},
+      </if>
+      <if test="def6 != null">
+        DEF6 = #{def6,jdbcType=VARCHAR},
+      </if>
+      <if test="def5 != null">
+        DEF5 = #{def5,jdbcType=VARCHAR},
+      </if>
+      <if test="def10 != null">
+        DEF10 = #{def10,jdbcType=VARCHAR},
+      </if>
+      <if test="def7 != null">
+        DEF7 = #{def7,jdbcType=VARCHAR},
+      </if>
+      <if test="def4 != null">
+        DEF4 = #{def4,jdbcType=VARCHAR},
+      </if>
+      <if test="def13 != null">
+        DEF13 = #{def13,jdbcType=VARCHAR},
+      </if>
+      <if test="def14 != null">
+        DEF14 = #{def14,jdbcType=VARCHAR},
+      </if>
+      <if test="def15 != null">
+        DEF15 = #{def15,jdbcType=VARCHAR},
+      </if>
+      <if test="def16 != null">
+        DEF16 = #{def16,jdbcType=VARCHAR},
+      </if>
+      <if test="def17 != null">
+        DEF17 = #{def17,jdbcType=VARCHAR},
+      </if>
+      <if test="def18 != null">
+        DEF18 = #{def18,jdbcType=VARCHAR},
+      </if>
+      <if test="enablestate != null">
+        ENABLESTATE = #{enablestate,jdbcType=VARCHAR},
+      </if>
+      <if test="legalbodycode != null">
+        LEGALBODYCODE = #{legalbodycode,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        CREATEDATE = #{createdate,jdbcType=VARCHAR},
+      </if>
+      <if test="odef20 != null">
+        ODEF20 = #{odef20,jdbcType=VARCHAR},
+      </if>
+      <if test="odef1 != null">
+        ODEF1 = #{odef1,jdbcType=VARCHAR},
+      </if>
+      <if test="odef2 != null">
+        ODEF2 = #{odef2,jdbcType=VARCHAR},
+      </if>
+      <if test="odef3 != null">
+        ODEF3 = #{odef3,jdbcType=VARCHAR},
+      </if>
+      <if test="odef4 != null">
+        ODEF4 = #{odef4,jdbcType=VARCHAR},
+      </if>
+      <if test="cname != null">
+        CNAME = #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where PK_ORG = #{pkOrg,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yuanian.masterdata.entity.NcCompany">
+    update T_MDS_NCCOMPANY
+    set CODE = #{code,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      SHORTNAME = #{shortname,jdbcType=VARCHAR},
+      MNECODE = #{mnecode,jdbcType=VARCHAR},
+      UNITCODING = #{unitcoding,jdbcType=VARCHAR},
+      UNITNAME = #{unitname,jdbcType=VARCHAR},
+      PK_FATHERORG = #{pkFatherorg,jdbcType=VARCHAR},
+      PK_CURRTYPE = #{pkCurrtype,jdbcType=VARCHAR},
+      MEMO = #{memo,jdbcType=VARCHAR},
+      DEF20 = #{def20,jdbcType=VARCHAR},
+      DEF2 = #{def2,jdbcType=VARCHAR},
+      DEF3 = #{def3,jdbcType=VARCHAR},
+      DEF9 = #{def9,jdbcType=VARCHAR},
+      DEF8 = #{def8,jdbcType=VARCHAR},
+      DEF6 = #{def6,jdbcType=VARCHAR},
+      DEF5 = #{def5,jdbcType=VARCHAR},
+      DEF10 = #{def10,jdbcType=VARCHAR},
+      DEF7 = #{def7,jdbcType=VARCHAR},
+      DEF4 = #{def4,jdbcType=VARCHAR},
+      DEF13 = #{def13,jdbcType=VARCHAR},
+      DEF14 = #{def14,jdbcType=VARCHAR},
+      DEF15 = #{def15,jdbcType=VARCHAR},
+      DEF16 = #{def16,jdbcType=VARCHAR},
+      DEF17 = #{def17,jdbcType=VARCHAR},
+      DEF18 = #{def18,jdbcType=VARCHAR},
+      ENABLESTATE = #{enablestate,jdbcType=VARCHAR},
+      LEGALBODYCODE = #{legalbodycode,jdbcType=VARCHAR},
+      CREATEDATE = #{createdate,jdbcType=VARCHAR},
+      ODEF20 = #{odef20,jdbcType=VARCHAR},
+      ODEF1 = #{odef1,jdbcType=VARCHAR},
+      ODEF2 = #{odef2,jdbcType=VARCHAR},
+      ODEF3 = #{odef3,jdbcType=VARCHAR},
+      ODEF4 = #{odef4,jdbcType=VARCHAR},
+      CNAME = #{cname,jdbcType=VARCHAR},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP}
+    where PK_ORG = #{pkOrg,jdbcType=VARCHAR}
   </update>
 </mapper>

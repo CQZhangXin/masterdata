@@ -15,8 +15,8 @@ c1-configuration:
     test: http://testesb.zldcgroup.com/com.primeton.esb.zldc.app.mds.mdsIncorporatedCompany
     production: http://esb.zldcgroup.com/com.primeton.esb.zldc.app.mds.mdsIncorporatedCompany
   ncCompany:
-    test: http://testesb.zldcgroup.com/com.primeton.esb.zldc.app.corporation.v1company
-    production: http://esb.zldcgroup.com/com.primeton.esb.zldc.app.corporation.v1company
+    test: http://testesb.zldcgroup.com/com.primeton.esb.zldc.app.oareport.getViewOrgs
+    production: http://testesb.zldcgroup.com/com.primeton.esb.zldc.app.oareport.getViewOrgs
   toC1:
     test: http://172.16.8.185:8080/C1-Planning/mdAction!addDimMember.action
     production: http://172.16.8.185:8080/C1-Planning/mdAction!addDimMember.action

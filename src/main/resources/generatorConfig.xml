@@ -52,9 +52,9 @@
 		<!-- 仅需更改 tableName 和 domainObjectName -->
 
 		<!-- 流程分组表 -->
-		<table tableName="T_TO_C1_ENTITY" domainObjectName="ToC1Entity"
-			mapperName="ToC1EntityDAO" enableCountByExample="false"
-			enableUpdateByExample="false" enableDeleteByExample="false"
+		<table tableName="T_MDS_NCCOMPANY" domainObjectName="NcCompany"
+			mapperName="NcCompanyDAO" enableCountByExample="false"
+			enableUpdateByExample="true" enableDeleteByExample="false"
 			enableSelectByExample="true" selectByExampleQueryId="false"
 		    >
 			<property name="useActualColumnNames" value="false" />

@@ -44,31 +44,31 @@ public class GetNcCompanyServiceImpl implements GetNcCompanyService {
     public void getNcCompanyExcuter(){
         try {
             String data = HttpGet.sendGet(realAddress.getNcCompanyAddr(),null, helpUtil.getToken());
-            JSONObject pageInfo = (JSONObject)JSONObject.parseObject(data.toString()).get("pageInfo");
-            String result = JSONObject.parseObject(data.toString()).get("result").toString();
-
-            if(result==null||!result.equals("true")){
-                throw new Exception("接口返回数据标识不为true。");
+            System.out.println(data);
+            String code = (String) JSONObject.parseObject(data).get("code");
+            if(!code.equals("0")){
+                String msg = (String) JSONObject.parseObject(data).get("msg");
+                throw new Exception("NC业务单元接口返回编码失败，返回编码为"+code+"!返回的信息为："+msg);
             }
+            List<JSONObject> list = (List<JSONObject>) JSONObject.parseObject(data).get("data");
 
-            List<JSONObject> list = (List<JSONObject>) pageInfo.get("list");
             if(list==null||list.size()==0){
                 throw new Exception("接口返回的数据为空！");
             }
             for (JSONObject object:
                     list) {
-    //            System.out.println(object.toJSONString());
-                String company_id = object.get("company_id").toString();
-                String jdCode = object.get("jdCode").toString();
+                Object pk_org = object.get("PK_ORG");
                 NcCompanyExample ncCompanyExample = new NcCompanyExample();
                 NcCompanyExample.Criteria criteria = ncCompanyExample.createCriteria();
-                criteria.andCompanyIdEqualTo(company_id);
-                criteria.andJdcodeEqualTo(jdCode);
+                criteria.andPkOrgEqualTo(pk_org.toString());
+
                 List<NcCompany> ncCompanies = ncompanyDAO.selectByExample(ncCompanyExample);
-                if(ncCompanies==null){
+                if(ncCompanies==null||ncCompanies.size()==0){
                     ncompanyDAO.insertSelective(JSONObject.toJavaObject(object, NcCompany.class));
+                    System.out.println("新增"+object.toJSONString());
                 }else {
-                    ncompanyDAO.updateByExampleSelective(JSONObject.toJavaObject(object, NcCompany.class),ncCompanyExample);
+                    ncompanyDAO.updateByExample(JSONObject.toJavaObject(object, NcCompany.class),ncCompanyExample);
+                    System.out.println("更新"+object.toJSONString());
                 }
 
             }
