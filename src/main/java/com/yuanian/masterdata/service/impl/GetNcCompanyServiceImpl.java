@@ -12,6 +12,7 @@ import com.yuanian.masterdata.util.HttpGet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -60,18 +61,22 @@ public class GetNcCompanyServiceImpl implements GetNcCompanyService {
             for (JSONObject object:
                     list) {
                 Object pk_org = object.get("PK_ORG");
-                NcCompanyExample ncCompanyExample = new NcCompanyExample();
-                NcCompanyExample.Criteria criteria = ncCompanyExample.createCriteria();
-                criteria.andPkOrgEqualTo(pk_org.toString());
+//                NcCompanyExample ncCompanyExample = new NcCompanyExample();
+//                NcCompanyExample.Criteria criteria = ncCompanyExample.createCriteria();
+//                criteria.andPkOrgEqualTo(pk_org.toString());
+//                List<NcCompany> ncCompanies = ncompanyDAO.selectByExample(ncCompanyExample);
+                NcCompany ncCompany = JSONObject.toJavaObject(object, NcCompany.class);
+                ncCompany.setUpdateTime(new Date());
+                ncompanyDAO.insert(ncCompany);
+                System.out.println("新增"+object.toJSONString());
 
-                List<NcCompany> ncCompanies = ncompanyDAO.selectByExample(ncCompanyExample);
-                if(ncCompanies==null||ncCompanies.size()==0){
-                    ncompanyDAO.insert(JSONObject.toJavaObject(object, NcCompany.class));
-                    System.out.println("新增"+object.toJSONString());
-                }else {
-                    ncompanyDAO.updateByExample(JSONObject.toJavaObject(object, NcCompany.class),ncCompanyExample);
-                    System.out.println("更新"+object.toJSONString());
-                }
+//                if(ncCompanies==null||ncCompanies.size()==0){
+//                    ncompanyDAO.insert(ncCompany);
+//                    System.out.println("新增"+object.toJSONString());
+//                }else {
+//                    ncompanyDAO.updateByExample(ncCompany,ncCompanyExample);
+//                    System.out.println("更新"+object.toJSONString());
+//                }
 
             }
             logService.insertLog("NcCompany接口", DateUtil.getNow()+"NcCompany接口同步到的数据量为："+list.size()+"条");

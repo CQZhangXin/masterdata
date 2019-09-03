@@ -23,4 +23,16 @@ public class TestController {
     public String testDb(){
         return "我是C1主数据微服务！";
     }
+
+    @RequestMapping(value = "/getMasterDataFromESB")
+    public String getMasterDataFromESB(){
+        try {
+            testService.getDataFromESB();
+            return "执行成功！";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "执行失败！"+e;
+        }
+    }
+
 }
