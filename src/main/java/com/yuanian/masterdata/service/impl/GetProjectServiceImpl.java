@@ -70,6 +70,7 @@ public class GetProjectServiceImpl implements GetProjectService {
         try {
             for (JSONObject object:
                     list) {
+                logger.info(object.toJSONString());
                 if(type.equals("project")){
 //                    String projectversionid = object.get("projectversionid").toString();
 //                    ProjectExample projectExample = new ProjectExample();

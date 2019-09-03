@@ -6,9 +6,12 @@ import com.yuanian.masterdata.dao.NcCompanyDAO;
 import com.yuanian.masterdata.entity.NcCompany;
 import com.yuanian.masterdata.entity.NcCompanyExample;
 import com.yuanian.masterdata.service.GetNcCompanyService;
+import com.yuanian.masterdata.util.ClientUtil;
 import com.yuanian.masterdata.util.DateUtil;
 import com.yuanian.masterdata.util.HelpUtil;
 import com.yuanian.masterdata.util.HttpGet;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,6 +39,8 @@ public class GetNcCompanyServiceImpl implements GetNcCompanyService {
 
     @Autowired
     private LogServiceImpl logService;
+
+    private Logger logger = LoggerFactory.getLogger(GetNcCompanyServiceImpl.class);
 
     @Override
     public void doHttpNcCompany() {
@@ -68,8 +73,7 @@ public class GetNcCompanyServiceImpl implements GetNcCompanyService {
                 NcCompany ncCompany = JSONObject.toJavaObject(object, NcCompany.class);
                 ncCompany.setUpdateTime(new Date());
                 ncompanyDAO.insert(ncCompany);
-                System.out.println("新增"+object.toJSONString());
-
+                logger.info("新增"+object.toJSONString());
 //                if(ncCompanies==null||ncCompanies.size()==0){
 //                    ncompanyDAO.insert(ncCompany);
 //                    System.out.println("新增"+object.toJSONString());

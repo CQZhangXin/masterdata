@@ -16,7 +16,7 @@ c1-configuration:
     production: http://esb.zldcgroup.com/com.primeton.esb.zldc.app.mds.mdsIncorporatedCompany
   ncCompany:
     test: http://testesb.zldcgroup.com/com.primeton.esb.zldc.app.oareport.getViewOrgs
-    production: http://testesb.zldcgroup.com/com.primeton.esb.zldc.app.oareport.getViewOrgs
+    production: http://esb.zldcgroup.com/com.primeton.esb.zldc.app.oareport.getViewOrgs
   toC1:
     test: http://172.16.8.185:8080/C1-Planning/mdAction!addDimMember.action
     production: http://172.16.8.185:8080/C1-Planning/mdAction!addDimMember.action
@@ -49,11 +49,11 @@ TrueOrFalseGetParcel: true
 ##时候开启NC法人公司同步接口
 TrueOrFalseGetNcCompany: true
 ##时候转化数据（调用存储过程转化数据）
-TrueOrFalseChargeData: true
+TrueOrFalseChargeData: false
 ##是否同步C1的二维库
-TrueOrFalseToC1: true
+TrueOrFalseToC1: false
 ##是否同步到C1多维库
-TrueOrfalseToTbase: true
+TrueOrfalseToTbase: false
 
 #同步到C1的维度名称
 org: 组织
